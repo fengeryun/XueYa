@@ -6,6 +6,11 @@ package xueya.jiyun.com.xueya;
 
 public class Student {
     String name;
+    String psw;
+
+    public Student(String name) {
+        this.name = name;
+    }
 
     public String getName() {
         return name;
