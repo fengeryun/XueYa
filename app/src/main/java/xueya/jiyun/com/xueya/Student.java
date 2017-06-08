@@ -6,6 +6,7 @@ package xueya.jiyun.com.xueya;
 
 
 //续少杰欠我100块
+    //二运组长该搭框架了
 public class Student {
     String name;
     String psw;
