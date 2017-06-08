@@ -12,4 +12,5 @@
         android:src="@mipmap/welcome"
         android:scaleType="centerCrop"
         />
+        android:layout_height="match_parent" />
 </RelativeLayout>
