@@ -11,7 +11,6 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.tools.ThreadUtils;
 
 public class MainActivity extends AppCompatActivity {
-
     Handler mainhand = new Handler(){
         @Override
         public void handleMessage(Message msg) {
