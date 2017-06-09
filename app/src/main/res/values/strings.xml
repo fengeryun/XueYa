@@ -14,5 +14,31 @@
     <string name="psw_edit">6-16个字符,只支持数字,字母区分大小写</string>
     <string name="forget_psw">忘记密码？</string>
     <string name="login">登录</string>
+    <!-- 血压管理-->
+    <string name="xueya_title_text">血压管理</string>
+    <string name="xueya_shangchuan">上传</string>
 
+    <string name="xueya_shuju">血压数据</string>
+
+    <string name="xueya_gaoya">高压</string>
+
+    <string name="xueya_diya">低压</string>
+
+    <string name="xueya_gang">/</string>
+
+    <string name="xueya_time">时间</string>
+
+    <string name="xueya_ri">日</string>
+
+    <string name="xueya_zhou">周</string>
+
+    <string name="xueya_yue">月</string>
+
+    <string name="xueya_nian">年</string>
+
+    <string name="xueya_wenyisheng">问医生</string>
+
+    <string name="xueya_zixun">资讯</string>
+
+    <string name="xueya_tixing">提醒</string>
 </resources>

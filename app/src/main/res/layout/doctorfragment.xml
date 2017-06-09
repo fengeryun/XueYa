@@ -1,28 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/doctitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/doctortitle"
-        android:gravity="center"
-        android:textSize="20sp"
-        android:textColor="@color/white"
-        android:padding="10dp"
         android:background="@color/colorPrimary"
-        />
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="@string/doctortitle"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/whitesmoke"
-        android:text="@string/doctortitle2"
-        android:textSize="17sp"
         android:gravity="center"
         android:padding="10dp"
-        />
+        android:text="@string/doctortitle2"
+        android:textSize="17sp" />
 
 </LinearLayout>
