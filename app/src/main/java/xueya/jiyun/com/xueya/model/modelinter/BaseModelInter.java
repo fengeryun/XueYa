@@ -1,4 +1,4 @@
-package xueya.jiyun.com.xueya.model.biz;
+package xueya.jiyun.com.xueya.model.modelinter;
 
 /**
  * Created by my on 2017/6/9.

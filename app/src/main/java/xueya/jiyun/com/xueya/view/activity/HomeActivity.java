@@ -46,6 +46,12 @@ public class HomeActivity extends AppCompatActivity {
         adapter = new ZongAdapter(getSupportFragmentManager(), list);
         viewpage.setAdapter(adapter);
 
+        setPageChange();
+
+
+    }
+
+    private void setPageChange() {
         viewpage.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
@@ -71,7 +77,6 @@ public class HomeActivity extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
-
     }
 
     @OnClick({R.id.doctor, R.id.blood, R.id.core})

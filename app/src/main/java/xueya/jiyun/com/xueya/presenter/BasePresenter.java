@@ -2,7 +2,7 @@ package xueya.jiyun.com.xueya.presenter;
 
 import java.lang.ref.WeakReference;
 
-import xueya.jiyun.com.xueya.model.biz.BaseModelInter;
+import xueya.jiyun.com.xueya.model.modelinter.BaseModelInter;
 import xueya.jiyun.com.xueya.view.BaseViewInter;
 
 /**
@@ -19,6 +19,7 @@ public abstract class BasePresenter<T extends BaseViewInter, M extends BaseModel
         model = getModel();
     }
 
+    //presenter没有即使返回数据，则deAttach就会把对应的view取消关联
     public void deAttach() {
         if (weakReference != null) {
             weakReference.clear();
@@ -26,15 +27,19 @@ public abstract class BasePresenter<T extends BaseViewInter, M extends BaseModel
         }
     }
 
+    //判断view与presente是否关联
     public boolean isViewAttached() {
         return weakReference != null && weakReference.get() != null;
     }
 
+    //返回一个绑定好的view对象
     public T getView() {
         if (weakReference != null) {
             return weakReference.get();
         }
         return null;
     }
+
+    //让具体的presenter子类去创建具体的model对象。
     protected abstract M getModel();
 }
