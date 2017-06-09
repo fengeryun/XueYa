@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="xueya.jiyun.com.xueya.view.activity.MainActivity">
     <ImageView
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/welcome1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
