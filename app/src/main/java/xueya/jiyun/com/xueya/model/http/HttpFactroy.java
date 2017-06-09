@@ -6,6 +6,7 @@ package xueya.jiyun.com.xueya.model.http;
  */
 
 public class HttpFactroy {
+    //
     public static final int OKHTTP = 1;
     public static final int VOLLEY = 2;
     public static final int RETROFIT = 3;
