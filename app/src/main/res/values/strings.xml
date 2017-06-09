@@ -2,4 +2,11 @@
     <string name="app_name">XueYa</string>
     <string name="doctortitle">医生在线</string>
     <string name="bloodtitle">血压管理</string>
+    <string name="mine_login">您还没有登录哦 -</string>
+    <string name="login_bt">马上登录</string>
+    <string name="main_sign">我的加号</string>
+    <string name="main_collect">我的收藏</string>
+    <string name="main_data">个人资料</string>
+    <string name="main_msg">消息</string>
+    <string name="main_set">设置</string>
 </resources>

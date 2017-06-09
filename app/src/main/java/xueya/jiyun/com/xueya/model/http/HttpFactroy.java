@@ -19,7 +19,7 @@ public class HttpFactroy {
                 ihttp = VolleyUtils.getInstance();
                 break;
             case OKHTTP:
-                ihttp = OKhttpUtils.getInstance();
+               // ihttp = OKhttpUtils.getInstance();
                 break;
         }
         return ihttp;
