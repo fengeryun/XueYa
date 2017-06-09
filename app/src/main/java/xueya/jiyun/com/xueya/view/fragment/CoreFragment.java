@@ -12,10 +12,11 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
  */
 
 public class CoreFragment extends BaseFragment{
-    //                登录        加号        收藏        资料     消息  设置
-    LinearLayout mine_nologin,mine_sign,mine_collect,mine_data,mine_msg,mine_set;
+    //          顶层LinearLayout  登录   加号        收藏        资料     消息  设置
+    LinearLayout login_lin,mine_nologin,mine_sign,mine_collect,mine_data,mine_msg,mine_set;
     @Override
     public void initView(View view) {
+        login_lin= (LinearLayout) view.findViewById(R.id.login_lin);
         mine_nologin= (LinearLayout) view.findViewById(R.id.mine_nologin);
         mine_sign= (LinearLayout) view.findViewById(R.id.mine_sign);
         mine_collect= (LinearLayout) view.findViewById(R.id.mine_collect);

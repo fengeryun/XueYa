@@ -97,6 +97,7 @@
           android:layout_width="match_parent"
           android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/login_bt"
         android:textColor="@color/white"
         android:background="@drawable/nologin_bt"
         android:layout_margin="18dp"

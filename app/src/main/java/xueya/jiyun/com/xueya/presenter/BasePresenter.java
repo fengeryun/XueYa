@@ -43,3 +43,5 @@ public abstract class BasePresenter<T extends BaseViewInter, M extends BaseModel
     //让具体的presenter子类去创建具体的model对象。
     protected abstract M getModel();
 }
+
+
