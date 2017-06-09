@@ -3,6 +3,26 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/titleinclude"/>
+    <TextView
+        android:id="@+id/doctitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/doctortitle"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:padding="10dp"
+        android:background="@color/colorPrimary"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/whitesmoke"
+        android:text="@string/doctortitle2"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:padding="10dp"
+        />
 
 </LinearLayout>
