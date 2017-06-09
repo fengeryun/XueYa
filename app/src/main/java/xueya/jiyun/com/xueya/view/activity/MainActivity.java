@@ -1,19 +1,16 @@
 package xueya.jiyun.com.xueya.view.activity;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
+import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.tools.ThreadUtils;
 
 public class MainActivity extends AppCompatActivity {
-
     Handler mainhand = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -25,15 +22,15 @@ public class MainActivity extends AppCompatActivity {
                     break;
             }
         }
-    };
 
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        App.activity = this;
         goHome();
-        
+
     }
 
     private void goHome(){
