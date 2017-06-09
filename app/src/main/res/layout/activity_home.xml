@@ -17,4 +17,44 @@
         android:background="@color/colorPrimary"
         />
 
+    <RadioGroup
+        android:id="@+id/group"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:id="@+id/doctor"
+            android:checked="true"
+            android:textColor="@drawable/zong"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:drawableTop="@drawable/doctorselect"
+            android:text="医生在线"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/blood"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:textColor="@drawable/zong"
+            android:text="血压管理"
+            android:gravity="center"
+            android:drawableTop="@drawable/bloodselect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <RadioButton
+            android:id="@+id/core"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:textColor="@drawable/zong"
+            android:gravity="center"
+            android:text="个人中心"
+            android:drawableTop="@drawable/coreselect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
 </RelativeLayout>
