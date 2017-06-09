@@ -6,18 +6,18 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
- * Created by Asus on 2017/6/9.
+ * Created by 123 on 2017/6/9.
  */
 
 public class BloodFragment extends BaseFragment{
     @Override
-    public void initView(View view) {
-
+    public int getLayoutId() {
+        return R.layout.bloodfragment;
     }
 
     @Override
-    public int getLayoutId() {
-        return R.layout.bloodfragment;
+    public void initView(View view) {
+
     }
 
     @Override
