@@ -20,6 +20,7 @@ public class HttpFactroy {
                 break;
             case OKHTTP:
                // ihttp = OKhttpUtils.getInstance();
+
                 break;
         }
         return ihttp;
