@@ -7,6 +7,7 @@
     tools:context="xueya.jiyun.com.xueya.view.activity.HomeActivity">
 
     <TextView
+        android:id="@+id/online"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/hometitle"
@@ -16,6 +17,11 @@
         android:padding="10dp"
         android:background="@color/colorPrimary"
         />
+
+    <android.support.v4.view.ViewPager
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </android.support.v4.view.ViewPager>
 
     <RadioGroup
         android:id="@+id/group"
