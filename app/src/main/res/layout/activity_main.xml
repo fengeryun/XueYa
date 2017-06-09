@@ -6,10 +6,10 @@
     android:layout_height="match_parent"
     tools:context="xueya.jiyun.com.xueya.view.activity.MainActivity">
     <ImageView
-        android:src="@mipmap/welcome1"
+        android:src="@drawable/welcome"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-
         />
+
 </RelativeLayout>
