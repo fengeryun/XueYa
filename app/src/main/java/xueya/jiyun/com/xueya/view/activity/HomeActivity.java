@@ -1,11 +1,15 @@
 package xueya.jiyun.com.xueya.view.activity;
 
 import android.os.Bundle;
+import android.os.Process;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -15,6 +19,8 @@ import butterknife.OnClick;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
+import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.fragment.BloodFragment;
 import xueya.jiyun.com.xueya.view.fragment.CoreFragment;
 import xueya.jiyun.com.xueya.view.fragment.DoctorFragment;
@@ -29,8 +35,10 @@ public class HomeActivity extends AppCompatActivity {
     RadioButton core;
     @Bind(R.id.viewpage)
     ViewPager viewpage;
+    long firsttime;
     private ArrayList<Fragment> list;
     private ZongAdapter adapter;
+    int num = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +53,7 @@ public class HomeActivity extends AppCompatActivity {
         list.add(new CoreFragment());
         adapter = new ZongAdapter(getSupportFragmentManager(), list);
         viewpage.setAdapter(adapter);
+        doctor.setChecked(true);
 
         setPageChange();
 
@@ -93,4 +102,24 @@ public class HomeActivity extends AppCompatActivity {
                 break;
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        
+                if(num<2){
+                    firsttime = System.currentTimeMillis();
+                    Toast.makeText(this, "再次点击退出开源中国", Toast.LENGTH_SHORT).show();
+                    num++;
+                }else {
+                    if(System.currentTimeMillis()-firsttime>2000){
+                        firsttime = System.currentTimeMillis();
+                        Toast.makeText(this, "再次点击退出开源中国", Toast.LENGTH_SHORT).show();
+                    }else {
+                        Process.killProcess(Process.myPid());
+                        System.exit(0);
+                    }
+                }
+
+    }
+
 }
