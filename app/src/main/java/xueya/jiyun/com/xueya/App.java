@@ -1,6 +1,7 @@
 package xueya.jiyun.com.xueya;
 
 import android.app.Application;
+import android.support.v7.app.AppCompatActivity;
 
 import xueya.jiyun.com.xueya.view.activity.MainActivity;
 
@@ -10,5 +11,5 @@ import xueya.jiyun.com.xueya.view.activity.MainActivity;
 
 public class App extends Application{
 
-    public static MainActivity activity;
+    public static AppCompatActivity activity;
 }
