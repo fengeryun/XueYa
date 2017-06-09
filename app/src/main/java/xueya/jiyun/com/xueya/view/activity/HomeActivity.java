@@ -23,6 +23,7 @@ import xueya.jiyun.com.xueya.view.fragment.DoctorFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
+
     @Bind(R.id.doctor)
     RadioButton doctor;
     @Bind(R.id.blood)
