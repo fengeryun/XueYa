@@ -7,7 +7,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import xueya.jiyun.com.xueya.model.error.RunTimeError;
+import xueya.jiyun.com.xueya.model.Error.RunTimeError;
+
 
 /**
  * Created by 123 on 2017/6/9.
@@ -56,7 +57,7 @@ public abstract class BaseFragment extends Fragment {
             //当前Fragment处于隐藏状态
             onHidden();
         }else{
-            //当前Fragment处于课件状态
+            //当前Fragment处于可见状态
             onShow();
         }
     }
