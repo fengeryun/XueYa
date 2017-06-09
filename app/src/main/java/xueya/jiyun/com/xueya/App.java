@@ -10,4 +10,5 @@ import xueya.jiyun.com.xueya.view.activity.HomeActivity;
 
 public class App extends Application{
     public static HomeActivity activity;
+
 }
