@@ -63,6 +63,7 @@ public class BloodFragment extends BaseFragment {
 
     @Override
     public void initListener() {
+
     }
 
     @Override
