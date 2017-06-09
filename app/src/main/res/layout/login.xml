@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#FBF8F4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/doctitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/login"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:padding="10dp"
+        android:background="#4CBF5C"
+        />
+    <LinearLayout
+        android:layout_margin="18dp"
+        android:background="#FFFFFF"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:background="@drawable/login_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/user"
+                android:src="@mipmap/mine_data"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:background="@color/darkgrey"
+                android:text="@string/user_edit"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:textColor="#fff"
+                android:background="#009f9898"
+                android:layout_marginLeft="15dp"
+                android:textColorHint="#bdbaba"
+                android:hint="手机"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/user" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:background="@drawable/login_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/psw"
+                android:src="@mipmap/mine_data"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:textColor="#fff"
+                android:background="#009f9898"
+                android:layout_marginLeft="15dp"
+                android:textColorHint="#bdbaba"
+                android:hint="密码"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/psw" />
+            <TextView
+                android:background="@color/darkgrey"
+                android:text="@string/psw_edit"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="16dp"
+                android:layout_width="70dp"
+                android:layout_height="30dp" />
+        </RelativeLayout>
+</LinearLayout>
+      <TextView
+          android:layout_margin="18dp"
+          android:textColor="#52C162"
+          android:textSize="20dp"
+          android:text="@string/forget_psw"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content" />
+    <Button
+        android:textColor="@color/white"
+        android:background="@drawable/nologin_bt"
+        android:layout_margin="18dp"
+        android:text="@string/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

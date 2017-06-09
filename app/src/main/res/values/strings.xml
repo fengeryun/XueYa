@@ -10,4 +10,9 @@
     <string name="main_msg">消息</string>
     <string name="main_set">设置</string>
     <string name="doctortitle2">全国有12639位血压专家为您在线治疗</string>
+    <string name="user_edit">请输入手机号</string>
+    <string name="psw_edit">6-16个字符,只支持数字,字母区分大小写</string>
+    <string name="forget_psw">忘记密码？</string>
+    <string name="login">登录</string>
+
 </resources>
