@@ -7,7 +7,6 @@ import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 
 public class HomeActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
