@@ -2,19 +2,19 @@ package xueya.jiyun.com.xueya.view.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
-import xueya.jiyun.com.xueya.fragment.BloodFragment;
-import xueya.jiyun.com.xueya.fragment.CoreFragment;
-import xueya.jiyun.com.xueya.fragment.DoctorFragment;
+import xueya.jiyun.com.xueya.view.fragment.BloodFragment;
+import xueya.jiyun.com.xueya.view.fragment.CoreFragment;
+import xueya.jiyun.com.xueya.view.fragment.DoctorFragment;
 
-public class HomeActivity extends FragmentActivity {
+public class HomeActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private ArrayList<Fragment> list;
     private ZongAdapter adapter;

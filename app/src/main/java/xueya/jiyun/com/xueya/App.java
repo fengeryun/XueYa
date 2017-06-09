@@ -1,6 +1,7 @@
 package xueya.jiyun.com.xueya;
 
 import android.app.Application;
+import android.support.v7.app.AppCompatActivity;
 
 import xueya.jiyun.com.xueya.view.activity.HomeActivity;
 
@@ -9,6 +10,6 @@ import xueya.jiyun.com.xueya.view.activity.HomeActivity;
  */
 
 public class App extends Application{
-    public static HomeActivity activity;
+    public static AppCompatActivity activity;
 
 }

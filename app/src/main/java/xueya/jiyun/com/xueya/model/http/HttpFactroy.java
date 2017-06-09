@@ -3,6 +3,7 @@ package xueya.jiyun.com.xueya.model.http;
 
 /**
  * Created by my on 2017/5/13.
+ *
  */
 
 public class HttpFactroy {
@@ -15,7 +16,7 @@ public class HttpFactroy {
         Ihttp ihttp = null;
         switch (type){
             case VOLLEY:
-                //ihttp = VolleyUtils.getInstance();
+                ihttp = VolleyUtils.getInstance();
                 break;
             case OKHTTP:
                 ihttp = OKhttpUtils.getInstance();
