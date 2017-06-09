@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">XueYa</string>
-    <string name="hometitle">医生在线</string>
+    <string name="doctortitle">医生在线</string>
+    <string name="bloodtitle">血压管理</string>
 </resources>

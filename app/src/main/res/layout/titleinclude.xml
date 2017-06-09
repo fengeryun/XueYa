@@ -7,7 +7,7 @@
         android:id="@+id/doctitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/bloodtitle"
+        android:text="@string/doctortitle"
         android:gravity="center"
         android:textSize="20sp"
         android:textColor="#FFFFFF"
