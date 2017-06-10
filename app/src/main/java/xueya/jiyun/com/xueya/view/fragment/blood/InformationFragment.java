@@ -5,9 +5,8 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
-import android.widget.ListView;
+import android.widget.TextView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,19 +20,22 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
  * Created by Asus on 2017/6/10.
  */
 
-public class TakenotesFragment extends BaseFragment {
-    @Bind(R.id.record_back)
-    ImageView recordBack;
-    @Bind(R.id.taken_listview)
-    ListView takenListview;
+public class InformationFragment extends BaseFragment {
+    @Bind(R.id.reco_back)
+    ImageView recoBack;
+    @Bind(R.id.record_titlle)
+    TextView recordTitlle;
+    @Bind(R.id.information_data)
+    ImageView informationData;
 
     @Override
     public void initView(View view) {
+
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.takenotes;
+        return R.layout.information;
     }
 
     @Override
@@ -48,12 +50,7 @@ public class TakenotesFragment extends BaseFragment {
 
     @Override
     public void initListener() {
-        takenListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                FragmentBuilder.getInstance().start(R.id.xueya_fra, InformationFragment.class).isBacked(true);
-            }
-        });
+
     }
 
     @Override
@@ -70,7 +67,7 @@ public class TakenotesFragment extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.record_back)
+    @OnClick(R.id.reco_back)
     public void onViewClicked() {
         FragmentManager message = App.activity.getSupportFragmentManager();
         message.popBackStackImmediate();

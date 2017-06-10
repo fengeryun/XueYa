@@ -8,7 +8,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:id="@+id/bloodfrag"
@@ -57,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:text="128"
                     android:textColor="#333333"
-                    android:textSize="80px" />
+                    android:textSize="38sp" />
 
                 <TextView
                     android:id="@+id/gang"
@@ -66,7 +68,7 @@
                     android:layout_toRightOf="@id/xueya_gaoya"
                     android:text="/"
                     android:textColor="#333333"
-                    android:textSize="80px" />
+                    android:textSize="38sp" />
 
                 <TextView
                     android:id="@+id/xueya_diya"
@@ -155,7 +157,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@id/li_radio"
-                android:layout_marginBottom="10dp"></android.support.v4.view.ViewPager>
+                android:layout_marginBottom="10dp">
+            </android.support.v4.view.ViewPager>
 
             <RadioGroup
                 android:layout_width="match_parent"

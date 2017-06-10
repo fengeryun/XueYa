@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
@@ -39,6 +40,6 @@ public class DayFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-
+        FragmentBuilder.getInstance().start(R.id.activity_home,TakenotesFragment.class).isBacked(true);
     }
 }

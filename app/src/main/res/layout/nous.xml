@@ -4,11 +4,10 @@
     android:layout_height="match_parent"
     android:background="@color/whitesmoke"
     android:orientation="vertical">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:background="@color/colorPrimary"
+        android:background="#08d355"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -21,18 +20,21 @@
             android:src="@mipmap/ic_brows_back" />
 
         <TextView
+
             android:id="@+id/record_titlle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="所有已记录的信息"
+            android:text="血压资讯"
             android:textColor="#fff"
             android:textSize="20dp" />
     </RelativeLayout>
+
     <ListView
-        android:id="@+id/taken_listview"
+        android:id="@+id/nous_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     </ListView>
 </LinearLayout>
