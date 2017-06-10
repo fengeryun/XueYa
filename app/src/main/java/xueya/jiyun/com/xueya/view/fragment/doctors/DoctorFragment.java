@@ -1,4 +1,4 @@
-package xueya.jiyun.com.xueya.view.fragment;
+package xueya.jiyun.com.xueya.view.fragment.doctors;
 
 import android.view.View;
 
