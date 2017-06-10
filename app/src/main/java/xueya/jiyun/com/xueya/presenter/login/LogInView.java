@@ -8,4 +8,5 @@ public interface LogInView {
     void toHome();
     void shouMessage(String message);
     void  startActivity();
+    void showView();
 }
