@@ -19,7 +19,7 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
 import xueya.jiyun.com.xueya.view.fragment.blood.BloodFragment;
 import xueya.jiyun.com.xueya.view.fragment.CoreFragment;
-import xueya.jiyun.com.xueya.view.fragment.DoctorFragment;
+import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
 
 public class HomeActivity extends AppCompatActivity {
 
