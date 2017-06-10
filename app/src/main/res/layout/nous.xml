@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:background="@color/whitesmoke"
     android:orientation="vertical">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="43dp"
@@ -27,13 +26,15 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="所有已记录的信息"
+            android:text="血压资讯"
             android:textColor="#fff"
             android:textSize="20dp" />
     </RelativeLayout>
+
     <ListView
-        android:id="@+id/taken_listview"
+        android:id="@+id/nous_listview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
     </ListView>
 </LinearLayout>

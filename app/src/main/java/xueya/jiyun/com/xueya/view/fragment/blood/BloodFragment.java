@@ -18,6 +18,7 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
+import xueya.jiyun.com.xueya.view.fragment.blood.information.InformFragment;
 
 /**
  * Created by 123 on 2017/6/9.
@@ -34,6 +35,7 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener 
     RadioButton radioButton3;
     @Bind(R.id.xueya_fra)
     ViewPager xueyaFra;
+    private RadioButton radioButton_zixun, radioButton_wenyisheng, radioButton_tixing;
     private RelativeLayout shang_img;
     private ArrayList<Fragment> list;
     private ZongAdapter adapter;
@@ -49,6 +51,9 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener 
     public void initView(View view) {
         shang_img = (RelativeLayout) view.findViewById(R.id.shang_img);
         relativeLayout = (RelativeLayout) view.findViewById(R.id.blood_main);
+        radioButton_zixun = (RadioButton) view.findViewById(R.id.radioButton_zixun);
+        radioButton_wenyisheng = (RadioButton) view.findViewById(R.id.radioButton_wenyisheng);
+        radioButton_tixing = (RadioButton) view.findViewById(R.id.radioButton_tixing);
     }
 
     @Override
@@ -58,7 +63,7 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener 
         list.add(new WeekFragment());
         list.add(new MoonFragment());
         list.add(new YearFragment());
-        adapter = new ZongAdapter(getChildFragmentManager(),list);
+        adapter = new ZongAdapter(getChildFragmentManager(), list);
         xueyaFra.setAdapter(adapter);
     }
 
@@ -70,6 +75,9 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener 
     @Override
     public void initListener() {
         shang_img.setOnClickListener(this);
+        radioButton_zixun.setOnClickListener(this);
+        radioButton_wenyisheng.setOnClickListener(this);
+        radioButton_tixing.setOnClickListener(this);
     }
 
     @Override
@@ -106,15 +114,19 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.shang_img:
-            /*    FragmentManager manager = App.activity.getSupportFragmentManager();
-                FragmentTransaction fragmentTransaction = manager.beginTransaction();
-                fragmentTransaction.replace(R.id.shang_img,new RecordFragment());
-                fragmentTransaction.commit();*/
-
-                FragmentBuilder.getInstance().start(R.id.activity_home,RecordFragment.class).isBacked(true);
+                FragmentBuilder.getInstance().start(R.id.activity_home, RecordFragment.class).isBacked(true);
                 break;
+            case R.id.radioButton_zixun:
+                FragmentBuilder.getInstance().start(R.id.activity_home, InformFragment.class).isBacked(true);
+                break;
+            case R.id.radioButton_wenyisheng:
+
+                break;
+            case R.id.radioButton_tixing:
+                break;
+
         }
     }
 }

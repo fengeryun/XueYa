@@ -8,7 +8,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <RelativeLayout
             android:id="@+id/bloodfrag"
@@ -155,7 +157,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_below="@id/li_radio"
-                android:layout_marginBottom="10dp"></android.support.v4.view.ViewPager>
+                android:layout_marginBottom="10dp">
+            </android.support.v4.view.ViewPager>
 
             <RadioGroup
                 android:layout_width="match_parent"

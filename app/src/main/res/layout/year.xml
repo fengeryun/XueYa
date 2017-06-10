@@ -5,6 +5,7 @@
     android:orientation="vertical">
 <TextView
     android:text="暂无数据"
+    android:id="@+id/year_record"
     android:gravity="center"
     android:layout_weight="1"
     android:layout_width="match_parent"
