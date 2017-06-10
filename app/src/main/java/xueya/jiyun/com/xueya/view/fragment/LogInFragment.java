@@ -1,19 +1,17 @@
 package xueya.jiyun.com.xueya.view.fragment;
 
-import android.support.v4.app.Fragment;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.presenter.login.LogInPresenter;
-import xueya.jiyun.com.xueya.presenter.login.LogInView;
+import xueya.jiyun.com.xueya.view.viewinter.LogInView;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
@@ -53,6 +51,38 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
     @Override
     public void initListener() {
         login_bt.setOnClickListener(this);
+        login_user.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            logInPresenter.yetimportname(login_user.getText().toString().trim());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        login_psw.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+              logInPresenter.yetimportpsw(login_psw.getText().toString().trim());
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
     }
 
     @Override
@@ -67,17 +97,31 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void shouMessage(String message) {
-
+        Toast.makeText(App.activity, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void startActivity() {
-        Toast.makeText(App.activity, "登陆成功", Toast.LENGTH_SHORT).show();
     }
 
     @Override
-    public void showView() {
+    public void showName() {
+        login_user_introduce.setVisibility(View.VISIBLE);
+    }
 
+    @Override
+    public void showPsw() {
+        login_psw_introduce.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideHame() {
+        login_user_introduce.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void hidePsw() {
+        login_psw_introduce.setVisibility(View.GONE);
     }
 
 

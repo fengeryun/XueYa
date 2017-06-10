@@ -27,7 +27,7 @@
             android:layout_height="wrap_content">
             <ImageView
                 android:id="@+id/user"
-                android:src="@mipmap/mine_data"
+                android:src="@mipmap/login_phone_img"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
@@ -61,7 +61,7 @@
 
             <ImageView
                 android:id="@+id/psw"
-                android:src="@mipmap/mine_data"
+                android:src="@mipmap/login_password_img"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
                 android:layout_width="wrap_content"
