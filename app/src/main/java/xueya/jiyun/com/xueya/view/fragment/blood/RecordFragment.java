@@ -1,10 +1,12 @@
 package xueya.jiyun.com.xueya.view.fragment.blood;
 
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.ImageView;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
@@ -42,7 +44,11 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.record_back:
-                App.activity.onBackPressed();
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
                 break;
         }
     }

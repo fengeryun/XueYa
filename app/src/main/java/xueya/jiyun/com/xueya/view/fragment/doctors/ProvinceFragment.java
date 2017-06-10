@@ -1,11 +1,15 @@
-package xueya.jiyun.com.xueya.view.fragment.blood;
+package xueya.jiyun.com.xueya.view.fragment.doctors;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import butterknife.Bind;
@@ -13,34 +17,38 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.adapter.ProvinceAdapter;
+import xueya.jiyun.com.xueya.model.urls.ProvinceList;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
- * Created by Asus on 2017/6/10.
+ * Created by my on 2017/6/10.
  */
 
-public class InformationFragment extends BaseFragment {
-    @Bind(R.id.reco_back)
-    ImageView recoBack;
+public class ProvinceFragment extends BaseFragment {
+    @Bind(R.id.record_back)
+    ImageView recordBack;
     @Bind(R.id.record_titlle)
     TextView recordTitlle;
-    @Bind(R.id.information_data)
-    ImageView informationData;
+    @Bind(R.id.taken_listview)
+    ListView takenListview;
+    ProvinceAdapter adapter;
 
     @Override
     public void initView(View view) {
-
+        recordTitlle.setText("省份");
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.information;
+        return R.layout.takenotes;
     }
 
     @Override
     public void initData() {
-
+        adapter = new ProvinceAdapter(ProvinceList.getProvince().getProvinces());
+        takenListview.setAdapter(adapter);
     }
 
     @Override
@@ -50,7 +58,16 @@ public class InformationFragment extends BaseFragment {
 
     @Override
     public void initListener() {
-
+        takenListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent it = new Intent();
+                it.setAction("provincename");
+                it.putExtra("proname",ProvinceList.getProvince().getProvinces().get(position));
+                App.activity.sendBroadcast(it);
+                FragmentBuilder.getInstance().start(R.id.viewpage,DoctorFragment.class).isBacked(true);
+            }
+        });
     }
 
     @Override
@@ -67,7 +84,7 @@ public class InformationFragment extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.reco_back)
+    @OnClick(R.id.record_back)
     public void onViewClicked() {
         FragmentManager message = App.activity.getSupportFragmentManager();
         message.popBackStackImmediate();

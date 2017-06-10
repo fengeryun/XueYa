@@ -59,7 +59,7 @@
                     android:layout_height="wrap_content"
                     android:text="128"
                     android:textColor="#333333"
-                    android:textSize="80px" />
+                    android:textSize="38sp" />
 
                 <TextView
                     android:id="@+id/gang"
@@ -68,7 +68,7 @@
                     android:layout_toRightOf="@id/xueya_gaoya"
                     android:text="/"
                     android:textColor="#333333"
-                    android:textSize="80px" />
+                    android:textSize="38sp" />
 
                 <TextView
                     android:id="@+id/xueya_diya"

@@ -15,7 +15,7 @@ public class MoonFragment extends BaseFragment implements View.OnClickListener {
     private TextView moon_record;
     @Override
     public void initView(View view) {
-     moon_record = (TextView) view.findViewById(R.id.moon_record);
+     moon_record = (TextView) view.findViewById(R.id.moon_records);
     }
 
     @Override

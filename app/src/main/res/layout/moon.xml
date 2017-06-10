@@ -5,7 +5,7 @@
     android:orientation="vertical">
 <TextView
     android:text="暂无数据"
-    android:id="@+id/moon_record"
+    android:id="@+id/moon_records"
     android:gravity="center"
     android:layout_weight="1"
     android:layout_width="match_parent"

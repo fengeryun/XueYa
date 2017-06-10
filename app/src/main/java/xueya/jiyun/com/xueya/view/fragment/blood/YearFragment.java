@@ -15,7 +15,7 @@ public class YearFragment extends BaseFragment implements View.OnClickListener {
     private TextView year_record;
     @Override
     public void initView(View view) {
-        year_record = (TextView) view.findViewById(R.id.year_record);
+        year_record = (TextView) view.findViewById(R.id.year_records);
     }
 
     @Override
