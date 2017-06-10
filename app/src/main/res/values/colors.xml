@@ -3,6 +3,10 @@
     <color name="colorPrimary">#3C0</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="xueya_radio_color">#73CD80</color><!-- 血压管理按钮点击后-->
+    <color name="xueya_radio_color2">#ffffff</color><!-- 血压管理按钮点击前-->
+    <color name="xueya_title_color">#4CBF5C</color><!-- 血压管理头布局颜色 -->
+
 
     <color name="black">#000000</color><!--黑色 -->
     <color name="white">#FFFFFF</color><!--白色-->

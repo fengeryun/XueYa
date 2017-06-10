@@ -1,4 +1,4 @@
-package xueya.jiyun.com.xueya.view.fragment;
+package xueya.jiyun.com.xueya.view.fragment.blood;
 
 import android.view.View;
 
@@ -9,7 +9,7 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
  * Created by Asus on 2017/6/9.
  */
 
-public class DoctorFragment extends BaseFragment{
+public class WeekFragment extends BaseFragment{
     @Override
     public void initView(View view) {
 
@@ -17,7 +17,7 @@ public class DoctorFragment extends BaseFragment{
 
     @Override
     public int getLayoutId() {
-        return R.layout.doctorfragment;
+        return R.layout.week;
     }
 
     @Override
