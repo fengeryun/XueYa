@@ -1,10 +1,11 @@
-package xueya.jiyun.com.xueya.model.bean.personage;
+package xueya.jiyun.com.xueya.model.bean;
 
-/**登陆成功返回的Bean对象
+/**
+ * 登录成功的实体类
  * Created by 123 on 2017/6/10.
  */
 
-public class loginok {
+public class LogInOk {
 
     /**
      * state : 200

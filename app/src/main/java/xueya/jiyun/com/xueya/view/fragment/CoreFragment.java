@@ -9,6 +9,7 @@ import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.fragment.mine.LogInFragment;
 
+
 /**
  * 个人中心
  * Created by Asus on 2017/6/9.
@@ -38,19 +39,16 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void initData() {
-
     }
 
     @Override
     public void loadData() {
-
     }
 
     @Override
     public void initListener() {
         loginbut.setOnClickListener(this);
     }
-
     @Override
     public void onClick(View v) {
         FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);

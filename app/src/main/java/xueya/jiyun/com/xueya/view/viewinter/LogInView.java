@@ -12,5 +12,9 @@ public interface LogInView {
     void showPsw();
     void hideHame();
     void hidePsw();
+    void showUOkIm();
+    void hideUOkIm();
+    void showPOkIm();
+    void hidePOkIm();
 
 }

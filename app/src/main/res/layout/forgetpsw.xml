@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#FBF8F4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:background="#4CBF5C"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_brows_back"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_gravity="center"
+            android:text="@string/forget"
+            android:textColor="#fff"
+            android:textSize="30dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:layout_margin="20dp"
+        android:background="@drawable/forgetpsw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/user"
+            android:src="@mipmap/login_phone_img"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/forget_user_introduce"
+            android:background="@color/darkgrey"
+            android:text="@string/user_edit"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/forget_ok"
+            android:layout_centerInParent="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="16dp"
+            android:src="@mipmap/question_sucess_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <EditText
+            android:phoneNumber="true"
+            android:id="@+id/forget_phone"
+            android:background="#009f9898"
+            android:layout_marginLeft="15dp"
+            android:textColorHint="#bdbaba"
+            android:hint="@string/user_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/user"
+            android:layout_marginStart="15dp" />
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:id="@+id/nosend_msg"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/forget_no"
+                android:text="@string/forget_bt"
+                android:textColor="@color/white"
+                android:textSize="@dimen/activity_vertical_margin"
+                android:background="@drawable/forget_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/forget_send_bt"
+                android:visibility="gone"
+                android:text="@string/forget_bt"
+                android:textColor="@color/white"
+                android:textSize="@dimen/activity_vertical_margin"
+                android:background="@drawable/forget_bt_t"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,10 +1,13 @@
-package xueya.jiyun.com.xueya.view.fragment;
+package xueya.jiyun.com.xueya.view.fragment.mine;
 
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,8 +27,9 @@ import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
 
 public class LogInFragment extends BaseFragment implements View.OnClickListener, LogInView {
     EditText login_user,login_psw;
-    TextView login_user_introduce,login_psw_introduce;
+    TextView login_user_introduce,login_psw_introduce,login_register,login_forget;
     Button login_bt;
+    ImageView psw_ok,user_ok;
     LogInPresenter logInPresenter;
     @Override
     public void initView(View view) {
@@ -34,6 +38,10 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
         login_user_introduce= (TextView) view.findViewById(R.id.login_user_introduce);
         login_psw_introduce= (TextView) view.findViewById(R.id.login_psw_introduce);
         login_bt= (Button) view.findViewById(R.id.login_bt);
+        user_ok= (ImageView) view.findViewById(R.id.user_ok);
+        psw_ok= (ImageView) view.findViewById(R.id.psw_ok);
+        login_forget= (TextView) view.findViewById(R.id.login_forget);
+        login_register= (TextView) view.findViewById(R.id.login_register);
     }
 
     @Override
@@ -54,6 +62,8 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
     @Override
     public void initListener() {
         login_bt.setOnClickListener(this);
+        login_forget.setOnClickListener(this);
+        login_register.setOnClickListener(this);
         login_user.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -62,7 +72,7 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-            logInPresenter.yetimportname(login_user.getText().toString().trim());
+              logInPresenter.yetimportname(login_user.getText().toString().trim());
             }
 
             @Override
@@ -90,7 +100,21 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void onClick(View v) {
-        logInPresenter.login(login_user.getText().toString().trim(),login_psw.getText().toString().trim());
+        switch (v.getId()){
+            //登录
+            case R.id.login_bt:
+                logInPresenter.login(login_user.getText().toString().trim(),login_psw.getText().toString().trim());
+                break;
+            //忘记密码
+            case R.id.login_forget:
+                FragmentBuilder.getInstance().start(R.id.viewpage, ForgetFragment.class).isBacked(true);
+                break;
+            //注册
+            case R.id.login_register:
+                break;
+
+        }
+
     }
 
     @Override
@@ -126,6 +150,26 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
     @Override
     public void hidePsw() {
         login_psw_introduce.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showUOkIm() {
+        user_ok.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hideUOkIm() {
+      user_ok.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void showPOkIm() {
+        psw_ok.setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void hidePOkIm() {
+        psw_ok.setVisibility(View.GONE);
     }
 
 

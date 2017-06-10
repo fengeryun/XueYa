@@ -58,4 +58,9 @@
     <string name="xueya_zixun">资讯</string>
 
     <string name="xueya_tixing">提醒</string>
+    <!--登陆页面-->
+    <string name="hint">还没有注册请</string>
+    <string name="eneor">注册</string>
+    <string name="forget">忘记密码</string>
+    <string name="forget_bt">发送验证码</string>
 </resources>

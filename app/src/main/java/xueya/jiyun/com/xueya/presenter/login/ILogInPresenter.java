@@ -5,8 +5,8 @@ package xueya.jiyun.com.xueya.presenter.login;
  */
 
 public interface ILogInPresenter {
+    //登录
     void login(String username,String psw);
-
 
     //判断名字是否正在输入
     void yetimportname(String username);
