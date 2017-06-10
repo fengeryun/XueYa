@@ -48,6 +48,6 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class);
+        FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
     }
 }
