@@ -56,8 +56,10 @@ public class FragmentBuilder {
 
         if(lastFragment != null){
             trans.hide(lastFragment);
+
         }
         trans.show(fragment);
+        trans.addToBackStack(fragname);
         lastFragment = fragment;
         trans.commit();
         return this;

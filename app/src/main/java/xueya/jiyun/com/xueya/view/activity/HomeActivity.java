@@ -3,8 +3,10 @@ package xueya.jiyun.com.xueya.view.activity;
 import android.os.Bundle;
 import android.os.Process;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
@@ -17,8 +19,10 @@ import butterknife.OnClick;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
-import xueya.jiyun.com.xueya.view.fragment.blood.BloodFragment;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
+import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.fragment.CoreFragment;
+import xueya.jiyun.com.xueya.view.fragment.blood.BloodFragment;
 import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -50,7 +54,7 @@ public class HomeActivity extends AppCompatActivity {
         list.add(new CoreFragment());
         adapter = new ZongAdapter(getSupportFragmentManager(), list);
         viewpage.setAdapter(adapter);
-        doctor.setChecked(true);
+        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
 
         setPageChange();
 
@@ -66,15 +70,16 @@ public class HomeActivity extends AppCompatActivity {
             public void onPageSelected(int position) {
                 switch (position){
                     case 0:
-                        viewpage.setCurrentItem(0);
+                        //viewpage.setCurrentItem(0);
+                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
                         doctor.setChecked(true);
                         break;
                     case 1:
-                        viewpage.setCurrentItem(1);
+                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
                         blood.setChecked(true);
                         break;
                     case 2:
-                        viewpage.setCurrentItem(2);
+                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
                         core.setChecked(true);
                         break;
                 }
@@ -102,20 +107,35 @@ public class HomeActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        
+
+        FragmentManager message = getSupportFragmentManager();
+        String lastback  = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+        Log.e("--------------lastback",lastback);
+        if(lastback.equals("DoctorFragment") || lastback.equals("BloodFragment") || lastback.equals("CoreFragment")){
+
                 if(num<2){
                     firsttime = System.currentTimeMillis();
-                    Toast.makeText(this, "再次点击退出开源中国", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(this, "再次点击退出血压卫士", Toast.LENGTH_SHORT).show();
                     num++;
                 }else {
                     if(System.currentTimeMillis()-firsttime>2000){
                         firsttime = System.currentTimeMillis();
-                        Toast.makeText(this, "再次点击退出开源中国", Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(this, "再次点击退出血压卫士", Toast.LENGTH_SHORT).show();
                     }else {
                         Process.killProcess(Process.myPid());
                         System.exit(0);
                     }
                 }
+
+        }else {
+            message.popBackStackImmediate();   //立即弹栈
+            String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+            Log.e("--------------lastname",lastname);
+            BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+            FragmentBuilder.getInstance().setLastFragment(fragment);
+        }
 
     }
 

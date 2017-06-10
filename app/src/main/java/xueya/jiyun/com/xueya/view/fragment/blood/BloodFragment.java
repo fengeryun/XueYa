@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
@@ -15,13 +16,14 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
  * Created by 123 on 2017/6/9.
  */
 
-public class BloodFragment extends BaseFragment {
+public class BloodFragment extends BaseFragment implements View.OnClickListener {
     @Bind(R.id.radioButton2)
     RadioButton radioButton2;
     @Bind(R.id.radioButton)
@@ -32,8 +34,11 @@ public class BloodFragment extends BaseFragment {
     RadioButton radioButton3;
     @Bind(R.id.xueya_fra)
     ViewPager xueyaFra;
+    private RelativeLayout shang_img;
     private ArrayList<Fragment> list;
     private ZongAdapter adapter;
+
+    private RelativeLayout relativeLayout;
 
     @Override
     public int getLayoutId() {
@@ -42,7 +47,8 @@ public class BloodFragment extends BaseFragment {
 
     @Override
     public void initView(View view) {
-
+        shang_img = (RelativeLayout) view.findViewById(R.id.shang_img);
+        relativeLayout = (RelativeLayout) view.findViewById(R.id.blood_main);
     }
 
     @Override
@@ -63,7 +69,7 @@ public class BloodFragment extends BaseFragment {
 
     @Override
     public void initListener() {
-
+        shang_img.setOnClickListener(this);
     }
 
     @Override
@@ -94,6 +100,20 @@ public class BloodFragment extends BaseFragment {
                 break;
             case R.id.radioButton3:
                 xueyaFra.setCurrentItem(3);
+                break;
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.shang_img:
+            /*    FragmentManager manager = App.activity.getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = manager.beginTransaction();
+                fragmentTransaction.replace(R.id.shang_img,new RecordFragment());
+                fragmentTransaction.commit();*/
+
+                FragmentBuilder.getInstance().start(R.id.activity_home,RecordFragment.class).isBacked(true);
                 break;
         }
     }

@@ -1,8 +1,9 @@
 package xueya.jiyun.com.xueya.view.fragment.blood;
 
 import android.view.View;
-import android.widget.TextView;
+import android.widget.ImageView;
 
+import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
@@ -10,16 +11,16 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
  * Created by Asus on 2017/6/9.
  */
 
-public class DayFragment extends BaseFragment implements View.OnClickListener {
-    private TextView day_records;
+public class RecordFragment extends BaseFragment implements View.OnClickListener {
+    private ImageView record_back;
     @Override
     public void initView(View view) {
-        day_records = (TextView) view.findViewById(R.id.day_records);
+        record_back = (ImageView) view.findViewById(R.id.record_back);
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.day;
+        return R.layout.record;
     }
 
     @Override
@@ -34,11 +35,15 @@ public class DayFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void initListener() {
-        day_records.setOnClickListener(this);
+        record_back.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.record_back:
+                App.activity.onBackPressed();
+                break;
+        }
     }
 }
