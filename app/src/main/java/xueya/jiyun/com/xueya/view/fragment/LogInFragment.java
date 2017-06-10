@@ -1,15 +1,18 @@
 package xueya.jiyun.com.xueya.view.fragment;
 
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.presenter.login.LogInPresenter;
+import xueya.jiyun.com.xueya.presenter.login.LogInView;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
@@ -17,7 +20,7 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
  * Created by 123 on 2017/6/9.
  */
 
-public class LogInFragment extends BaseFragment implements View.OnClickListener {
+public class LogInFragment extends BaseFragment implements View.OnClickListener, LogInView {
     EditText login_user,login_psw;
     TextView login_user_introduce,login_psw_introduce;
     Button login_bt;
@@ -38,7 +41,7 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener 
 
     @Override
     public void initData() {
-        logInPresenter=new LogInPresenter();
+        logInPresenter=new LogInPresenter(this);
     }
 
     @Override
@@ -55,4 +58,21 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener 
     public void onClick(View v) {
         logInPresenter.login(login_user.getText().toString().trim(),login_psw.getText().toString().trim());
     }
+
+    @Override
+    public void toHome() {
+
+    }
+
+    @Override
+    public void shouMessage(String message) {
+
+    }
+
+    @Override
+    public void startActivity() {
+
+    }
+
+
 }
