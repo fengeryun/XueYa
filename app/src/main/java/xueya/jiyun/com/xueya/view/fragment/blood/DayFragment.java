@@ -11,10 +11,10 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
  */
 
 public class DayFragment extends BaseFragment implements View.OnClickListener {
-    private TextView day_record;
+    private TextView day_records;
     @Override
     public void initView(View view) {
-        day_record = (TextView) view.findViewById(R.id.day_record);
+        day_records = (TextView) view.findViewById(R.id.day_records);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class DayFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void initListener() {
-        day_record.setOnClickListener(this);
+        day_records.setOnClickListener(this);
     }
 
     @Override

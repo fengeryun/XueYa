@@ -1,20 +1,18 @@
-package xueya.jiyun.com.xueya.view.fragment;
+package xueya.jiyun.com.xueya.view.fragment.mine;
 
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.presenter.login.LogInPresenter;
-import xueya.jiyun.com.xueya.presenter.login.LogInView;
+import xueya.jiyun.com.xueya.view.viewinter.LogInView;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
+import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
 
 /**
  * 登录界面
@@ -67,12 +65,12 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void shouMessage(String message) {
-
+        Toast.makeText(App.activity, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
     public void startActivity() {
-        Toast.makeText(App.activity, "登陆成功", Toast.LENGTH_SHORT).show();
+        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
     }
 
     @Override
