@@ -1,27 +1,194 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
 
     <TextView
         android:id="@+id/doctitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:gravity="center"
-        android:padding="10dp"
         android:text="@string/doctortitle"
+        android:gravity="center"
+        android:textSize="20sp"
         android:textColor="@color/white"
-        android:textSize="20sp" />
-
+        android:padding="15dp"
+        android:background="@color/colorPrimary"
+        />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/whitesmoke"
-        android:gravity="center"
-        android:padding="10dp"
         android:text="@string/doctortitle2"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:gravity="center"
+        android:padding="15dp"
+        />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="4"
+        android:background="@color/white"
+        >
+        <TextView
+            android:id="@+id/province"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:text="@string/sheng"
+            android:textSize="18sp"
+            android:textColor="@color/dimgrey"
+            android:padding="16dp"
+            android:drawableRight="@mipmap/ic_arrow_right"
+            />
+        <ImageView
+            android:id="@+id/mylocation"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@mipmap/location"
+
+            />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/doctorJob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/jobname"
+        android:background="@color/white"
+        android:layout_marginTop="1dp"
+        android:textSize="18sp"
+        android:textColor="@color/dimgrey"
+        android:padding="16dp"
+        android:drawableRight="@mipmap/ic_arrow_right"
+        />
+
+    <TextView
+        android:id="@+id/hospitalGrade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hospitalname"
+        android:background="@color/white"
+        android:layout_marginTop="1dp"
+        android:textSize="18sp"
+        android:textColor="@color/dimgrey"
+        android:padding="16dp"
+        android:drawableRight="@mipmap/ic_arrow_right"
+        />
+
+    <TextView
+        android:id="@+id/sousuo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/sousuocontent"
+        android:background="@color/white"
+        android:layout_marginTop="1dp"
+        android:textSize="18sp"
+        android:textColor="@color/dimgrey"
+        android:padding="16dp"
+        android:drawableRight="@mipmap/ic_arrow_right"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="1dp"
+        >
+        <CheckBox
+            android:id="@+id/freeAdd"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:text="@string/addname"
+            android:layout_margin="12dp"
+            android:textSize="15sp"
+            />
+        <Button
+            android:id="@+id/queryName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/querybut"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="@string/queryname"
+            />
+    </LinearLayout>
+
+    <RadioGroup
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        >
+        <RadioButton
+            android:id="@+id/askDoctor"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:text="@string/freedoctor"
+            android:gravity="center"
+            android:drawableTop="@mipmap/ask_doctor_img"
+            android:layout_margin="1dp"
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+        <RadioButton
+            android:id="@+id/healthPeople"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:background="@color/white"
+            android:text="@string/healther"
+            android:layout_margin="1dp"
+            android:drawableTop="@mipmap/doctorphone"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:weightSum="4"
+        >
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:text="@string/remengDoctor"
+            android:background="@color/white"
+            android:textSize="18sp"
+            android:padding="5dp"
+            android:textColor="@color/colorPrimaryDark"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:id="@+id/huan"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            android:text="@string/huanyihuan"
+            android:gravity="center"
+            />
+    </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
 </LinearLayout>

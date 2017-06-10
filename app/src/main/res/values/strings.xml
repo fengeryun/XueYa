@@ -1,6 +1,17 @@
 <resources>
     <string name="app_name">XueYa</string>
     <string name="doctortitle">医生在线</string>
+    <string name="sheng">省份</string>
+    <string name="mylocation">我的位置</string>
+    <string name="jobname">医生职称</string>
+    <string name="hospitalname">医院等级</string>
+    <string name="addname">免费加号</string>
+    <string name="queryname">查询专家</string>
+    <string name="freedoctor">免费问医生</string>
+    <string name="remengDoctor">热门医生</string>
+    <string name="huanyihuan">换一换</string>
+    <string name="healther">健康顾问</string>
+    <string name="sousuocontent">关键字/专家姓名/医院名称/疾病</string>
     <string name="bloodtitle">血压管理</string>
     <string name="mine_login">您还没有登录哦 -</string>
     <string name="login_bt">马上登录</string>
