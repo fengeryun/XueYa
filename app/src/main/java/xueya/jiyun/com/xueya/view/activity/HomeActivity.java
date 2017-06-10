@@ -21,8 +21,8 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
-import xueya.jiyun.com.xueya.view.fragment.blood.BloodFragment;
 import xueya.jiyun.com.xueya.view.fragment.CoreFragment;
+import xueya.jiyun.com.xueya.view.fragment.blood.BloodFragment;
 import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
 
 public class HomeActivity extends AppCompatActivity {
@@ -112,14 +112,16 @@ public class HomeActivity extends AppCompatActivity {
         String lastback  = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
         Log.e("--------------lastback",lastback);
         if(lastback.equals("DoctorFragment") || lastback.equals("BloodFragment") || lastback.equals("CoreFragment")){
-        
+
                 if(num<2){
                     firsttime = System.currentTimeMillis();
+
                     Toast.makeText(this, "再次点击退出血压卫士", Toast.LENGTH_SHORT).show();
                     num++;
                 }else {
                     if(System.currentTimeMillis()-firsttime>2000){
                         firsttime = System.currentTimeMillis();
+
                         Toast.makeText(this, "再次点击退出血压卫士", Toast.LENGTH_SHORT).show();
                     }else {
                         Process.killProcess(Process.myPid());
