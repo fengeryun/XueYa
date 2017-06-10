@@ -61,7 +61,6 @@ public class InformFragment extends BaseFragment {
         ButterKnife.bind(this, rootView);
         return rootView;
     }
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
