@@ -1,11 +1,14 @@
 package xueya.jiyun.com.xueya.presenter.login;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
 import xueya.jiyun.com.xueya.model.http.VolleyUtils;
+import xueya.jiyun.com.xueya.model.urls.Urls;
 
 /**
  * Created by 123 on 2017/6/9.
@@ -29,9 +32,13 @@ public class LogInPresenter implements ILogInPresenter {
             logInView.shouMessage("密码不能为空");
             return;
         }
-        VolleyUtils.getInstance().doPost("", new HashMap<String, String>(), new NewUrlCallback() {
+        HashMap<String,String> map=new HashMap();
+        map.put("phonenum",username);
+        map.put("password",psw);
+        VolleyUtils.getInstance().doPost(Urls.LogIn_bt, map, new NewUrlCallback() {
             @Override
             public void success(String eryun) {
+
                 logInView.startActivity();
             }
 

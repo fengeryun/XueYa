@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.presenter.login.LogInPresenter;
 import xueya.jiyun.com.xueya.presenter.login.LogInView;
@@ -71,6 +72,11 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void startActivity() {
+        Toast.makeText(App.activity, "登陆成功", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void showView() {
 
     }
 

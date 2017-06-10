@@ -4,6 +4,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
@@ -11,7 +12,7 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
  * Created by Asus on 2017/6/9.
  */
 
-public class CoreFragment extends BaseFragment{
+public class CoreFragment extends BaseFragment implements View.OnClickListener {
     //          顶层LinearLayout  登录   加号        收藏        资料     消息  设置
     LinearLayout login_lin,mine_nologin,mine_sign,mine_collect,mine_data,mine_msg,mine_set;
     @Override
@@ -42,6 +43,11 @@ public class CoreFragment extends BaseFragment{
 
     @Override
     public void initListener() {
+        login_lin.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
     }
 }
