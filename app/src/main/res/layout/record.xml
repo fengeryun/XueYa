@@ -169,6 +169,7 @@
         </RelativeLayout>
     </LinearLayout>
     <Button
+        android:id="@+id/record_commit"
         android:textSize="17dp"
         android:layout_margin="15dp"
         android:gravity="center"
@@ -177,4 +178,11 @@
         android:background="#08d355"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/record_txt" />
+
 </LinearLayout>
