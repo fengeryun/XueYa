@@ -71,15 +71,15 @@ public class HomeActivity extends AppCompatActivity {
                 switch (position){
                     case 0:
                         //viewpage.setCurrentItem(0);
-                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
+//                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
                         doctor.setChecked(true);
                         break;
                     case 1:
-                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
+//                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
                         blood.setChecked(true);
                         break;
                     case 2:
-                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
+//                        FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
                         core.setChecked(true);
                         break;
                 }
