@@ -72,6 +72,7 @@ public class DoctorFragment extends BaseFragment {
                         public void run() {
                             dialoger.dismiss();
                             province.setText("北京市");
+                            Toast.makeText(App.activity, "定位成功", Toast.LENGTH_SHORT).show();
                         }
                     });
                     break;

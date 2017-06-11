@@ -3,6 +3,7 @@ package xueya.jiyun.com.xueya.view.base;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,9 @@ import xueya.jiyun.com.xueya.model.Error.RunTimeError;
 public abstract class BaseFragment extends Fragment {
     //判断布局是否是第一次加载
     private boolean isFirst=true;
-
+    private static final String STATE_SAVE_IS_HIDDEN = "STATE_SAVE_IS_HIDDEN";
     private Bundle params;
+
     //初始化加载布局
     @Nullable
     @Override
