@@ -63,4 +63,11 @@
     <string name="eneor">注册</string>
     <string name="forget">忘记密码</string>
     <string name="forget_bt">发送验证码</string>
+    <string name="wenyisheng">问医生</string>
+    <string name="tiwen">向医生提问</string>
+    <string name="fize">免费提问</string>
+    <string name="fize_et">请精良详细描述,描述字符不得少于10个字</string>
+    <string name="fize_zishu">1/500</string>
+    <string name="send_docotor">提交给医生</string>
+    <string name="fize_tishi">请简单描述您的病情并提交给我们的客服,客服人员会安排专业的健康顾问并向您致电,为阁下进行专业的电话健康指导</string>
 </resources>

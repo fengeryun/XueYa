@@ -1,9 +1,11 @@
-package xueya.jiyun.com.xueya.view.fragment;
+package xueya.jiyun.com.xueya.view.fragment.mine;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
@@ -48,9 +50,18 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void initListener() {
         loginbut.setOnClickListener(this);
+        mine_msg.setOnClickListener(this);
     }
     @Override
     public void onClick(View v) {
-        FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
+        switch (v.getId()){
+            case R.id.loginbut:
+                FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
+                break;
+            case R.id.mine_msg:
+                FragmentBuilder.getInstance().start(R.id.activity_home,MessageFragment.class).isBacked(true);
+                break;
+        }
+
     }
 }

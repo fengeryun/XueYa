@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/free_lin"
+    android:background="#FBF8F4"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="#4CBF5C"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_marginLeft="15dp"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_brows_back"
+            android:layout_width="30dp"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:gravity="center"
+            android:text="@string/fize"
+            android:textColor="#fff"
+            android:textSize="20dp"
+            android:layout_marginLeft="40dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <TextView
+        android:layout_margin="8dp"
+        android:textSize="13dp"
+        android:gravity="center"
+        android:text="@string/fize_tishi"
+        android:layout_width="match_parent"
+        android:layout_height="70dp" />
+    <RelativeLayout
+        android:layout_margin="8dp"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="150dp">
+        <EditText
+            android:id="@+id/free_dc_shuru"
+            android:textSize="15dp"
+            android:hint="@string/fize_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <RelativeLayout
+            android:layout_alignParentBottom="true"
+            android:layout_width="match_parent"
+            android:layout_height="60dp">
+            <ImageView
+                android:layout_marginBottom="15dp"
+                android:id="@+id/free_dc_im"
+                android:src="@mipmap/add_questin_img"
+                android:layout_width="40dp"
+                android:layout_height="40dp" />
+             <TextView
+                 android:id="@+id/free_dc_tv"
+                 android:layout_margin="10dp"
+                 android:layout_alignParentRight="true"
+                 android:layout_alignParentBottom="true"
+                 android:text="@string/fize_zishu"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:layout_margin="8dp"
+        android:background="#FFFFFF"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <RadioGroup
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:layout_width="0dp"
+            android:layout_height="50dp">
+            <RadioButton
+                android:id="@+id/free_dc_nan"
+                android:checked="true"
+                android:background="@drawable/free_bt"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="男"
+                android:button="@null"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+            <RadioButton
+                android:id="@+id/free_dc_nv"
+                android:checked="false"
+                android:background="@drawable/free_bt"
+                android:textSize="20dp"
+                android:gravity="center"
+                android:layout_weight="1"
+                android:text="女"
+                android:button="@null"
+                android:layout_width="0dp"
+                android:layout_height="match_parent" />
+        </RadioGroup>
+        <EditText
+            android:id="@+id/free_dc_et"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:hint="年龄"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <Button
+        android:layout_margin="10dp"
+        android:id="@+id/free_dc_bt"
+        android:text="@string/send_docotor"
+        android:textColor="@color/white"
+        android:textSize="@dimen/activity_vertical_margin"
+        android:background="@drawable/forget_bt_t"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

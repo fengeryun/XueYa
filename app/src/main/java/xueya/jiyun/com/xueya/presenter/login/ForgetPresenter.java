@@ -16,7 +16,16 @@ public class ForgetPresenter implements IForgetPresenter {
     @Override
     public void GetPhone(String phone) {
         if(phone.length()!=0){
-
+         forgetView.HideEtOk();
+            if(phone.length()>10){
+                forgetView.ShowTextOk();
+                forgetView.ShowOkButton();
+            }else{
+                forgetView.HideTextOk();
+                forgetView.HideOkButton();
+            }
+        }else{
+            forgetView.ShowEtOk();
         }
     }
 

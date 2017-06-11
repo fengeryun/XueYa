@@ -36,21 +36,18 @@ public class LogInPresenter implements ILogInPresenter {
             logInView.shouMessage("用户名不能为空");
             return;
         }
-
         if (TextUtils.isEmpty(psw)) {
             logInView.shouMessage("密码不能为空");
             return;
         }
-
         mine.goLogin(username, psw, new NewUrlCallback() {
             @Override
             public void success(String eryun) {
-                Log.e("TAG",eryun);
                 if(eryun.contains("userid")){
                     Gson gson=new Gson();
                     LogInOk logInOk = gson.fromJson(eryun, LogInOk.class);
 
-                    //网络请求获取的用户信息存入SP文件中
+                    //网络请求获取的用户信息存入SP文件
                     SharedPreferences sp = App.activity.getSharedPreferences("LogIn", App.activity.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putString("userid", logInOk.getUserid());

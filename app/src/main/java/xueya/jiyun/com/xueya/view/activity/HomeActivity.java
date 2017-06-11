@@ -21,7 +21,7 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
-import xueya.jiyun.com.xueya.view.fragment.CoreFragment;
+import xueya.jiyun.com.xueya.view.fragment.mine.CoreFragment;
 import xueya.jiyun.com.xueya.view.fragment.blood.BloodFragment;
 import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
 

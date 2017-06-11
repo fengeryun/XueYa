@@ -1,5 +1,6 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -107,7 +108,8 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
                 break;
             //忘记密码
             case R.id.login_forget:
-                FragmentBuilder.getInstance().start(R.id.viewpage, ForgetFragment.class).isBacked(true);
+                Intent intent=new Intent(App.activity,ForgetActivity.class);
+                App.activity.startActivity(intent);
                 break;
             //注册
             case R.id.login_register:
