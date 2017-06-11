@@ -35,6 +35,7 @@ public class FreeFragment extends BaseFragment implements View.OnClickListener {
     @Override
     public void initListener() {
         free_lin.setOnClickListener(this);
+
     }
 
     @Override
