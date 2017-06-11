@@ -39,9 +39,9 @@ public class FragmentBuilder {
 
     public FragmentBuilder start(int fragLayout , Class<? extends BaseFragment> fragmentClass){
         trans = manager.beginTransaction();
-
         fragname = fragmentClass.getSimpleName();
         fragment = (BaseFragment) manager.findFragmentByTag(fragname);
+
         if(fragment == null){
             try {
                 fragment = fragmentClass.newInstance();

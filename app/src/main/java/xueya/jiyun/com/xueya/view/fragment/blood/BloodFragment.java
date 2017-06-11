@@ -19,6 +19,7 @@ import xueya.jiyun.com.xueya.adapter.ZongAdapter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.fragment.blood.information.InformFragment;
+import xueya.jiyun.com.xueya.view.fragment.blood.tixing.RemindFragment;
 
 /**
  * Created by 123 on 2017/6/9.
@@ -125,6 +126,7 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener 
 
                 break;
             case R.id.radioButton_tixing:
+                FragmentBuilder.getInstance().start(R.id.activity_home, RemindFragment.class).isBacked(true);
                 break;
 
         }
