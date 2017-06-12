@@ -62,7 +62,6 @@ public class NousPresenter implements INousPresenter{
                     }
                     @Override
                     public void error(int code, String erge) {
-
                     }
                 });
                 break;
