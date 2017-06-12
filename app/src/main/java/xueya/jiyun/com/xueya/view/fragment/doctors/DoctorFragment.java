@@ -58,7 +58,15 @@ public class DoctorFragment extends BaseFragment {
     BroadcastReceiver broad = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, final Intent intent) {
-            province.setText(intent.getStringExtra("proname"));
+            if(intent.getStringExtra("proname")!=null){
+                province.setText(intent.getStringExtra("proname"));
+            }else if(intent.getStringExtra("jobname")!=null){
+                doctorJob.setText(intent.getStringExtra("jobname")+"  ");
+            }else if(intent.getStringExtra("hospitalname")!=null){
+                hospitalGrade.setText(intent.getStringExtra("hospitalname")+"  ");
+            }else if(intent.getStringExtra("sousuoname")!=null){
+                sousuo.setText(intent.getStringExtra("sousuoname"));
+            }
         }
     };
     Handler hand = new Handler(){
@@ -136,6 +144,7 @@ public class DoctorFragment extends BaseFragment {
                 getLocation();
                 break;
             case R.id.doctorJob:
+                FragmentBuilder.getInstance().start(R.id.activity_home,DoctorPopuView.class).isBacked(true);
                 break;
             case R.id.hospitalGrade:
                 break;
