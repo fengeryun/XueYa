@@ -54,7 +54,6 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
 
     @Override
     public void initListener() {
-
         login_lin.setOnClickListener(this);
         loginbut.setOnClickListener(this);
         mine_msg.setOnClickListener(this);
