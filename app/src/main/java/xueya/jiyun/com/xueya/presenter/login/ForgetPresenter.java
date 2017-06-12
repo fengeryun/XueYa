@@ -10,6 +10,7 @@ public class ForgetPresenter implements IForgetPresenter {
     private ForgetView forgetView;
 
     public ForgetPresenter(ForgetView forgetView) {
+
         this.forgetView = forgetView;
     }
 
