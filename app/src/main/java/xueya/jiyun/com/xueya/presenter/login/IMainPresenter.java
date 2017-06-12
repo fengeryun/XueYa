@@ -59,6 +59,7 @@ public class IMainPresenter implements MinePresenter {
                     GetName getName = gson.fromJson(eryun, GetName.class);
                     accountstr = getName.getAccounts().get(0).getAccountstr();
                     mineView.setName(accountstr);
+
                 }
             }
 
