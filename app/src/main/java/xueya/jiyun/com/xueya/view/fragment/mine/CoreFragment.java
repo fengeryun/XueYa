@@ -95,6 +95,7 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     @Override
     public void showToux() {
 
+
     }
 
     @Override
