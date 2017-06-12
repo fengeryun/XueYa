@@ -30,6 +30,7 @@
             android:textColor="#fff"
             android:textSize="20dp" />
     </RelativeLayout>
+
     <ListView
         android:id="@+id/taken_listview"
         android:layout_width="match_parent"

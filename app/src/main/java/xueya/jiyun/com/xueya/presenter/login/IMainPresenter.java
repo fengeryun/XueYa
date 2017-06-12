@@ -20,7 +20,7 @@ public class IMainPresenter implements MinePresenter {
     @Override
     public boolean login() {
         //清空sp文件中的所有内容
-        //SpUtils.getInstance("LogIn").CleanVariable();
+        SpUtils.getInstance("LogIn").CleanVariable();
         s = SpUtils.getInstance("LogIn").GetVariable("userid");
         if(!s.equals("")){
             Log.e("TAG",s);

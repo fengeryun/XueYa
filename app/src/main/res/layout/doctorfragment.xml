@@ -141,7 +141,7 @@
         >
         <CheckBox
             android:id="@+id/freeAdd"
-            android:layout_width="100dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="@string/addname"
             android:layout_margin="12dp"

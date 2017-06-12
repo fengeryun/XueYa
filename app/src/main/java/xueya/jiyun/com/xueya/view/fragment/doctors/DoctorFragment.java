@@ -154,6 +154,7 @@ public class DoctorFragment extends BaseFragment {
                 FragmentBuilder.getInstance().start(R.id.activity_home,DoctorSousuo.class).isBacked(true);
                 break;
             case R.id.queryName:
+                FragmentBuilder.getInstance().start(R.id.activity_home,ZhuanjiaFragment.class).isBacked(true);
                 break;
             case R.id.askDoctor:
                 break;
