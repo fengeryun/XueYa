@@ -70,6 +70,7 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
         }else{
             switch (v.getId()){
                 case R.id.loginbut:
+
                     FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
                     break;
                 case R.id.mine_msg:
