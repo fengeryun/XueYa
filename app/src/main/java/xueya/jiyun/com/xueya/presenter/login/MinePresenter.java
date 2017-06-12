@@ -10,4 +10,5 @@ public interface MinePresenter {
 
     //判断用户已经是否登录
     String getName();
+
 }
