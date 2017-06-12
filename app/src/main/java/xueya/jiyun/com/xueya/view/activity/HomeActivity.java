@@ -24,6 +24,7 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.fragment.mine.CoreFragment;
 import xueya.jiyun.com.xueya.view.fragment.blood.BloodFragment;
 import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
+import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -98,6 +99,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.blood:
                 viewpage.setCurrentItem(1);
+                Dialogs.ShowDialog();
                 break;
             case R.id.core:
                 viewpage.setCurrentItem(2);
