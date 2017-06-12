@@ -1,27 +1,23 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
 import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 
 /**
- * Created by 123 on 2017/6/11.
+ * Created by 123 on 2017/6/12.
  */
 
-public class FreeFragment extends BaseFragment implements View.OnClickListener {
-    LinearLayout free_lin;
+public class CollectFragment extends BaseFragment {
     @Override
     public void initView(View view) {
-        free_lin= (LinearLayout) view.findViewById(R.id.free_lin);
+
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.freequiz;
+        return R.layout.mine_collect;
     }
 
     @Override
@@ -36,11 +32,6 @@ public class FreeFragment extends BaseFragment implements View.OnClickListener {
 
     @Override
     public void initListener() {
-        free_lin.setOnClickListener(this);
 
-    }
-
-    @Override
-    public void onClick(View v) {
     }
 }

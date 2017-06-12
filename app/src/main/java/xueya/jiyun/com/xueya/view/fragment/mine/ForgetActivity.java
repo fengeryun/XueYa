@@ -1,25 +1,25 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
-import android.app.Activity;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.presenter.login.ForgetPresenter;
 import xueya.jiyun.com.xueya.view.base.BaseActivity;
-import xueya.jiyun.com.xueya.view.viewinter.ForgetView;
+import xueya.jiyun.com.xueya.view.viewinter.mine.ForgetView;
 
 public class ForgetActivity extends BaseActivity implements ForgetView, View.OnClickListener {
     EditText forget_phone;
     TextView forget_user_introduce;
     ImageView forget_ok;
     Button forget_no,forget_send_bt;
+    LinearLayout forget_ll;
     ForgetPresenter forgetPresenter;
     @Override
     public int getLayoutId() {
@@ -33,6 +33,7 @@ public class ForgetActivity extends BaseActivity implements ForgetView, View.OnC
         forget_no= (Button) this.findViewById(R.id.forget_no);
         forget_send_bt= (Button) this.findViewById(R.id.forget_send_bt);
         forgetPresenter=new ForgetPresenter(this);
+        forget_ll= (LinearLayout) this.findViewById(R.id.forget_ll);
     }
     @Override
     public void initData() {
@@ -46,6 +47,7 @@ public class ForgetActivity extends BaseActivity implements ForgetView, View.OnC
 
     @Override
     public void initListener() {
+        forget_ll.setOnClickListener(this);
         forget_send_bt.setOnClickListener(this);
         forget_phone.addTextChangedListener(new TextWatcher() {
             @Override

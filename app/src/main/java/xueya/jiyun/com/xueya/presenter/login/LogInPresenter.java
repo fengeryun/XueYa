@@ -2,20 +2,14 @@ package xueya.jiyun.com.xueya.presenter.login;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.google.gson.Gson;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.model.bean.LogInOk;
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
-import xueya.jiyun.com.xueya.model.http.VolleyUtils;
 import xueya.jiyun.com.xueya.model.modelinter.MineModelInter;
-import xueya.jiyun.com.xueya.model.urls.Urls;
-import xueya.jiyun.com.xueya.view.viewinter.LogInView;
+import xueya.jiyun.com.xueya.view.viewinter.mine.LogInView;
 
 /**
  * Created by 123 on 2017/6/9.

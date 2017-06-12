@@ -1,6 +1,6 @@
 package xueya.jiyun.com.xueya.presenter.login;
 
-import xueya.jiyun.com.xueya.view.viewinter.ForgetView;
+import xueya.jiyun.com.xueya.view.viewinter.mine.ForgetView;
 
 /**
  * Created by 123 on 2017/6/10.

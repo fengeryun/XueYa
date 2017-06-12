@@ -31,6 +31,7 @@
     <string name="weight">体重</string>
     <string name="birthday">生日</string>
     <string name="xiaoyu">＜</string>
+    <string name="dayu">></string>
     <!-- 血压管理-->
     <string name="xueya_title_text">血压管理</string>
     <string name="xueya_shangchuan">上传</string>
@@ -68,6 +69,16 @@
     <string name="fize">免费提问</string>
     <string name="fize_et">请精良详细描述,描述字符不得少于10个字</string>
     <string name="fize_zishu">1/500</string>
+    <string name="setting">设置</string>
+    <string name="account">账户</string>
+    <string name="clean">清理缓存</string>
+    <string name="collect">收藏</string>
+    <string name="mine_jiahao">我的加号</string>
     <string name="send_docotor">提交给医生</string>
+    <string name="zhuanjia_name">专家姓名</string>
+    <string name="jiuzhen_time">就诊时间</string>
+    <string name="shenhe_zhuangtai">审核状态</string>
+    <string name="xinxi_zhuangtai">信息状态</string>
+    <string name="mine_jiahao_tishi">为获取到内容,请确认您是否已经加号,请您点击重试</string>
     <string name="fize_tishi">请简单描述您的病情并提交给我们的客服,客服人员会安排专业的健康顾问并向您致电,为阁下进行专业的电话健康指导</string>
 </resources>
