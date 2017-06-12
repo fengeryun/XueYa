@@ -107,7 +107,6 @@ public class NousPresenter implements INousPresenter{
                         nous = gson.fromJson(eryun, Nous.class);
                         nousView.ListData(nous.getData());
                         Dialogs.DissDialog("");
-
                     }
                     @Override
                     public void error(int code, String erge) {
