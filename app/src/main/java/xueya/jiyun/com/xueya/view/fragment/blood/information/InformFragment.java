@@ -82,19 +82,31 @@ public class InformFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.nous:
-                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true);
+
+                Bundle bundle1 = new Bundle();
+                bundle1.putString("type","1");
+                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle1);
+
                 break;
             case R.id.cookbook:
-                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true);
+                Bundle bundle2 = new Bundle();
+                bundle2.putString("type","2");
+                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle2);
                 break;
             case R.id.prevent:
-                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true);
+                Bundle bundle3 = new Bundle();
+                bundle3.putString("type","3");
+                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle3);
                 break;
             case R.id.treat:
-                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true);
+                Bundle bundle4 = new Bundle();
+                bundle4.putString("type","4");
+                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle4);
                 break;
             case R.id.inspect:
-                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true);
+                Bundle bundle5 = new Bundle();
+                bundle5.putString("type","5");
+                FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle5);
                 break;
             case R.id.inform_back:
                 FragmentManager message = App.activity.getSupportFragmentManager();

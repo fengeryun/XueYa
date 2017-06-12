@@ -1,9 +1,10 @@
-package xueya.jiyun.com.xueya.model.modelinter;
+package xueya.jiyun.com.xueya.model.modelinter.zixun;
 
 import java.util.HashMap;
 
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
 import xueya.jiyun.com.xueya.model.http.HttpFactroy;
+import xueya.jiyun.com.xueya.model.modelinter.BaseModelInter;
 import xueya.jiyun.com.xueya.model.urls.Urls;
 
 /**
@@ -12,10 +13,9 @@ import xueya.jiyun.com.xueya.model.urls.Urls;
  *
  */
 
-public class XueyaModelInter implements BaseModelInter{
+public class CookModelInter implements BaseModelInter {
     public void goLogin(NewUrlCallback callback) {  //获取综合资讯，
         HashMap<String , String> params = new HashMap<String ,String>();
-
-        HttpFactroy.getUrlType(2).doPost(Urls.NOUSURL,params,callback);
+        HttpFactroy.getUrlType(2).doGet(Urls.COOKBOOKURL,params,callback);
     }
 }

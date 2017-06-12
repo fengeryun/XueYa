@@ -7,8 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
@@ -19,9 +19,9 @@ import xueya.jiyun.com.xueya.model.bean.Nous;
  */
 
 public class NousAdapter extends BaseAdapter{
-    private ArrayList<Nous.DataBean> list;
+    private List<Nous.DataBean> list;
 
-    public NousAdapter(ArrayList<Nous.DataBean> list) {
+    public NousAdapter(List<Nous.DataBean> list) {
         this.list = list;
     }
 

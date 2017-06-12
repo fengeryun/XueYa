@@ -76,8 +76,9 @@ public class VolleyUtils implements Ihttp{
     public String getParams(String url,HashMap<String , String> params){
         StringBuffer buff = new StringBuffer();
         buff.append(url);
-        buff.append("?");
+        buff.append("&");
         for(Object keys : params.keySet()){
+
             buff.append(keys+"="+params.get(keys));
             buff.append("&");
         }
