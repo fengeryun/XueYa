@@ -147,6 +147,7 @@ public class DoctorFragment extends BaseFragment {
                 FragmentBuilder.getInstance().start(R.id.activity_home,DoctorPopuView.class).isBacked(true);
                 break;
             case R.id.hospitalGrade:
+                FragmentBuilder.getInstance().start(R.id.activity_home,DoctorPopuHospital.class).isBacked(true);
                 break;
             case R.id.sousuo:
                 break;
