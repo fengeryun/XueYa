@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -150,12 +151,14 @@ public class DoctorFragment extends BaseFragment {
                 FragmentBuilder.getInstance().start(R.id.activity_home,DoctorPopuHospital.class).isBacked(true);
                 break;
             case R.id.sousuo:
+                FragmentBuilder.getInstance().start(R.id.activity_home,DoctorSousuo.class).isBacked(true);
                 break;
             case R.id.queryName:
                 break;
             case R.id.askDoctor:
                 break;
             case R.id.healthPeople:
+                sendPhone();
                 break;
             case R.id.huan:
                 break;
@@ -174,6 +177,20 @@ public class DoctorFragment extends BaseFragment {
             }
         }).setNegativeButton("取消", null);
         builder2.show();
+    }
+
+    private void sendPhone(){
+        AlertDialog.Builder build = new AlertDialog.Builder(App.activity);
+        final String phonenumer = "400-9700-120";
+        build.setTitle("温馨提示").setMessage("您是否要拨打寻医问药的健康电话:  "+phonenumer).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phonenumer));
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+            }
+        }).setNegativeButton("取消", null);
+        build.show();
     }
 
     @Override
