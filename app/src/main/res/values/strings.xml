@@ -79,6 +79,8 @@
     <string name="jiuzhen_time">就诊时间</string>
     <string name="shenhe_zhuangtai">审核状态</string>
     <string name="xinxi_zhuangtai">信息状态</string>
+    <string name="send_tishi1">更改成功后,下次登录可以使用新的手机号码,当前手机号码为:15533604305</string>
+    <string name="send_tishi">我们已经下发 验证码 到这个手机号:            15533604305</string>
     <string name="mine_jiahao_tishi">为获取到内容,请确认您是否已经加号,请您点击重试</string>
     <string name="fize_tishi">请简单描述您的病情并提交给我们的客服,客服人员会安排专业的健康顾问并向您致电,为阁下进行专业的电话健康指导</string>
 </resources>

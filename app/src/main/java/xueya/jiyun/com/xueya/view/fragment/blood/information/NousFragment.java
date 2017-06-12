@@ -30,6 +30,7 @@ public class NousFragment extends BaseFragment implements NousView{
     public void initView(View view) {
         Dialogs.Show2Dialog();
         listVieww = (ListView) view.findViewById(R.id.nous_listview);
+        Dialogs.getInstent().ShowDialog(null);
     }
 
     @Override

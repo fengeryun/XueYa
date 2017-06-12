@@ -9,4 +9,5 @@ public interface MineView {
     void hideToux();
     void showBt();
     void hideBt();
+    void setName(String name);
 }

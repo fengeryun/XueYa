@@ -15,7 +15,7 @@ public class SpUtils {
     private static SharedPreferences preferences;
     private static String SPName;
     private static String Variable;
-    private SharedPreferences.Editor clear;
+    private static SharedPreferences.Editor edit;
 
     private SpUtils (){}
     //创建对象时传入SP文件的名字
@@ -24,7 +24,7 @@ public class SpUtils {
             SPName=SpName;
             spUtils = new SpUtils();
             preferences=App.activity.getSharedPreferences(SPName,App.activity.MODE_PRIVATE);
-
+            edit = preferences.edit();
         }
         return spUtils;
     }
@@ -35,8 +35,8 @@ public class SpUtils {
     }
     //清空sp文件的所有内容
     public  void CleanVariable(){
-        clear = preferences.edit().clear();
-        clear.commit();
+        edit.clear();
+        edit.commit();
 
     }
 }

@@ -1,9 +1,13 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
@@ -25,6 +29,16 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     Button loginbut;
     IMainPresenter iMainPresenter;
     boolean IsOk;
+    TextView mine_okname;
+    BroadcastReceiver broad = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, final Intent intent) {
+            if(intent.getStringExtra("shuaxin")!=null){
+                initData();
+            }
+
+        }
+    };
     @Override
     public void initView(View view) {
         login_lin= (LinearLayout) view.findViewById(R.id.login_lin);
@@ -37,6 +51,12 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
         loginbut = (Button) view.findViewById(R.id.loginbut);
         mine_oklogin= (LinearLayout) view.findViewById(R.id.mine_oklogin);
         iMainPresenter=new IMainPresenter(this);
+        mine_okname= (TextView) view.findViewById(R.id.mine_okname);
+
+        //注册广播
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("login");
+        App.activity.registerReceiver(broad,filter);
     }
 
     @Override
@@ -47,12 +67,11 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     @Override
     public void initData() {
         IsOk=iMainPresenter.login();
+        iMainPresenter.getName();
     }
-
     @Override
     public void loadData() {
     }
-
     @Override
     public void initListener() {
         login_lin.setOnClickListener(this);
@@ -112,6 +131,11 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     @Override
     public void hideBt() {
         mine_nologin.setVisibility(View.GONE);
+    }
+
+    @Override
+    public void setName(String name) {
+        mine_okname.setText(name);
     }
 
 }

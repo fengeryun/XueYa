@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.model.urls.ProvinceList;
 import xueya.jiyun.com.xueya.presenter.login.LogInPresenter;
 import xueya.jiyun.com.xueya.view.viewinter.mine.LogInView;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
@@ -132,6 +133,10 @@ public class LogInFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void startActivity() {
+        Intent it = new Intent();
+        it.setAction("login");
+        it.putExtra("shuaxin","shuaxin");
+        App.activity.sendBroadcast(it);
         FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
     }
 

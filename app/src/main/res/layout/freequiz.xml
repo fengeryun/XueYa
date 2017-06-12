@@ -41,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="150dp">
         <EditText
+            android:background="@color/white"
             android:id="@+id/free_dc_shuru"
             android:textSize="15dp"
             android:hint="@string/fize_et"
@@ -100,6 +101,8 @@
                 android:layout_height="match_parent" />
         </RadioGroup>
         <EditText
+            android:layout_gravity="center"
+            android:background="@color/white"
             android:id="@+id/free_dc_et"
             android:gravity="center"
             android:textSize="20dp"

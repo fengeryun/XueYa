@@ -23,7 +23,7 @@ public class Dialogs {
         }
         return dialogs;
     }
-    public  static ProgressDialog ShowDialog(){
+    public  static ProgressDialog ShowDialog(final String msg){
         pd  = new ProgressDialog(App.activity);
             pd.setMessage("正在加载....");
             pd.show();
@@ -36,6 +36,9 @@ public class Dialogs {
                             @Override
                             public void run() {
                                 pd.dismiss();
+                                if(msg!=null){
+                                    Toast.makeText(App.activity,msg, Toast.LENGTH_SHORT).show();
+                                }
                             }
                         });
                     } catch (InterruptedException e) {
