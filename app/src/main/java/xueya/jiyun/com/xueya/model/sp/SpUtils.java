@@ -21,6 +21,7 @@ public class SpUtils {
         if (spUtils == null) {
             SPName=SpName;
             spUtils = new SpUtils();
+
         }
         return spUtils;
     }
