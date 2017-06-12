@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,12 +33,12 @@ public class InformFragment extends BaseFragment {
     LinearLayout treat;
     @Bind(R.id.inspect)
     LinearLayout inspect;
-    @Bind(R.id.record_back)
-    ImageView recordBack;
     @Bind(R.id.record_titlle)
     TextView recordTitlle;
     @Bind(R.id.inform_layout)
     LinearLayout informLayout;
+    @Bind(R.id.inform_back)
+    ImageView informBack;
 
     @Override
     public void initView(View view) {
@@ -78,7 +79,7 @@ public class InformFragment extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.nous, R.id.cookbook, R.id.prevent, R.id.treat, R.id.inspect})
+    @OnClick({R.id.nous, R.id.cookbook, R.id.prevent, R.id.treat, R.id.inspect,R.id.inform_back,R.id.inform_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.nous:
@@ -96,7 +97,7 @@ public class InformFragment extends BaseFragment {
             case R.id.inspect:
                 FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true);
                 break;
-            case R.id.record_back:
+            case R.id.inform_back:
                 FragmentManager message = App.activity.getSupportFragmentManager();
                 message.popBackStackImmediate();
                 String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount() - 1).getName();
