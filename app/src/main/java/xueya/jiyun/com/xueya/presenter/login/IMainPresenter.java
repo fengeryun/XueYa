@@ -19,8 +19,11 @@ public class IMainPresenter implements MinePresenter {
 
     @Override
     public boolean login() {
-        s = SpUtils.getInstance("LogIn").getSp().GetVariable("userid");
-        if(s !=null){
+        //清空sp文件中的所有内容
+        //SpUtils.getInstance("LogIn").CleanVariable();
+        s = SpUtils.getInstance("LogIn").GetVariable("userid");
+        if(!s.equals("")){
+            Log.e("TAG",s);
          mineView.showToux();
             mineView.hideBt();
             return false;

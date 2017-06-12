@@ -21,6 +21,13 @@ public class MineModelInter implements BaseModelInter{
 
         HttpFactroy.getUrlType(2).doPost(Urls.LogIn_url,params,callback);
     }
+    public void getName(String phonenum,String password , NewUrlCallback callback) {  //获取综合资讯，
+        HashMap<String , String> params = new HashMap<String ,String>();
+        params.put("phonenum", phonenum);
+        params.put("password", password);
+
+        HttpFactroy.getUrlType(2).doPost(Urls.LogIn_url,params,callback);
+    }
 
 
 }

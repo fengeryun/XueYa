@@ -15,20 +15,16 @@ public class SpUtils {
     private static SharedPreferences preferences;
     private static String SPName;
     private static String Variable;
+    private SharedPreferences.Editor clear;
+
     private SpUtils (){}
     //创建对象时传入SP文件的名字
     public static synchronized SpUtils getInstance(String SpName) {
         if (spUtils == null) {
             SPName=SpName;
             spUtils = new SpUtils();
-
-        }
-        return spUtils;
-    }
-    //创建SP对象的单例对象
-    public  synchronized SpUtils getSp(){
-        if(preferences==null){
             preferences=App.activity.getSharedPreferences(SPName,App.activity.MODE_PRIVATE);
+
         }
         return spUtils;
     }
@@ -36,5 +32,11 @@ public class SpUtils {
     public  String GetVariable(String VariableName){
         Variable=preferences.getString(VariableName,"");
       return  Variable;
+    }
+    //清空sp文件的所有内容
+    public  void CleanVariable(){
+        clear = preferences.edit().clear();
+        clear.commit();
+
     }
 }

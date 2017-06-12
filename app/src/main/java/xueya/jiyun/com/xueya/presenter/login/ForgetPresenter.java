@@ -13,7 +13,6 @@ public class ForgetPresenter implements IForgetPresenter {
 
         this.forgetView = forgetView;
     }
-
     @Override
     public void GetPhone(String phone) {
         if(phone.length()!=0){
