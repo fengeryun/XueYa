@@ -1,5 +1,8 @@
 package xueya.jiyun.com.xueya.presenter.login;
 
+import android.util.Log;
+
+import xueya.jiyun.com.xueya.model.sp.SpUtils;
 import xueya.jiyun.com.xueya.view.viewinter.mine.MineView;
 
 /**
@@ -8,6 +11,7 @@ import xueya.jiyun.com.xueya.view.viewinter.mine.MineView;
 
 public class IMainPresenter implements MinePresenter {
     MineView mineView;
+    private String s;
 
     public IMainPresenter(MineView mineView) {
         this.mineView = mineView;
@@ -15,7 +19,20 @@ public class IMainPresenter implements MinePresenter {
 
     @Override
     public boolean login() {
+        s = SpUtils.getInstance("LogIn").getSp().GetVariable("userid");
+        if(s !=null){
+         mineView.showToux();
+            mineView.hideBt();
+            return false;
+        }else{
+            mineView.hideToux();
+            mineView.showBt();
+        }
+        return true;
+    }
 
-        return false;
+    @Override
+    public String getName() {
+        return null;
     }
 }

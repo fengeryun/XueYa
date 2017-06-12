@@ -7,4 +7,7 @@ package xueya.jiyun.com.xueya.presenter.login;
 public interface MinePresenter {
     //判断用户已经是否登录
     boolean login();
+
+    //判断用户已经是否登录
+    String getName();
 }

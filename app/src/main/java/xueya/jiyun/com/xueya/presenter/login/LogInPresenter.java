@@ -2,6 +2,7 @@ package xueya.jiyun.com.xueya.presenter.login;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -35,6 +36,7 @@ public class LogInPresenter implements ILogInPresenter {
             return;
         }
         mine.goLogin(username, psw, new NewUrlCallback() {
+          //  {"state":200,"userid":"116924091","isregister":1,"phonenum":"15533604305","height":158,"sex":"\u5973","birthday":"1939-09-11"}
             @Override
             public void success(String eryun) {
                 if(eryun.contains("userid")){

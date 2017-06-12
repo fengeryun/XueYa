@@ -25,14 +25,14 @@ public class SpUtils {
         return spUtils;
     }
     //创建SP对象的单例对象
-    public static synchronized SharedPreferences getSp(){
+    public  synchronized SpUtils getSp(){
         if(preferences==null){
             preferences=App.activity.getSharedPreferences(SPName,App.activity.MODE_PRIVATE);
         }
-        return preferences;
+        return spUtils;
     }
     //获取需要的字符串
-    public static String GetVariable(String VariableName){
+    public  String GetVariable(String VariableName){
         Variable=preferences.getString(VariableName,"");
       return  Variable;
     }

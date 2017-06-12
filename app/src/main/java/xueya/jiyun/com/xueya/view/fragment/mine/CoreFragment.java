@@ -21,7 +21,7 @@ import xueya.jiyun.com.xueya.view.viewinter.mine.MineView;
 
 public class CoreFragment extends BaseFragment implements View.OnClickListener,MineView {
     //          顶层LinearLayout  登录   加号        收藏        资料     消息  设置
-    LinearLayout login_lin,mine_nologin,mine_sign,mine_collect,mine_data,mine_msg,mine_set;
+    LinearLayout login_lin,mine_nologin,mine_sign,mine_collect,mine_data,mine_msg,mine_set,mine_oklogin;
     Button loginbut;
     IMainPresenter iMainPresenter;
     boolean IsOk;
@@ -35,6 +35,7 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
         mine_msg= (LinearLayout) view.findViewById(R.id.mine_msg);
         mine_set= (LinearLayout) view.findViewById(R.id.mine_set);
         loginbut = (Button) view.findViewById(R.id.loginbut);
+        mine_oklogin= (LinearLayout) view.findViewById(R.id.mine_oklogin);
         iMainPresenter=new IMainPresenter(this);
     }
 
@@ -95,23 +96,22 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     //判断登录状态来控制头像的隐藏显示
     @Override
     public void showToux() {
-
-
+        mine_oklogin.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideToux() {
-
+        mine_oklogin.setVisibility(View.GONE);
     }
     //判断登录状态来控制登录按钮的隐藏显示
     @Override
     public void showBt() {
-
+        mine_nologin.setVisibility(View.VISIBLE);
     }
 
     @Override
     public void hideBt() {
-
+        mine_nologin.setVisibility(View.GONE);
     }
 
 }
