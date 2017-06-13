@@ -29,7 +29,7 @@ public class EaasyFragment extends BaseFragment implements EaasyView{
 
     @Override
     public void initView(View view) {
-        Dialogs.Show2Dialog();
+        Dialogs.ShowDialog();
         eaasy_title = (TextView) view.findViewById(R.id.eaasy_title);
         eaasy_pubdate = (TextView) view.findViewById(R.id.eaasy_pubdate);
         eaasy_body = (TextView) view.findViewById(R.id.eaasy_body);

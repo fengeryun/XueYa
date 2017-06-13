@@ -70,7 +70,7 @@ public class OpinionActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     public void onClick(View v) {
-        Dialogs.ShowDialog(null);
+        Dialogs.ShowDialog();
     }
 
     @Override

@@ -99,7 +99,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.blood:
                 viewpage.setCurrentItem(1);
-                Dialogs.ShowDialog(null);
+                Dialogs.ShowDialog();
                 break;
             case R.id.core:
                 viewpage.setCurrentItem(2);

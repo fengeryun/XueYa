@@ -44,7 +44,4 @@ public class SpUtils {
         return preferences;
     }
 
-    public SharedPreferences getSp(){
-        return preferences;
-    }
 }
