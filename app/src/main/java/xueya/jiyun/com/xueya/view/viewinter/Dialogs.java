@@ -23,7 +23,7 @@ public class Dialogs {
         }
         return dialogs;
     }
-    public  static ProgressDialog ShowDialog(final String msg){
+    public  static ProgressDialog ShowDialog(){
         pd  = new ProgressDialog(App.activity);
             pd.setMessage("正在加载....");
             pd.show();
@@ -31,14 +31,11 @@ public class Dialogs {
                 @Override
                 public void run() {
                     try {
-                        Thread.sleep(2000);
+                        Thread.sleep(500);
                         ThreadUtils.runOnMain(new Runnable() {
                             @Override
                             public void run() {
                                 pd.dismiss();
-                                if(msg!=null){
-                                    Toast.makeText(App.activity,msg, Toast.LENGTH_SHORT).show();
-                                }
                             }
                         });
                     } catch (InterruptedException e) {
@@ -48,18 +45,8 @@ public class Dialogs {
             });
         return pd;
     }
-    public  static ProgressDialog Show2Dialog(){
-        pd  = new ProgressDialog(App.activity);
-        pd.setMessage("正在加载....");
-        pd.setCancelable(false);
-        pd.show();
 
-        return pd;
-    }
-    public static ProgressDialog DissDialog(String msg){
+    public static void disDialog(){
         pd.dismiss();
-        Toast.makeText(App.activity, msg, Toast.LENGTH_SHORT).show();
-        return pd;
     }
-
 }

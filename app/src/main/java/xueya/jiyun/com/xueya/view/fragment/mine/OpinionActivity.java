@@ -99,6 +99,7 @@ public class OpinionActivity extends BaseActivity implements View.OnClickListene
 
        // Dialogs.Show2Dialog();
 
+        Dialogs.ShowDialog();
     }
 
     @Override

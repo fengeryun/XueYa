@@ -28,8 +28,9 @@ public class NousFragment extends BaseFragment implements NousView{
 
     @Override
     public void initView(View view) {
+        Dialogs.ShowDialog();
         listVieww = (ListView) view.findViewById(R.id.nous_listview);
-        Dialogs.getInstent().ShowDialog(null);
+        Dialogs.getInstent().ShowDialog();
     }
 
     @Override

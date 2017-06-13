@@ -46,6 +46,7 @@ public class LogInPresenter implements ILogInPresenter {
                     //网络请求获取的用户信息存入SP文件
                     SharedPreferences sp = App.activity.getSharedPreferences("LogIn", App.activity.MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
+                    editor.putBoolean("isLogin",true);
                     editor.putString("userid", logInOk.getUserid());
                     editor.putString("phonenum", logInOk.getPhonenum());
                     editor.putString("height", logInOk.getHeight()+"");

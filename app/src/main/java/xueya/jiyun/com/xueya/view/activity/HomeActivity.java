@@ -65,7 +65,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setPageChange() {
-        viewpage.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewpage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }
@@ -101,7 +101,7 @@ public class HomeActivity extends AppCompatActivity {
                 break;
             case R.id.blood:
                 viewpage.setCurrentItem(1);
-                Dialogs.ShowDialog(null);
+                Dialogs.ShowDialog();
                 break;
             case R.id.core:
                 viewpage.setCurrentItem(2);

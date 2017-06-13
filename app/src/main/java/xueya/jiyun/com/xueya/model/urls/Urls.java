@@ -9,7 +9,22 @@ public class Urls {
 
     public static String LogIn_url=BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=kbb&fun=users&type=login"; //登录
 
-    public static String ZhuanJiaList = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=SearchDoctor&pageCount=10&pageNum=1&province=&title=&keyword=&illid=%E9%AB%98%E8%A1%80%E5%8E%8B&IsPlus=0&level= HTTP/1.1";  //砖家列表
+    public static String ZhuanJiaList(int num){
+    String zhuanjiaurl = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=SearchDoctor&pageCount=10&pageNum="+num+"&province=&title=&keyword=&illid=%E9%AB%98%E8%A1%80%E5%8E%8B&IsPlus=0";
+    return zhuanjiaurl;
+}  //砖家列表
+
+    public static String ReMengList(int numer){
+        String remengurl = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=HotDoctor&pageNum="+numer+"&pageCount=4";
+        return remengurl;
+    }  //热门砖家
+
+    public static String HuiFuList(int number){
+        String remengurl = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=DoctorRely&expertid=19069&pageNum="+number+"&pageCount=20";
+        return remengurl;
+    }//砖家回复
+
+
     public static String NOUSURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeList&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae&typeid=18031&dir=zhuanti_nk";
     public static String COOKBOOKURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeList&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae&typeid=7938&dir=zhuzhan_ys";
     public static String PREVENTURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeList&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae&typeid=18033&dir=zhuanti_nk";

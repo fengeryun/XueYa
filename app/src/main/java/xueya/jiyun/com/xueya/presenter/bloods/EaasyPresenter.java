@@ -55,7 +55,7 @@ public class EaasyPresenter implements INousPresenter {
                 Gson gson = new Gson();
                 nous = gson.fromJson(eryun, Eaasys.class);
                 eaasyView.EaasyData(nous);
-                Dialogs.DissDialog("");
+                Dialogs.disDialog();
             }
 
             @Override
@@ -73,7 +73,7 @@ public class EaasyPresenter implements INousPresenter {
                 Gson gson = new Gson();
                 nous = gson.fromJson(eryun, Eaasys.class);
                 eaasyView.EaasyData(nous);
-                Dialogs.DissDialog("");
+                Dialogs.disDialog();
             }
 
             @Override

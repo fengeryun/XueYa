@@ -40,13 +40,23 @@ public class VolleyUtils implements Ihttp{
         String urls = getParams(url,params);
         StringRequest strrequest = new StringRequest(Request.Method.GET, urls, new Response.Listener<String>() {
             @Override
-            public void onResponse(String s) {
-                callback.success(s);
+            public void onResponse(final String s) {
+                App.activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.success(s);
+                    }
+                });
             }
         }, new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError volleyError) {
-                callback.error(404,volleyError.getMessage());
+            public void onErrorResponse(final VolleyError volleyError) {
+                App.activity.runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.error(404,volleyError.getMessage());
+                    }
+                });
             }
         });
         queue.add(strrequest);

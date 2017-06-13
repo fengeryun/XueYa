@@ -40,7 +40,7 @@ public class NousPresenter implements INousPresenter{
                         Gson gson = new Gson();
                         nous = gson.fromJson(eryun, Nous.class);
                         nousView.ListData(nous.getData());
-                        Dialogs.DissDialog("");
+                        Dialogs.disDialog();
                     }
                     @Override
                     public void error(int code, String erge) {
@@ -58,7 +58,7 @@ public class NousPresenter implements INousPresenter{
                         nousView.ListData(nous.getData());
 
 
-                        Dialogs.DissDialog("");
+                        Dialogs.disDialog();
                     }
                     @Override
                     public void error(int code, String erge) {
@@ -73,7 +73,7 @@ public class NousPresenter implements INousPresenter{
                         Gson gson = new Gson();
                         nous = gson.fromJson(eryun, Nous.class);
                         nousView.ListData(nous.getData());
-                        Dialogs.DissDialog("");
+                        Dialogs.disDialog();
 
                     }
                     @Override
@@ -90,7 +90,7 @@ public class NousPresenter implements INousPresenter{
                         Gson gson = new Gson();
                         nous = gson.fromJson(eryun, Nous.class);
                         nousView.ListData(nous.getData());
-                        Dialogs.DissDialog("");
+                        Dialogs.disDialog();
                     }
                     @Override
                     public void error(int code, String erge) {
@@ -105,7 +105,7 @@ public class NousPresenter implements INousPresenter{
                         Gson gson = new Gson();
                         nous = gson.fromJson(eryun, Nous.class);
                         nousView.ListData(nous.getData());
-                        Dialogs.DissDialog("");
+                        Dialogs.disDialog();
                     }
                     @Override
                     public void error(int code, String erge) {

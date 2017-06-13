@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -120,11 +121,20 @@ public class DoctorSousuo extends BaseFragment {
                 onBack();
                 break;
             case R.id.sousuo_yes:
-                LiShiList.getInstance().addlishi(sousuoInput.getText().toString().trim());
-                it.putExtra("sousuoname",sousuoInput.getText().toString().trim());
-                it.setAction("provincename");
-                App.activity.sendBroadcast(it);
-                onBack();
+                if(sousuoInput.getText().toString().trim().length()>=1){
+                    LiShiList.getInstance().addlishi(sousuoInput.getText().toString().trim());
+                    it.putExtra("sousuoname",sousuoInput.getText().toString().trim());
+                    it.setAction("provincename");
+                    App.activity.sendBroadcast(it);
+                    onBack();
+                }else {
+                    ThreadUtils.runOnMain(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(App.activity, "输入内容不能为空", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
                 break;
         }
     }
