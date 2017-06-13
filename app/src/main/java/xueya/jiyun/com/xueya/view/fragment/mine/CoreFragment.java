@@ -85,12 +85,11 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     }
     @Override
     public void onClick(View v) {
-        if (IsOk){
+        /*if (IsOk){
             FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
-        }else{
+        }else{*/
             switch (v.getId()){
                 case R.id.loginbut:
-
                     FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
                     break;
                 case R.id.mine_msg:
@@ -110,7 +109,7 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
                     break;
             }
 
-        }
+        //}
     }
     //判断登录状态来控制头像的隐藏显示
     @Override

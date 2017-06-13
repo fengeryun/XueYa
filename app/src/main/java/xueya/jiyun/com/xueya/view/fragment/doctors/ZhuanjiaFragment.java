@@ -5,38 +5,57 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import in.srain.cube.views.ptr.PtrClassicDefaultFooter;
+import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
+import in.srain.cube.views.ptr.PtrDefaultHandler2;
+import in.srain.cube.views.ptr.PtrFrameLayout;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.adapter.ZhuanJiaAdapter;
+import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
+import xueya.jiyun.com.xueya.presenter.doctor.ZhuanJiaPresenter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
+import xueya.jiyun.com.xueya.tools.ThreadUtils;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
+import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
+import xueya.jiyun.com.xueya.view.viewinter.doc.ZhuanJiaView;
 
 /**
  * Created by my on 2017/6/12.
  */
 
-public class ZhuanjiaFragment extends BaseFragment {
-    @Bind(R.id.record_back)
-    ImageView recordBack;
-    @Bind(R.id.record_titlle)
-    TextView recordTitlle;
-    @Bind(R.id.taken_listview)
-    ListView takenListview;
+public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
+    @Bind(R.id.zhuanjia_back)
+    ImageView zhuanjiaBack;
+    @Bind(R.id.zhuanjia_titlle)
+    TextView zhuanjiaTitlle;
+    @Bind(R.id.zhuanjia_listview)
+    ListView zhuanjiaListview;
+    @Bind(R.id.zhuanjia_ptr)
+    PtrFrameLayout zhuanjiaPtr;
+    ZhuanJiaPresenter persenter;
+    ZhuanJiaAdapter adapter;
+    int num = 1;
 
     @Override
     public void initView(View view) {
-        recordTitlle.setText("全部14624位专家");
+
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.takenotes;
+        return R.layout.zhuanjialist;
     }
 
     @Override
@@ -46,12 +65,84 @@ public class ZhuanjiaFragment extends BaseFragment {
 
     @Override
     public void loadData() {
-
+        Dialogs.ShowDialog();
+        zhuanjiaTitlle.setText("全部14624位专家");
+        persenter = new ZhuanJiaPresenter(this);
+        persenter.getZhuanJiaData(num);
     }
 
     @Override
     public void initListener() {
+        PtrClassicDefaultHeader head = new PtrClassicDefaultHeader(getActivity());
+        PtrClassicDefaultFooter foot = new PtrClassicDefaultFooter(getActivity());
+        zhuanjiaPtr.setHeaderView(head);
+        zhuanjiaPtr.setFooterView(foot);
+        zhuanjiaPtr.addPtrUIHandler(head);
+        zhuanjiaPtr.addPtrUIHandler(foot);     //下拉刷新
 
+        zhuanjiaPtr.setPtrHandler(new PtrDefaultHandler2() {  //下拉刷新监听
+            @Override
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                ThreadUtils.runOnSubThread(new Runnable(){
+                    @Override
+                    public void run() {
+                        num++;
+                        persenter.getZhuanJiaData(num);
+                        ThreadUtils.runOnMain(new Runnable() {
+                            @Override
+                            public void run() {
+                                adapter.notifyDataSetChanged();
+                                zhuanjiaPtr.refreshComplete();
+                            }
+                        });
+                    }
+                });
+            }
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                persenter.getZhuanJiaData(1);
+                ThreadUtils.runOnMain(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                        zhuanjiaPtr.refreshComplete();
+                    }
+                });
+            }
+        });
+    }
+
+    @Override
+    public void showToast(String cont) {
+        Toast.makeText(App.activity, cont, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void goListItem() {
+
+    }
+
+    @Override
+    public void loadList(final List<ZhuanJiaBean.DataBean> list) {
+        Dialogs.disDialog();
+        adapter = new ZhuanJiaAdapter(list);
+        zhuanjiaListview.setAdapter(adapter);
+
+        zhuanjiaListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bun = new Bundle();
+                bun.putString("name",list.get(position).getName());
+                bun.putString("img",list.get(position).getApp_image());
+                bun.putString("yiyuan",list.get(position).getHospital());
+                bun.putString("job",list.get(position).getTitle());
+                bun.putString("jineng",list.get(position).getDepart());
+                bun.putString("xueli",list.get(position).getTeach());
+                bun.putString("content",list.get(position).getGoodat());
+                bun.putString("id",list.get(position).getDocument_id());
+                FragmentBuilder.getInstance().start(R.id.activity_home,ZhuanJiaData.class).isBacked(true).setParams(bun);
+            }
+        });
     }
 
     @Override
@@ -68,17 +159,16 @@ public class ZhuanjiaFragment extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.record_back)
+    @OnClick(R.id.zhuanjia_back)
     public void onViewClicked() {
         onBack();
     }
 
-    private void onBack(){
+    private void onBack() {
         FragmentManager message = App.activity.getSupportFragmentManager();
         message.popBackStackImmediate();
         String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount() - 1).getName();
         BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
         FragmentBuilder.getInstance().setLastFragment(fragment);
     }
-
 }

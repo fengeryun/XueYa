@@ -39,4 +39,12 @@ public class SpUtils {
         edit.commit();
 
     }
+
+    public SharedPreferences getSp(){
+        return preferences;
+    }
+
+    public SharedPreferences getSp(){
+        return preferences;
+    }
 }

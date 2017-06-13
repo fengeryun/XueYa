@@ -50,6 +50,9 @@ public class MessageFragment extends BaseFragment implements View.OnClickListene
             case R.id.msg_quiz:
                 FragmentBuilder.getInstance().start(R.id.activity_home,FreeFragment.class);
                 break;
+            case R.id.activity_message:
+
+                break;
         }
     }
 }

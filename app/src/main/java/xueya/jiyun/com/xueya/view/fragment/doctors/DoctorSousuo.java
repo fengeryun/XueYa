@@ -94,7 +94,9 @@ public class DoctorSousuo extends BaseFragment {
         sousuoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(LiShiList.getInstance().getList().size()!=0){
                     sousuoInput.setText(LiShiList.getInstance().getList().get(position));
+                }
             }
         });
     }
@@ -120,11 +122,20 @@ public class DoctorSousuo extends BaseFragment {
                 onBack();
                 break;
             case R.id.sousuo_yes:
-                LiShiList.getInstance().addlishi(sousuoInput.getText().toString().trim());
-                it.putExtra("sousuoname",sousuoInput.getText().toString().trim());
-                it.setAction("provincename");
-                App.activity.sendBroadcast(it);
-                onBack();
+                if(sousuoInput.getText().toString().trim().length()>=1){
+                    LiShiList.getInstance().addlishi(sousuoInput.getText().toString().trim());
+                    it.putExtra("sousuoname",sousuoInput.getText().toString().trim());
+                    it.setAction("provincename");
+                    App.activity.sendBroadcast(it);
+                    onBack();
+                }else {
+                    ThreadUtils.runOnMain(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(App.activity, "输入内容不能为空", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }
                 break;
         }
     }

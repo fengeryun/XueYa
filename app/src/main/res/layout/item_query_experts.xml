@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitesmoke">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+        
+        <ImageView
+            android:id="@+id/query_pic"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@mipmap/ic_launcher"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp">
+
+            <TextView
+                android:id="@+id/tv_query_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@color/black"/>
+
+            <TextView
+                android:id="@+id/tv_query_yiyuan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/tv_query_name"
+                android:layout_marginLeft="10dp"
+                android:textSize="13dp"
+                android:layout_marginTop="1dp"
+                android:textColor="@color/grey"/>
+
+            <TextView
+                android:id="@+id/tv_query_zhiwei"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_query_name"
+                android:layout_marginTop="5dp"/>
+
+            <TextView
+                android:id="@+id/tv_query_jineng"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_query_name"
+                android:layout_toRightOf="@id/tv_query_zhiwei"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:id="@+id/tv_query_xueli"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_query_name"
+                android:layout_toRightOf="@id/tv_query_jineng"
+                android:layout_marginTop="5dp"
+                android:text="22222"
+                android:layout_marginLeft="10dp"/>
+
+            <ImageView
+                android:id="@+id/iv_query_ispush"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_query_xueli"
+                android:layout_marginTop="5dp"
+                android:src="@mipmap/freeadd"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_query_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:maxLines="2"
+        android:text="111111"
+        android:ellipsize="end"/>
+</LinearLayout>

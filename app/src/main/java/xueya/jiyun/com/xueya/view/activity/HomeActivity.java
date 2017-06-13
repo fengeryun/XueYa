@@ -63,7 +63,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setPageChange() {
-        viewpage.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        viewpage.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
             }

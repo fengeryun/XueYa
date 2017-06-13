@@ -221,6 +221,15 @@
             android:gravity="center"
             />
     </LinearLayout>
+        <GridView
+            android:id="@+id/doctor_grid"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:numColumns="4"
+            >
+
+
+        </GridView>
     </LinearLayout>
     </ScrollView>
 </LinearLayout>
