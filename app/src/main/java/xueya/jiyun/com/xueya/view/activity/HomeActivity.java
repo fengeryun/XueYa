@@ -1,5 +1,7 @@
 package xueya.jiyun.com.xueya.view.activity;
 
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.Process;
 import android.support.v4.app.Fragment;
@@ -139,6 +141,23 @@ public class HomeActivity extends AppCompatActivity {
             FragmentBuilder.getInstance().setLastFragment(fragment);
         }
 
+    }
+    private Intent onHomeIntent; // home键退出后通过intent启动程序
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+// 拦截Intent，保存Intent，在onResume中进行处理
+        onHomeIntent = intent;
+    }
+
+    @Override
+    public void onResume() {
+
+        if(onHomeIntent != null){ // home键退出后通过intent启动程序
+// dosomething···
+            onHomeIntent = null;
+        }
+        super.onResume();
     }
 
 }

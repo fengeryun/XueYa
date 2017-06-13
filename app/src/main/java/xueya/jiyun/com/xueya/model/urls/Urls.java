@@ -17,4 +17,6 @@ public class Urls {
     public static String INSPECTURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeList&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae&typeid=18032&dir=zhuanti_nk";
     public static String EAASYURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeDetail&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae";
     public static String GETMSG = BaseUrl+"index.php?act=kbb&fun=users&type=pullAccountInfo&tag=wjk&userid=";
+    public static String CHANGE_PHONE = BaseUrl+"index.php?act=sms&fun=sendCode&target=";
+    public static String GETSIGN = BaseUrl+"index.php?act=zhuanjia&fun=Plus&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&user_id=";
 }

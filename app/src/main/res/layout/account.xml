@@ -55,7 +55,7 @@
     </RelativeLayout>
     <RelativeLayout
         android:background="@color/white"
-        android:id="@+id/zhanghu_rl2"
+        android:id="@+id/zhanghu_psw"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center_vertical"

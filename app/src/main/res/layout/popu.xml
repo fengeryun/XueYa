@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="#FFFFFF"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:textColor="#CCCCCC"
+        android:layout_margin="10dp"
+        android:id="@+id/popu_title"
+        android:textSize="30dp"
+        android:text="选择身高"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <NumberPicker
+        android:id="@+id/hourpicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</LinearLayout>

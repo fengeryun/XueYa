@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#F9F9F9"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!--验证码确认-->
     <LinearLayout
@@ -27,7 +29,8 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/send_haoma"
+        android:textSize="18dp"
+        android:id="@+id/affirm_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
@@ -37,29 +40,41 @@
         android:text="@string/send_tishi"
         android:textStyle="bold"/>
     <EditText
-        android:id="@+id/send_et"
+        android:id="@+id/affirm_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入新的手机号码"
+        android:hint="请输入验证码"
         android:gravity="center"
         android:background="@mipmap/login_edit"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
     <TextView
+        android:id="@+id/affirm_dao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="接收短信大约需要60s"
         android:layout_margin="10dp"/>
-    <Button
-        android:id="@+id/send_bt"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="绑定"
-        android:textColor="@color/white"
-        android:background="#4CBF5C"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/affirm_no_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:text="发送验证码"
+            android:background="@drawable/forget_bt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+        <Button
+            android:visibility="gone"
+            android:id="@+id/affirm_ok_bt"
+            android:textColor="@color/white"
+            android:background="@drawable/nologin_bt"
+            android:layout_margin="18dp"
+            android:text="发送验证码"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
 </LinearLayout>

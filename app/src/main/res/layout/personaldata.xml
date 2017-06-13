@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
     <!--个人资料详情页-->
    <RelativeLayout
+       android:id="@+id/rl"
        android:background="#4CBF5C"
        android:orientation="horizontal"
        android:layout_width="match_parent"
@@ -29,10 +30,12 @@
            />
    </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/personal_name"
         android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="50dp">
         <TextView
+            android:id="@+id/name"
             android:layout_margin="10dp"
             android:textSize="20dp"
             android:layout_gravity="center"
@@ -48,6 +51,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/persona_name"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu"
             android:textSize="20dp"
@@ -80,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/personal_sex"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu1"
             android:textSize="20dp"
@@ -112,6 +117,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/personal_height"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu2"
             android:textSize="20dp"
@@ -144,6 +150,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/personal_weight"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu3"
             android:textSize="20dp"
@@ -176,6 +183,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:id="@+id/personal_birthday"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu4"
             android:textSize="20dp"

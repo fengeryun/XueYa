@@ -1,8 +1,12 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
@@ -17,9 +21,12 @@ import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
 
 public class AccountFragment extends BaseFragment implements View.OnClickListener {
     Button exit_bt;
+    RelativeLayout zhanghu_rl1,zhanghu_psw;
     @Override
     public void initView(View view) {
         exit_bt= (Button) view.findViewById(R.id.exit_bt);
+        zhanghu_rl1= (RelativeLayout) view.findViewById(R.id.zhanghu_rl1);
+        zhanghu_psw= (RelativeLayout) view.findViewById(R.id.zhanghu_psw);
     }
 
     @Override
@@ -39,6 +46,8 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
 
     @Override
     public void initListener() {
+        zhanghu_rl1.setOnClickListener(this);
+        zhanghu_psw.setOnClickListener(this);
         exit_bt.setOnClickListener(this);
     }
 
@@ -46,12 +55,28 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.exit_bt:
-                SpUtils.getInstance("LogIn").CleanVariable();
-                Intent it = new Intent();
-                it.setAction("login");
-                it.putExtra("shuaxin","shuaxin");
-                App.activity.sendBroadcast(it);
-                FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
+                Dialog dialog=new AlertDialog.Builder(App.activity)
+                        .setTitle("退出登录")
+                        .setMessage("退出不会删除任何数据,下次登录可使用本账号")
+                        .setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                SpUtils.getInstance("LogIn").CleanVariable();
+                                Intent it = new Intent();
+                                it.setAction("login");
+                                it.putExtra("shuaxin","shuaxin");
+                                App.activity.sendBroadcast(it);
+                                FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
+                            }
+                        })
+                        .setNegativeButton("取消",null)
+                        .create();
+                dialog.show();
+                break;
+            case R.id.zhanghu_rl1:
+            FragmentBuilder.getInstance().start(R.id.activity_home,PhoneFragment.class);
+                 break;
+            case R.id.zhanghu_psw:
                 break;
         }
     }

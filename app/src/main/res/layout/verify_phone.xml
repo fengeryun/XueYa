@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#F9F9F9"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 <!--验证手机号-->
     <LinearLayout
@@ -45,15 +47,28 @@
         android:background="@mipmap/login_edit"
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"/>
-    <Button
-        android:id="@+id/change_bt"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="发送验证码"
-        android:textColor="@color/white"
-        android:background="#4CBF5C"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"/>
+        android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/verify_no_bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="18dp"
+            android:text="发送验证码"
+            android:background="@drawable/forget_bt"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"/>
+        <Button
+            android:visibility="gone"
+            android:id="@+id/verify_ok_bt"
+            android:textColor="@color/white"
+            android:background="@drawable/nologin_bt"
+            android:layout_margin="18dp"
+            android:text="发送验证码"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+
 
 </LinearLayout>
