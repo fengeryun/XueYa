@@ -192,7 +192,6 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");//相片类型
         startActivityForResult(intent,1);
-
     }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -204,6 +203,7 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
         } else if (requestCode == 2 ) {
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             core_img.setImageBitmap(photo);
+            dialog.dismiss();
         } }
 
 }
