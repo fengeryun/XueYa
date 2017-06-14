@@ -132,14 +132,7 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bun = new Bundle();
-                bun.putString("name",list.get(position).getName());
-                bun.putString("img",list.get(position).getApp_image());
-                bun.putString("yiyuan",list.get(position).getHospital());
-                bun.putString("job",list.get(position).getTitle());
-                bun.putString("jineng",list.get(position).getDepart());
-                bun.putString("xueli",list.get(position).getTeach());
-                bun.putString("content",list.get(position).getGoodat());
-                bun.putString("id",list.get(position).getDocument_id());
+                bun.putParcelable("databean",list.get(position));
                 FragmentBuilder.getInstance().start(R.id.activity_home,ZhuanJiaData.class).isBacked(true).setParams(bun);
             }
         });

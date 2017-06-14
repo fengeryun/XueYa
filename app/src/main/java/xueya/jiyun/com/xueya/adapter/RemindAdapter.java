@@ -4,27 +4,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.bumptech.glide.Glide;
 
 import java.util.List;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
-import xueya.jiyun.com.xueya.model.bean.ReMengBean;
-import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
+import xueya.jiyun.com.xueya.model.db.Hour;
 
 /**
- * Created by my on 2017/6/13.
+ * Created by Asus on 2017/6/13.
  */
 
-public class GridAdapter extends BaseAdapter{
+public class RemindAdapter extends BaseAdapter{
+    private List<Hour> list;
 
-    List<ZhuanJiaBean.DataBean> list;
-
-    public GridAdapter(List<ZhuanJiaBean.DataBean> list) {
+    public RemindAdapter(List<Hour> list) {
         this.list = list;
     }
 
@@ -46,26 +41,26 @@ public class GridAdapter extends BaseAdapter{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;
-        if(convertView == null){
-            convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.griditem,null);
+        if (convertView==null){
             holder = new ViewHolder();
-
-            holder.gridImage = (ImageView) convertView.findViewById(R.id.grid_img);
-            holder.gridText = (TextView) convertView.findViewById(R.id.grid_txt);
-
+            convertView = LayoutInflater.from(App.activity).inflate(R.layout.reminditem,null);
+            holder.remind_time = (TextView) convertView.findViewById(R.id.remind_time);
+            holder.remind_drug = (TextView) convertView.findViewById(R.id.remind_drug);
+            holder.remind_num = (TextView) convertView.findViewById(R.id.remind_num);
             convertView.setTag(holder);
         }else {
             holder = (ViewHolder) convertView.getTag();
         }
-
-        Glide.with(App.activity).load(list.get(position).getApp_image()).into(holder.gridImage);
-        holder.gridText.setText(list.get(position).getName());
+        holder.remind_time.setText(list.get(position).getHour());
+        holder.remind_drug.setText(list.get(position).getName());
+        holder.remind_num.setText(list.get(position).getNum()+"片/次");
 
         return convertView;
     }
 
     class ViewHolder{
-        ImageView gridImage;
-        TextView gridText;
+        private TextView remind_time;
+        private TextView remind_drug;
+        private TextView remind_num;
     }
 }

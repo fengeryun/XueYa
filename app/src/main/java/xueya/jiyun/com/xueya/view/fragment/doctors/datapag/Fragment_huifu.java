@@ -11,6 +11,9 @@ import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import in.srain.cube.views.ptr.PtrClassicDefaultFooter;
+import in.srain.cube.views.ptr.PtrClassicDefaultHeader;
+import in.srain.cube.views.ptr.PtrDefaultHandler2;
 import in.srain.cube.views.ptr.PtrFrameLayout;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
@@ -65,7 +68,43 @@ public class Fragment_huifu extends BaseFragment implements HuiFuView{
 
     @Override
     public void initListener() {
+        PtrClassicDefaultHeader head = new PtrClassicDefaultHeader(getActivity());
+        PtrClassicDefaultFooter foot = new PtrClassicDefaultFooter(getActivity());
+        huifuPtr.setHeaderView(head);
+        huifuPtr.setFooterView(foot);
+        huifuPtr.addPtrUIHandler(head);
+        huifuPtr.addPtrUIHandler(foot);     //下拉刷新
 
+        huifuPtr.setPtrHandler(new PtrDefaultHandler2() {  //下拉刷新监听
+            @Override
+            public void onLoadMoreBegin(PtrFrameLayout frame) {
+                ThreadUtils.runOnSubThread(new Runnable(){
+                    @Override
+                    public void run() {
+                        numb++;
+                        persenter.getHuiFuDataList(numb);
+                        ThreadUtils.runOnMain(new Runnable() {
+                            @Override
+                            public void run() {
+                                adapters.notifyDataSetChanged();
+                                huifuPtr.refreshComplete();
+                            }
+                        });
+                    }
+                });
+            }
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                persenter.getHuiFuDataList(1);
+                ThreadUtils.runOnMain(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapters.notifyDataSetChanged();
+                        huifuPtr.refreshComplete();
+                    }
+                });
+            }
+        });
     }
 
     @Override

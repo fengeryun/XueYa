@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/web_parent"
+    android:background="@color/whitesmoke"
+    >
+
+    <RelativeLayout
+        android:id="@+id/web_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/colorPrimary"
+        >
+        <TextView
+            android:id="@+id/web_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="资讯详情"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:textSize="20sp"
+            android:drawableLeft="@mipmap/ic_brows_back"
+            android:textColor="#FFFFFF"
+            />
+    </RelativeLayout>
+
+    <WebView
+        android:id="@+id/web_vi"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_below="@+id/web_layout"
+        ></WebView>
+
+</RelativeLayout>

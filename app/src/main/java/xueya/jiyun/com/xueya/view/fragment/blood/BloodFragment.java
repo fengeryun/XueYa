@@ -8,24 +8,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
+import xueya.jiyun.com.xueya.model.db.Takes;
+import xueya.jiyun.com.xueya.model.sp.SpUtils;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.fragment.blood.information.InformFragment;
 import xueya.jiyun.com.xueya.view.fragment.blood.tixing.RemindFragment;
+import xueya.jiyun.com.xueya.view.viewinter.blooder.BloodView;
+import xueya.jiyun.com.xueya.view.fragment.mine.LogInFragment;
+import xueya.jiyun.com.xueya.view.fragment.mine.MessageFragment;
 
 /**
  * Created by 123 on 2017/6/9.
  */
 
-public class BloodFragment extends BaseFragment implements View.OnClickListener {
+public class BloodFragment extends BaseFragment implements View.OnClickListener,BloodView {
     @Bind(R.id.radioButton2)
     RadioButton radioButton2;
     @Bind(R.id.radioButton)
@@ -123,12 +131,22 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener 
                 FragmentBuilder.getInstance().start(R.id.activity_home, InformFragment.class).isBacked(true);
                 break;
             case R.id.radioButton_wenyisheng:
-
+                if(SpUtils.getInstance("LogIn").getSp().getBoolean("isLogin",false)){
+                    FragmentBuilder.getInstance().start(R.id.activity_home,MessageFragment.class).isBacked(true);
+                }else {
+                    Toast.makeText(App.activity, "请先登录", Toast.LENGTH_SHORT).show();
+                    FragmentBuilder.getInstance().start(R.id.activity_home, LogInFragment.class).isBacked(true);
+                }
                 break;
             case R.id.radioButton_tixing:
                 FragmentBuilder.getInstance().start(R.id.activity_home, RemindFragment.class).isBacked(true);
                 break;
 
         }
+    }
+
+    @Override
+    public void showText(List<Takes> list) {
+
     }
 }
