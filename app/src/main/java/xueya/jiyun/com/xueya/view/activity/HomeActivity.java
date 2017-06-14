@@ -140,7 +140,6 @@ public class HomeActivity extends AppCompatActivity {
             BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
             FragmentBuilder.getInstance().setLastFragment(fragment);
 
-
         }
 
     }
