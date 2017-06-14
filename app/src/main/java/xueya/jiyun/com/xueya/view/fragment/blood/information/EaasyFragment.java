@@ -48,7 +48,6 @@ public class EaasyFragment extends BaseFragment implements EaasyView, View.OnCli
     public void initData() {
         eaasyPresenter = new EaasyPresenter(this,type,id);
     }
-
     @Override
     public void loadData() {
         eaasyPresenter.click();
