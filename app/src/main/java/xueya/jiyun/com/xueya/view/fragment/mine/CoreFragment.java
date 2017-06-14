@@ -205,6 +205,7 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
             core_img.setImageBitmap(photo);
             dialog.dismiss();
 
+
         } }
 
 }
