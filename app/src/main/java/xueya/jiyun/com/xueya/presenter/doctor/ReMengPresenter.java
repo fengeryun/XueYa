@@ -30,17 +30,17 @@ public class ReMengPresenter {
             public void success(String eryun) {
                 Gson gson = new Gson();
                 ZhuanJiaBean bean = gson.fromJson(eryun,ZhuanJiaBean.class);
-
-                remeng.loadGrid(bean.getData());
-                //remeng.showToest(bean.getData().get(0).getName());
-                //remeng.showToest("请求成功");
-                //Log.e("SSSSSSSSSSSSSSSS",eryun);
+                if(bean.getData().size()>0){
+                    remeng.loadGrid(bean.getData());
+                }else {
+                    remeng.showToest("请检查网络连接..");
+                }
             }
 
             @Override
             public void error(int code, String erge) {
                 remeng.showToest("请连网..");
-                Log.e("SSSSSSSSSSSSSSSS",erge);
+                //Log.e("SSSSSSSSSSSSSSSS",erge);
             }
         });
 
