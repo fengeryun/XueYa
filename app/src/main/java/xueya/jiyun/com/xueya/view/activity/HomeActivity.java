@@ -139,6 +139,8 @@ public class HomeActivity extends AppCompatActivity {
             Log.e("--------------lastname",lastname);
             BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
             FragmentBuilder.getInstance().setLastFragment(fragment);
+
+
         }
 
     }
