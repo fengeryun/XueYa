@@ -117,6 +117,7 @@ public class HomeActivity extends AppCompatActivity {
         Log.e("--------------lastback",lastback);
         if(lastback.equals("DoctorFragment") || lastback.equals("BloodFragment") || lastback.equals("CoreFragment")){
 
+
                 if(num<2){
                     firsttime = System.currentTimeMillis();
 
