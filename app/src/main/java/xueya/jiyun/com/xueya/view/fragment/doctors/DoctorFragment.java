@@ -230,6 +230,7 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
     @Override
     public void showToest(String cont) {
         Toast.makeText(App.activity, cont, Toast.LENGTH_SHORT).show();
+
     }
 
     @Override
