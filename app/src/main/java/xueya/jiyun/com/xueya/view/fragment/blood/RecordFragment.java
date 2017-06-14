@@ -6,33 +6,35 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.DatePicker;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.presenter.bloods.RecordPresenter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
+import xueya.jiyun.com.xueya.view.viewinter.blooder.RecordView;
 
 /**
  * Created by Asus on 2017/6/9.
  */
 
-public class RecordFragment extends BaseFragment implements View.OnClickListener {
+public class RecordFragment extends BaseFragment implements View.OnClickListener,RecordView{
     @Bind(R.id.record_back)
     ImageView recordBack;
     @Bind(R.id.record_titlle)
@@ -43,14 +45,14 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
     TextView gaoya;
     @Bind(R.id.diya)
     TextView diya;
-    @Bind(R.id.record_commit)
-    Button recordCommit;
-    @Bind(R.id.record_txt)
-    TextView recordTxt;
+    private Button recordCommit;
     private ImageView record_back;
     private TextView showDate;
     private TextView record_time;
+    private LinearLayout record_linear;
+    private EditText record_device,record_height,record_low;
 
+    private RecordPresenter rp;
     //获取日期格式器对象
     DateFormat fmtDate = new SimpleDateFormat("yyyy-MM-dd");
     DateFormat fmtTime = new java.text.SimpleDateFormat("HH:mm");
@@ -84,10 +86,14 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void initView(View view) {
+        recordCommit = (Button) view.findViewById(R.id.record_commit);
         record_back = (ImageView) view.findViewById(R.id.record_back);
         showDate = (TextView) view.findViewById(R.id.record_date);
         record_time = (TextView) view.findViewById(R.id.record_time);
-
+        record_linear = (LinearLayout) view.findViewById(R.id.record_linear);
+        record_device = (EditText) view.findViewById(R.id.record_device);
+        record_height = (EditText) view.findViewById(R.id.record_height);
+        record_low = (EditText) view.findViewById(R.id.record_low);
     }
     @Override
     public int getLayoutId() {
@@ -96,7 +102,7 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
 
     @Override
     public void initData() {
-
+        rp = new RecordPresenter(this);
 
     }
 
@@ -110,6 +116,8 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
         record_back.setOnClickListener(this);
         showDate.setOnClickListener(this);
         record_time.setOnClickListener(this);
+        record_linear.setOnClickListener(this);
+        recordCommit.setOnClickListener(this);
     }
 
     @Override
@@ -124,7 +132,7 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
                 break;
             case R.id.record_date:
 
-                DatePickerDialog  dateDlg = new DatePickerDialog(App.activity,
+                DatePickerDialog  dateDlg = new DatePickerDialog(App.activity,DatePickerDialog.THEME_HOLO_LIGHT,
                         d,
                         dateAndTime.get(Calendar.YEAR),
                         dateAndTime.get(Calendar.MONTH),
@@ -132,12 +140,18 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
                 dateDlg.show();
                 break;
             case R.id.record_time:
-                TimePickerDialog timeDlg = new TimePickerDialog(App.activity,
+                TimePickerDialog timeDlg = new TimePickerDialog(App.activity,TimePickerDialog.THEME_HOLO_LIGHT,
                         t,
                         dateAndTime.get(Calendar.HOUR_OF_DAY),
                         dateAndTime.get(Calendar.MINUTE),
                         true);
                 timeDlg.show();
+                break;
+            case R.id.record_commit:
+               rp.showSubmit(record_device.getText().toString().trim(),record_height.getText().toString().trim(),record_low.getText().toString().toString(),showDate.getText().toString(),record_time.getText().toString());
+                break;
+            case R.id.record_linear:
+
                 break;
         }
     }
@@ -164,7 +178,40 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.record_txt)
-    public void onViewClicked() {
+
+    @Override
+    public String getDevice() {
+        return record_device.getText().toString().trim();
     }
+
+    @Override
+    public String getHeight() {
+        return record_height.getText().toString().trim();
+    }
+
+    @Override
+    public String getLow() {
+        return record_low.getText().toString().trim();
+    }
+
+    @Override
+    public void getDeviceMess(String msg) {
+        Toast.makeText(App.activity, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void getHeightMess(String msg) {
+        Toast.makeText(App.activity, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void getLowMess(String msg) {
+        Toast.makeText(App.activity, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void getButtonMess(String msg) {
+
+    }
+
 }
