@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -23,12 +24,10 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.TabAdapter;
 import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
-import xueya.jiyun.com.xueya.tools.ThreadUtils;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.fragment.doctors.datapag.Fragment_Jingyan;
 import xueya.jiyun.com.xueya.view.fragment.doctors.datapag.Fragment_huifu;
 import xueya.jiyun.com.xueya.view.fragment.doctors.datapag.Fragment_times;
-import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
 
 /**
  * Created by my on 2017/6/12.
@@ -36,7 +35,8 @@ import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
 
 public class ZhuanJiaData extends BaseFragment {
 
-    Bundle bun;
+    @Bind(R.id.zhuanjiadatalayout)
+    LinearLayout zhuanjiadatalayout;
     @Bind(R.id.data_backs)
     ImageView dataBacks;
     @Bind(R.id.data_names)
@@ -59,6 +59,7 @@ public class ZhuanJiaData extends BaseFragment {
     TabLayout dataTab;
     @Bind(R.id.data_pag)
     ViewPager dataPag;
+    Bundle bun;
     List<BaseFragment> fraglist = new ArrayList<>();
     TabAdapter tabadapter;
 
@@ -90,7 +91,7 @@ public class ZhuanJiaData extends BaseFragment {
         fraglist.add(new Fragment_huifu());
         fraglist.add(new Fragment_times());
         fraglist.add(new Fragment_Jingyan());
-        tabadapter = new TabAdapter(getChildFragmentManager(),fraglist);
+        tabadapter = new TabAdapter(getChildFragmentManager(), fraglist);
         dataPag.setAdapter(tabadapter);
     }
 
@@ -124,9 +125,16 @@ public class ZhuanJiaData extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick(R.id.data_backs)
-    public void onViewClicked() {
-        onBack();
+
+    @OnClick({R.id.data_backs, R.id.zhuanjiadatalayout})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+            case R.id.data_backs:
+                onBack();
+                break;
+            case R.id.zhuanjiadatalayout:
+                break;
+        }
     }
 
     private void onBack() {
@@ -136,5 +144,4 @@ public class ZhuanJiaData extends BaseFragment {
         BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
         FragmentBuilder.getInstance().setLastFragment(fragment);
     }
-
 }
