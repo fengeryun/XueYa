@@ -204,7 +204,6 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
             Bitmap photo = (Bitmap) data.getExtras().get("data");
             core_img.setImageBitmap(photo);
             dialog.dismiss();
-
         } }
 
 }
