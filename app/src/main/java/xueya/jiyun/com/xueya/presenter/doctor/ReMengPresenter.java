@@ -5,6 +5,7 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 import xueya.jiyun.com.xueya.model.bean.ReMengBean;
+import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
 import xueya.jiyun.com.xueya.model.modelinter.DoctorModelInter;
 import xueya.jiyun.com.xueya.view.viewinter.doc.ReMengDoctor;
@@ -28,7 +29,7 @@ public class ReMengPresenter {
             @Override
             public void success(String eryun) {
                 Gson gson = new Gson();
-                ReMengBean bean = gson.fromJson(eryun,ReMengBean.class);
+                ZhuanJiaBean bean = gson.fromJson(eryun,ZhuanJiaBean.class);
 
                 remeng.loadGrid(bean.getData());
                 //remeng.showToest(bean.getData().get(0).getName());

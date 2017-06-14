@@ -14,6 +14,7 @@ import java.util.List;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.model.bean.ReMengBean;
+import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
 
 /**
  * Created by my on 2017/6/13.
@@ -21,9 +22,9 @@ import xueya.jiyun.com.xueya.model.bean.ReMengBean;
 
 public class GridAdapter extends BaseAdapter{
 
-    List<ReMengBean.DataBean> list;
+    List<ZhuanJiaBean.DataBean> list;
 
-    public GridAdapter(List<ReMengBean.DataBean> list) {
+    public GridAdapter(List<ZhuanJiaBean.DataBean> list) {
         this.list = list;
     }
 

@@ -32,6 +32,7 @@ import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.GridAdapter;
 import xueya.jiyun.com.xueya.model.bean.ReMengBean;
+import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
 import xueya.jiyun.com.xueya.model.sp.SpUtils;
 import xueya.jiyun.com.xueya.presenter.doctor.ReMengPresenter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
@@ -173,7 +174,6 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
                 break;
             case R.id.queryName:
                 FragmentBuilder.getInstance().start(R.id.activity_home, ZhuanjiaFragment.class).isBacked(true);
-                Dialogs.ShowDialog();
                 break;
             case R.id.askDoctor:
                 if(SpUtils.getInstance("LogIn").getSp().getBoolean("isLogin",false)){
@@ -234,7 +234,7 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
     }
 
     @Override
-    public void loadGrid(final List<ReMengBean.DataBean> list) {
+    public void loadGrid(final List<ZhuanJiaBean.DataBean> list) {
         gridadapter = new GridAdapter(list);
         doctorGrid.setAdapter(gridadapter);
 
@@ -242,13 +242,7 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Bundle bun = new Bundle();
-                bun.putString("name",list.get(position).getName());
-                bun.putString("img",list.get(position).getApp_image());
-                bun.putString("yiyuan",list.get(position).getHospital());
-                bun.putString("job",list.get(position).getTitle());
-                bun.putString("jineng",list.get(position).getDepart());
-                bun.putString("xueli",list.get(position).getTeach());
-                bun.putString("content",list.get(position).getGoodat());
+                bun.putParcelable("databean",list.get(position));
                 FragmentBuilder.getInstance().start(R.id.activity_home,ZhuanJiaData.class).isBacked(true).setParams(bun);
             }
         });

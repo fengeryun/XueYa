@@ -72,10 +72,11 @@ public class DoctorSousuo extends BaseFragment {
                 builder2.setTitle("是否清空历史记录").setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        LiShiList.getInstance().clears();
+
                         ThreadUtils.runOnMain(new Runnable() {
                             @Override
                             public void run() {
+                                LiShiList.getInstance().clears();
                                 adapter.notifyDataSetChanged();
                             }
                         });
@@ -95,7 +96,12 @@ public class DoctorSousuo extends BaseFragment {
         sousuoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                int len=LiShiList.getInstance().getList().size();
+                Log.e("setOnItemClickListener",position+"   数量    "+len);
+                if(len>=1&&position<len){
                     sousuoInput.setText(LiShiList.getInstance().getList().get(position));
+                }
+
             }
         });
     }
@@ -114,7 +120,7 @@ public class DoctorSousuo extends BaseFragment {
         ButterKnife.unbind(this);
     }
 
-    @OnClick({R.id.sousuo_back, R.id.sousuo_yes})
+    @OnClick({R.id.sousuo_back, R.id.sousuo_yes,R.id.sousuo_layout})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.sousuo_back:
@@ -135,6 +141,9 @@ public class DoctorSousuo extends BaseFragment {
                         }
                     });
                 }
+                break;
+            case R.id.sousuo_layout:
+                Toast.makeText(App.activity, "页面", Toast.LENGTH_SHORT).show();
                 break;
         }
     }

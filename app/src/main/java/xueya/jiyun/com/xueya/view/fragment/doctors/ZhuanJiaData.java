@@ -21,9 +21,11 @@ import butterknife.OnClick;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.TabAdapter;
+import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.tools.ThreadUtils;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
+import xueya.jiyun.com.xueya.view.fragment.doctors.datapag.Fragment_Jingyan;
 import xueya.jiyun.com.xueya.view.fragment.doctors.datapag.Fragment_huifu;
 import xueya.jiyun.com.xueya.view.fragment.doctors.datapag.Fragment_times;
 import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
@@ -73,20 +75,21 @@ public class ZhuanJiaData extends BaseFragment {
     @Override
     public void initData() {
         bun = getParams();
-        Glide.with(App.activity).load(bun.getString("img")).into(dataPic);
-        dataNames.setText(bun.getString("name"));
-        dataName.setText(bun.getString("name"));
-        dataYiyuan.setText(bun.getString("yiyuan"));
-        dataZhiwei.setText(bun.getString("job"));
-        dataJineng.setText(bun.getString("jineng"));
-        dataXueli.setText(bun.getString("xueli"));
-        dataContent.setText(bun.getString("content"));
+        ZhuanJiaBean.DataBean bean = bun.getParcelable("databean");
+        Glide.with(App.activity).load(bean.getApp_image()).into(dataPic);
+        dataNames.setText(bean.getName());
+        dataName.setText(bean.getName());
+        dataYiyuan.setText(bean.getHospital());
+        dataZhiwei.setText(bean.getTitle());
+        dataJineng.setText(bean.getDepart());
+        dataXueli.setText(bean.getTeach());
+        dataContent.setText(bean.getGoodat());
 
         dataTab.setupWithViewPager(dataPag);
         dataTab.setTabMode(TabLayout.MODE_FIXED);
         fraglist.add(new Fragment_huifu());
         fraglist.add(new Fragment_times());
-        fraglist.add(new Fragment_times());
+        fraglist.add(new Fragment_Jingyan());
         tabadapter = new TabAdapter(getChildFragmentManager(),fraglist);
         dataPag.setAdapter(tabadapter);
     }

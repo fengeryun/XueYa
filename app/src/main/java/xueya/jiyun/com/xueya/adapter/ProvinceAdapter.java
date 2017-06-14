@@ -9,6 +9,7 @@ import android.widget.TextView;
 import java.util.List;
 
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.model.urls.LiShiList;
 
 /**
  * Created by my on 2017/6/10.
@@ -38,7 +39,7 @@ public class ProvinceAdapter extends BaseAdapter{
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
         ViewHolder hold;
         if(convertView==null){
             convertView = LayoutInflater.from(parent.getContext()).inflate(R.layout.txtitem,null);
@@ -52,6 +53,14 @@ public class ProvinceAdapter extends BaseAdapter{
         }
 
         hold.listtxt.setText(list.get(position));
+
+//       convertView.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View v) {
+//               sousuoInput.setText(LiShiList.getInstance().getList().get(position));
+//           }
+//       });
+
 
         return convertView;
     }

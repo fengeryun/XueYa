@@ -32,8 +32,9 @@ public class ZhuanJiaPresenter {
             public void success(String eryun) {
                 Gson gson = new Gson();
                 ZhuanJiaBean bean = gson.fromJson(eryun,ZhuanJiaBean.class);
-
-                zhuanjia.loadList(bean.getData());
+                    if(bean.getData().size()>0){
+                        zhuanjia.loadList(bean.getData());
+                    }
             }
 
             @Override

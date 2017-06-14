@@ -24,6 +24,11 @@ public class Urls {
         return remengurl;
     }//砖家回复
 
+    public static String JingYanList(int numbers){
+        String remengurl = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=Article&source=cdsb&id=10636&page="+numbers+"&size=20 ";
+        return remengurl;
+    }
+
 
     public static String NOUSURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeList&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae&typeid=18031&dir=zhuanti_nk";
     public static String COOKBOOKURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeList&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae&typeid=7938&dir=zhuzhan_ys";

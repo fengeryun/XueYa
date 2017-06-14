@@ -30,7 +30,7 @@ public class Dialogs {
             @Override
             public void run() {
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                     ThreadUtils.runOnMain(new Runnable() {
                         @Override
                         public void run() {
