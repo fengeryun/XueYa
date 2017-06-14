@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import org.greenrobot.eventbus.EventBus;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -25,6 +27,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.model.bean.Hei;
 import xueya.jiyun.com.xueya.presenter.bloods.RecordPresenter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
@@ -149,6 +152,8 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
                 break;
             case R.id.record_commit:
                rp.showSubmit(record_device.getText().toString().trim(),record_height.getText().toString().trim(),record_low.getText().toString().toString(),showDate.getText().toString(),record_time.getText().toString());
+                EventBus.getDefault().postSticky(new Hei("add"));
+
                 break;
             case R.id.record_linear:
 

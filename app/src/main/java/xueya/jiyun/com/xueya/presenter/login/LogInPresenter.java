@@ -2,7 +2,6 @@ package xueya.jiyun.com.xueya.presenter.login;
 
 import android.content.SharedPreferences;
 import android.text.TextUtils;
-import android.util.Log;
 
 import com.google.gson.Gson;
 
@@ -10,6 +9,7 @@ import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.model.bean.LogInOk;
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
 import xueya.jiyun.com.xueya.model.modelinter.MineModelInter;
+import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
 import xueya.jiyun.com.xueya.view.viewinter.mine.LogInView;
 
 /**
@@ -39,6 +39,7 @@ public class LogInPresenter implements ILogInPresenter {
           //  {"state":200,"userid":"116924091","isregister":1,"phonenum":"15533604305","height":158,"sex":"\u5973","birthday":"1939-09-11"}
             @Override
             public void success(String eryun) {
+                Dialogs.Show2Dialog();
                 if(eryun.contains("userid")){
                     Gson gson=new Gson();
                     LogInOk logInOk = gson.fromJson(eryun, LogInOk.class);
@@ -54,7 +55,7 @@ public class LogInPresenter implements ILogInPresenter {
                     editor.putString("birthday", logInOk.getBirthday());
                     editor.putString("isregister", logInOk.getIsregister()+"");
                     editor.commit();
-
+                    Dialogs.disDialog();
                     logInView.shouMessage("登陆成功");
                     logInView.startActivity();
                 }else {

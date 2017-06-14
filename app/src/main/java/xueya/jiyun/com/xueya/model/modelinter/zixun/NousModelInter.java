@@ -1,7 +1,5 @@
 package xueya.jiyun.com.xueya.model.modelinter.zixun;
 
-import android.util.Log;
-
 import java.util.HashMap;
 
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
@@ -19,6 +17,5 @@ public class NousModelInter implements BaseModelInter {
     public void goLogin(NewUrlCallback callback) {  //获取综合资讯，
         HashMap<String , String> params = new HashMap<String ,String>();
         HttpFactroy.getUrlType(2).doGet(Urls.NOUSURL,params,callback);
-        Log.e("AAA",Urls.NOUSURL);
     }
 }

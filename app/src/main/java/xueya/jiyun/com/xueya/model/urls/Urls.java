@@ -39,4 +39,8 @@ public class Urls {
     public static String GETMSG = BaseUrl+"index.php?act=kbb&fun=users&type=pullAccountInfo&tag=wjk&userid=";
     public static String CHANGE_PHONE = BaseUrl+"index.php?act=sms&fun=sendCode&target=";
     public static String GETSIGN = BaseUrl+"index.php?act=zhuanjia&fun=Plus&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&user_id=";
+
+    public static String SHOUCANG = BaseUrl+"index.php/app/collect/post/";
+    public static String SSSS = "http://api.yun.xywy.com/index.php/app/collect/list_data/111";
+
 }

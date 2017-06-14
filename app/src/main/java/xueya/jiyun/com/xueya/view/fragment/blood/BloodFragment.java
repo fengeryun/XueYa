@@ -8,7 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,15 +24,19 @@ import butterknife.OnClick;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.ZongAdapter;
+import xueya.jiyun.com.xueya.model.bean.Ha;
+import xueya.jiyun.com.xueya.model.bean.Hei;
 import xueya.jiyun.com.xueya.model.db.Takes;
 import xueya.jiyun.com.xueya.model.sp.SpUtils;
+import xueya.jiyun.com.xueya.presenter.bloods.BloodPersenter;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
+import xueya.jiyun.com.xueya.tools.TimerUtils;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.fragment.blood.information.InformFragment;
 import xueya.jiyun.com.xueya.view.fragment.blood.tixing.RemindFragment;
-import xueya.jiyun.com.xueya.view.viewinter.blooder.BloodView;
 import xueya.jiyun.com.xueya.view.fragment.mine.LogInFragment;
 import xueya.jiyun.com.xueya.view.fragment.mine.MessageFragment;
+import xueya.jiyun.com.xueya.view.viewinter.blooder.BloodView;
 
 /**
  * Created by 123 on 2017/6/9.
@@ -44,11 +53,12 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
     RadioButton radioButton3;
     @Bind(R.id.xueya_fra)
     ViewPager xueyaFra;
+    private TextView xueya_gaoya,xueya_diya,xueya_time;
     private RadioButton radioButton_zixun, radioButton_wenyisheng, radioButton_tixing;
     private RelativeLayout shang_img;
     private ArrayList<Fragment> list;
     private ZongAdapter adapter;
-
+    private BloodPersenter bloodPersenter;
     private RelativeLayout relativeLayout;
 
     @Override
@@ -58,15 +68,20 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
 
     @Override
     public void initView(View view) {
+        EventBus.getDefault().register(BloodFragment.this);
+        xueya_gaoya = (TextView) view.findViewById(R.id.xueya_gaoya);
+        xueya_diya = (TextView) view.findViewById(R.id.xueya_diya);
         shang_img = (RelativeLayout) view.findViewById(R.id.shang_img);
         relativeLayout = (RelativeLayout) view.findViewById(R.id.blood_main);
         radioButton_zixun = (RadioButton) view.findViewById(R.id.radioButton_zixun);
         radioButton_wenyisheng = (RadioButton) view.findViewById(R.id.radioButton_wenyisheng);
         radioButton_tixing = (RadioButton) view.findViewById(R.id.radioButton_tixing);
+        xueya_time = (TextView) view.findViewById(R.id.xueya_time);
     }
 
     @Override
     public void initData() {
+        bloodPersenter = new BloodPersenter(this);
         list = new ArrayList<>();
         list.add(new DayFragment());
         list.add(new WeekFragment());
@@ -79,6 +94,8 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
     @Override
     public void loadData() {
 
+
+        bloodPersenter.getText();
     }
 
     @Override
@@ -145,8 +162,30 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         }
     }
 
+
+
     @Override
     public void showText(List<Takes> list) {
 
+        for (Takes takes:list){
+            String time = TimerUtils.getTimerUtils().getTime(takes.getShowDate());
+            xueya_time.setText(time);
+            xueya_gaoya.setText(takes.getHeight());
+            xueya_diya.setText(takes.getLow());
+        }
+    }
+    @Subscribe(threadMode = ThreadMode.POSTING,sticky = true)
+    public void Wocao(Hei hei){
+        if (hei.getMessage()=="add"){
+
+            bloodPersenter.getText();
+        }
+    }
+    @Subscribe(threadMode = ThreadMode.POSTING,sticky = true)
+    public void Woca(Ha hei){
+        if (hei!=null){
+
+            bloodPersenter.getText();
+        }
     }
 }

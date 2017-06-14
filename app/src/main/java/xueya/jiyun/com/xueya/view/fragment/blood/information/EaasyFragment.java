@@ -2,7 +2,10 @@ package xueya.jiyun.com.xueya.view.fragment.blood.information;
 
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -20,12 +23,13 @@ import xueya.jiyun.com.xueya.view.viewinter.blooder.EaasyView;
  * Created by Asus on 2017/6/12.
  */
 
-public class EaasyFragment extends BaseFragment implements EaasyView{
+public class EaasyFragment extends BaseFragment implements EaasyView, View.OnClickListener {
     private TextView eaasy_title,eaasy_pubdate,eaasy_body;
     EaasyPresenter eaasyPresenter;
     private LinearLayout eass_linear;
     private String id;
     private String type;
+    private CheckBox essay_check;
 
     @Override
     public void initView(View view) {
@@ -34,6 +38,7 @@ public class EaasyFragment extends BaseFragment implements EaasyView{
         eaasy_pubdate = (TextView) view.findViewById(R.id.eaasy_pubdate);
         eaasy_body = (TextView) view.findViewById(R.id.eaasy_body);
         eass_linear = (LinearLayout) view.findViewById(R.id.eass_linear);
+        essay_check = (CheckBox) view.findViewById(R.id.essay_check);
     }
 
     @Override
@@ -51,12 +56,26 @@ public class EaasyFragment extends BaseFragment implements EaasyView{
     }
     @Override
     public void initListener() {
-        eass_linear.setOnClickListener(new View.OnClickListener() {
+        essay_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
-            public void onClick(View v) {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked==false){
+                  /*  EssayModelInter modelInter = new EssayModelInter();
+                    modelInter.goLogin("116924084", new NewUrlCallback() {
+                        @Override
+                        public void success(String eryun) {
+                            Log.e("AAA",eryun.toString());
+                        }
 
+                        @Override
+                        public void error(int code, String erge) {
+
+                        }
+                    });*/
+                }
             }
         });
+        eass_linear.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +83,8 @@ public class EaasyFragment extends BaseFragment implements EaasyView{
         super.setParams(bundle);
         id = bundle.getString("id");
         type = bundle.getString("type");
+        Log.e("AAAAA",type+"");
+
     }
 
     @Override
@@ -75,5 +96,10 @@ public class EaasyFragment extends BaseFragment implements EaasyView{
         eaasy_pubdate.setText(fa);
         //转换为文本模式
         eaasy_body.setText(Html.fromHtml(eaasys.getData().getBody()));
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

@@ -5,5 +5,5 @@ package xueya.jiyun.com.xueya.presenter.bloods;
  */
 
 public interface INousPresenter {
-    void click();
+    void click(String type);
 }

@@ -1,6 +1,7 @@
 package xueya.jiyun.com.xueya.view.fragment.blood.information;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -44,7 +45,7 @@ public class NousFragment extends BaseFragment implements NousView{
 
     @Override
     public void loadData() {
-       nousPresenter.click();
+        nousPresenter.click(type);
     }
 
     @Override
@@ -55,6 +56,8 @@ public class NousFragment extends BaseFragment implements NousView{
     public void setParams(Bundle bundle) {
         super.setParams(bundle);
         type = bundle.getString("type");
+        Log.e("AAA",type+"");
+
     }
 
 

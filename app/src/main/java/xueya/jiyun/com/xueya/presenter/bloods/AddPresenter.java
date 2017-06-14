@@ -35,7 +35,12 @@ public class AddPresenter implements IAddPresenter{
         if (TextUtils.isEmpty(name)) {
             loginView.ShowMsg("不能为空");
             return;
-        }else {
+        }
+        if (TextUtils.isEmpty(dosis)) {
+            loginView.ShowMsg("不能为空");
+            return;
+        }
+        if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(dosis)){
             Hour hour = new Hour();
             hour.setHour(showtime);
             hour.setName(name);
@@ -47,12 +52,6 @@ public class AddPresenter implements IAddPresenter{
                 e.printStackTrace();
             }
             App.activity.onBackPressed();
-        }
-        if (TextUtils.isEmpty(dosis)) {
-            loginView.ShowMsg("不能为空");
-            return;
-        }else {
-            loginView.startFragment();
         }
 
     }

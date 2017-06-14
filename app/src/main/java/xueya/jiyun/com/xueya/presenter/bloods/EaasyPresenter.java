@@ -1,5 +1,7 @@
 package xueya.jiyun.com.xueya.presenter.bloods;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import xueya.jiyun.com.xueya.model.bean.Eaasys;
@@ -12,50 +14,28 @@ import xueya.jiyun.com.xueya.view.viewinter.blooder.EaasyView;
  * Created by Asus on 2017/6/12.
  */
 
-public class EaasyPresenter implements INousPresenter {
+public class EaasyPresenter{
 
     private String type,id;
     private EaasyView eaasyView;
     private Eaasys nous;
-
     public EaasyPresenter(EaasyView eaasyView,String type,String id) {
-
+        Log.e("AAA",type+"");
         this.eaasyView=eaasyView;
         this.type=type;
         this.id=id;
     }
 
-    @Override
     public void click() {
-
-      switch (type){
-          case "1":
-              shuju2();
-              break;
-          case "2":
-              shuju();
-              break;
-          case "3":
-              shuju2();
-              break;
-          case "4":
-              shuju2();
-              break;
-          case "5":
-              shuju2();
-              break;
-      }
-    }
-
-    public void shuju(){
         EaasyModelInter eaasyModelInterr = new EaasyModelInter();
-        eaasyModelInterr.goLogin(id,"zhuzhan_ys",new NewUrlCallback() {
+        eaasyModelInterr.goLogin(id,type,new NewUrlCallback() {
             @Override
             public void success(String eryun) {
                 Gson gson = new Gson();
                 nous = gson.fromJson(eryun, Eaasys.class);
                 eaasyView.EaasyData(nous);
                 Dialogs.disDialog();
+
             }
 
             @Override
@@ -63,23 +43,7 @@ public class EaasyPresenter implements INousPresenter {
 
             }
         });
+
     }
 
-    public void shuju2(){
-        EaasyModelInter eaasyModelInter = new EaasyModelInter();
-        eaasyModelInter.goLogin(id, "zhuanti_nk", new NewUrlCallback() {
-            @Override
-            public void success(String eryun) {
-                Gson gson = new Gson();
-                nous = gson.fromJson(eryun, Eaasys.class);
-                eaasyView.EaasyData(nous);
-                Dialogs.disDialog();
-            }
-
-            @Override
-            public void error(int code, String erge) {
-
-            }
-        });
-    }
 }

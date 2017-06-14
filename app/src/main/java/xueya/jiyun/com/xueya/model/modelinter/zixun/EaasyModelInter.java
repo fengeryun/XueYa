@@ -1,5 +1,7 @@
 package xueya.jiyun.com.xueya.model.modelinter.zixun;
 
+import android.util.Log;
+
 import java.util.HashMap;
 
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
@@ -17,5 +19,6 @@ public class EaasyModelInter implements BaseModelInter{
         params.put("id",id);
         params.put("dir",dir);
         HttpFactroy.getUrlType(2).doGet(Urls.EAASYURL,params,callback);
+        Log.e("TAG",Urls.EAASYURL);
     }
 }

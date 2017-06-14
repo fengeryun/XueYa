@@ -84,28 +84,28 @@ public class InformFragment extends BaseFragment {
             case R.id.nous:
 
                 Bundle bundle1 = new Bundle();
-                bundle1.putString("type","1");
+                bundle1.putString("type","zhuanti_nk");
                 FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle1);
 
                 break;
             case R.id.cookbook:
                 Bundle bundle2 = new Bundle();
-                bundle2.putString("type","2");
+                bundle2.putString("type","zhuzhan_ys");
                 FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle2);
                 break;
             case R.id.prevent:
                 Bundle bundle3 = new Bundle();
-                bundle3.putString("type","3");
+                bundle3.putString("type","zhuanti_nk");
                 FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle3);
                 break;
             case R.id.treat:
                 Bundle bundle4 = new Bundle();
-                bundle4.putString("type","4");
+                bundle4.putString("type","zhuanti_nk");
                 FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle4);
                 break;
             case R.id.inspect:
                 Bundle bundle5 = new Bundle();
-                bundle5.putString("type","5");
+                bundle5.putString("type","zhuanti_nk");
                 FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle5);
                 break;
             case R.id.inform_back:
