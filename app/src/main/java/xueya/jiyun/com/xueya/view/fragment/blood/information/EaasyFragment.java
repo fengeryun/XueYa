@@ -40,7 +40,6 @@ public class EaasyFragment extends BaseFragment implements EaasyView, View.OnCli
         eass_linear = (LinearLayout) view.findViewById(R.id.eass_linear);
         essay_check = (CheckBox) view.findViewById(R.id.essay_check);
     }
-
     @Override
     public int getLayoutId() {
         return R.layout.blood_essay;
