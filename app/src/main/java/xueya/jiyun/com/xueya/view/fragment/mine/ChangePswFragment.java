@@ -66,8 +66,9 @@ public class ChangePswFragment extends BaseFragment implements View.OnClickListe
         no.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                FragmentBuilder.getInstance().start(R.id.activity_home,SettingFragment.class).isBacked(true);
+                FragmentBuilder.getInstance().start(R.id.activity_home,AccountFragment.class);
                 dialog.dismiss();
+
             }
         });
         ok.setOnClickListener(new View.OnClickListener() {
