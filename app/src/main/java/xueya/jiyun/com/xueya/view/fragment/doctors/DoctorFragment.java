@@ -31,7 +31,6 @@ import butterknife.OnClick;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.GridAdapter;
-import xueya.jiyun.com.xueya.model.bean.ReMengBean;
 import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
 import xueya.jiyun.com.xueya.model.sp.SpUtils;
 import xueya.jiyun.com.xueya.presenter.doctor.ReMengPresenter;
@@ -70,6 +69,7 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
     GridView doctorGrid;
     @Bind(R.id.huan)
     TextView huan;
+    ProgressDialog dialog;
     int num = 1;
     ProgressDialog dialoger;
     ReMengPresenter persenter;
@@ -122,6 +122,10 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
         IntentFilter filter = new IntentFilter();
         filter.addAction("provincename");
         App.activity.registerReceiver(broad, filter);
+
+        dialog = new ProgressDialog(App.activity);
+        dialog.setMessage("loading");
+        dialog.show();
     }
 
     @Override
@@ -235,7 +239,8 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
 
     @Override
     public void loadGrid(final List<ZhuanJiaBean.DataBean> list) {
-       /* gridadapter = new GridAdapter(list);
+        dialog.dismiss();
+        gridadapter = new GridAdapter(list);
         doctorGrid.setAdapter(gridadapter);
 
         doctorGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -245,7 +250,7 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
                 bun.putParcelable("databean",list.get(position));
                 FragmentBuilder.getInstance().start(R.id.activity_home,ZhuanJiaData.class).isBacked(true).setParams(bun);
             }
-        });*/
+        });
     }
 
 }

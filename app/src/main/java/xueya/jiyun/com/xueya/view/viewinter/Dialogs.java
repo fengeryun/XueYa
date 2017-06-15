@@ -29,17 +29,12 @@ public class Dialogs {
         ThreadUtils.runOnSubThread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    Thread.sleep(1000);
                     ThreadUtils.runOnMain(new Runnable() {
                         @Override
                         public void run() {
                             pd.dismiss();
                         }
                     });
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
             }
         });
         return pd;

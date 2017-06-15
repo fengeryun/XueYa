@@ -36,4 +36,16 @@ public class DoctorModelInter implements BaseModelInter{
 
         HttpFactroy.getUrlType(2).doGet(Urls.JingYanList(pageNum),params,callback);
     }
+
+    public void getWebData(String id,String cateid,NewUrlCallback callback) {  //砖家回复，
+        HashMap<String , String> params = new HashMap<String ,String>();
+
+        HttpFactroy.getUrlType(2).doGet(Urls.getWebUrl(id,cateid),params,callback);
+    }
+
+    public void getFreeAddList(String id,String expertid,NewUrlCallback callback) {  //砖家回复，
+        HashMap<String , String> params = new HashMap<String ,String>();
+
+        HttpFactroy.getUrlType(2).doGet(Urls.getTimeData(id,expertid),params,callback);
+    }
 }

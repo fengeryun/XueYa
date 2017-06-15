@@ -3,7 +3,6 @@ package xueya.jiyun.com.xueya.presenter.doctor;
 import com.google.gson.Gson;
 
 import xueya.jiyun.com.xueya.model.bean.HuiFuBean;
-import xueya.jiyun.com.xueya.model.bean.ReMengBean;
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
 import xueya.jiyun.com.xueya.model.modelinter.DoctorModelInter;
 import xueya.jiyun.com.xueya.view.viewinter.doc.HuiFuView;
