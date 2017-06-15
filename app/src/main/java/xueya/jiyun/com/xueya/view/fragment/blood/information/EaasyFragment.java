@@ -1,11 +1,13 @@
 package xueya.jiyun.com.xueya.view.fragment.blood.information;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +20,7 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.model.bean.Eaasys;
 import xueya.jiyun.com.xueya.presenter.bloods.EaasyPresenter;
 import xueya.jiyun.com.xueya.presenter.bloods.EssayPersenter;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
 import xueya.jiyun.com.xueya.view.viewinter.blooder.EaasyView;
@@ -36,6 +39,7 @@ public class EaasyFragment extends BaseFragment implements EaasyView,EssayView, 
     private CheckBox essay_check;
     private EssayPersenter essayPersenter;
     private String typeid;
+    private ImageView eaasy_back;
 
     @Override
     public void initView(View view) {
@@ -45,6 +49,7 @@ public class EaasyFragment extends BaseFragment implements EaasyView,EssayView, 
         eaasy_body = (TextView) view.findViewById(R.id.eaasy_body);
         eass_linear = (LinearLayout) view.findViewById(R.id.eass_linear);
         essay_check = (CheckBox) view.findViewById(R.id.essay_check);
+        eaasy_back = (ImageView) view.findViewById(R.id.eaasy_back);
     }
     @Override
     public int getLayoutId() {
@@ -63,6 +68,7 @@ public class EaasyFragment extends BaseFragment implements EaasyView,EssayView, 
     public void initListener() {
 
         eass_linear.setOnClickListener(this);
+        eaasy_back.setOnClickListener(this);
     }
 
     @Override
@@ -91,7 +97,17 @@ public class EaasyFragment extends BaseFragment implements EaasyView,EssayView, 
 
     @Override
     public void onClick(View v) {
-
+        switch (v.getId()){
+            case R.id.eass_linear:
+                break;
+            case R.id.eaasy_back:
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
+                break;
+        }
     }
 
     @Override

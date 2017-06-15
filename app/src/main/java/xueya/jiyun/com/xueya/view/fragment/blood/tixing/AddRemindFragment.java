@@ -1,8 +1,10 @@
 package xueya.jiyun.com.xueya.view.fragment.blood.tixing;
 
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -13,6 +15,7 @@ import java.util.Calendar;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.presenter.bloods.AddPresenter;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.viewinter.blooder.AddView;
 
@@ -29,6 +32,7 @@ public class AddRemindFragment extends BaseFragment implements AddView, View.OnC
     private TextView add_lay;
     AddPresenter addPresenter ;
     private LinearLayout add_linear;
+    private ImageView add_back;
 
     @Override
     public void initView(View view) {
@@ -40,6 +44,7 @@ public class AddRemindFragment extends BaseFragment implements AddView, View.OnC
         add_dosis = (EditText) view.findViewById(R.id.add_dosis);
         add_lay = (TextView) view.findViewById(R.id.add_lay);
         add_linear = (LinearLayout) view.findViewById(R.id.add_linear);
+        add_back = (ImageView) view.findViewById(R.id.add_back);
     }
     @Override
     public int getLayoutId() {
@@ -82,6 +87,7 @@ public class AddRemindFragment extends BaseFragment implements AddView, View.OnC
 
         add_lay.setOnClickListener(this);
         add_linear.setOnClickListener(this);
+        add_back.setOnClickListener(this);
     }
 
     @Override
@@ -116,7 +122,13 @@ public class AddRemindFragment extends BaseFragment implements AddView, View.OnC
         App.activity.sendBroadcast(it);
                 break;
             case R.id.add_linear:
-
+                break;
+            case R.id.add_back:
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
                 break;
         }
 
