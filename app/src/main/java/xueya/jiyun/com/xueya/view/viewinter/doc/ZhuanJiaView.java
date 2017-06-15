@@ -14,6 +14,6 @@ public interface ZhuanJiaView {
 
     void goListItem();
 
-    void loadList(List<ZhuanJiaBean.DataBean> list);
+    void loadList(String doctornum,List<ZhuanJiaBean.DataBean> list);
 
 }

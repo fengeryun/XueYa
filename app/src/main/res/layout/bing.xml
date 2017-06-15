@@ -44,8 +44,9 @@
         android:orientation="horizontal"
         >
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:id="@+id/bing_txt1"
             android:text="头晕"
             android:gravity="center"
@@ -53,14 +54,78 @@
             android:layout_margin="5dp"
             />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:id="@+id/bing_txt2"
             android:text="瞌睡"
             android:gravity="center"
             android:background="@drawable/bingbut"
             android:layout_margin="5dp"
             />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:id="@+id/bing_txt3"
+            android:text="犯迷糊"
+            android:gravity="center"
+            android:background="@drawable/bingbut"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:id="@+id/bing_txt4"
+            android:text="血压忽高忽低"
+            android:gravity="center"
+            android:background="@drawable/bingbut"
+            android:layout_margin="5dp"
+            />
+
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bing_txt5"
+            android:text="吃什么吐什么"
+            android:gravity="center"
+            android:background="@drawable/bingbut"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bing_txt6"
+            android:text="不知道"
+            android:gravity="center"
+            android:background="@drawable/bingbut"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bing_txt7"
+            android:text="脑残"
+            android:gravity="center"
+            android:background="@drawable/bingbut"
+            android:layout_margin="5dp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bing_txt8"
+            android:gravity="center"
+            android:background="@drawable/bingbut"
+            android:layout_margin="5dp"
+            />
+        </LinearLayout>
 
 </LinearLayout>

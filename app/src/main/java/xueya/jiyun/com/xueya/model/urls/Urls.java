@@ -11,8 +11,8 @@ public class Urls {
 
     public static String LogIn_url=BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=kbb&fun=users&type=login"; //登录
 
-    public static String ZhuanJiaList(int num){
-    String zhuanjiaurl = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=SearchDoctor&pageCount=10&pageNum="+num+"&province=&title=&keyword=&illid=%E9%AB%98%E8%A1%80%E5%8E%8B&IsPlus=0";
+    public static String ZhuanJiaList(String province,int num){
+    String zhuanjiaurl = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=SearchDoctor&pageCount=10&pageNum="+num+"&province="+province+"&title=&keyword=&illid=%E9%AB%98%E8%A1%80%E5%8E%8B&IsPlus=0";
     return zhuanjiaurl;
 }  //砖家列表
 

@@ -108,14 +108,14 @@
             android:padding="12dp"
             android:textSize="18dp"
             />
-        <TextView
+        <EditText
             android:id="@+id/addnext_person"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="right"
-            android:inputType="number"
             android:hint="诊断  "
+            android:background="@color/white"
             android:drawableRight="@mipmap/ic_arrow_right"
             android:padding="13dp"
             android:textSize="17dp"

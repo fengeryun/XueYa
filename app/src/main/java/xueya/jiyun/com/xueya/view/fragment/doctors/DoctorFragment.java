@@ -177,7 +177,9 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
                 FragmentBuilder.getInstance().start(R.id.activity_home, DoctorSousuo.class).isBacked(true);
                 break;
             case R.id.queryName:
-                FragmentBuilder.getInstance().start(R.id.activity_home, ZhuanjiaFragment.class).isBacked(true);
+                Bundle bund = new Bundle();
+                bund.putString("proname",province.getText().toString().trim());
+                FragmentBuilder.getInstance().start(R.id.activity_home, ZhuanjiaFragment.class).isBacked(true).setParams(bund);
                 break;
             case R.id.askDoctor:
                 if(SpUtils.getInstance("LogIn").getSp().getBoolean("isLogin",false)){
@@ -205,7 +207,7 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
                 dialoger = new ProgressDialog(App.activity);
                 dialoger.setMessage("正在定位");
                 dialoger.show();
-                hand.sendEmptyMessageDelayed(555, 1000);
+                hand.sendEmptyMessageDelayed(555, 2000);
             }
         }).setNegativeButton("取消", null);
         builder2.show();

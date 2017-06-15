@@ -1,7 +1,13 @@
 package xueya.jiyun.com.xueya.view.fragment.doctors.datapag;
 
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -42,6 +48,38 @@ public class FragmentAddNext extends BaseFragment {
     @Bind(R.id.addNextLayout)
     LinearLayout addNextLayout;
     ProgressDialog dialog;
+    BroadcastReceiver broads = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, final Intent intent) {
+            ThreadUtils.runOnMain(new Runnable() {
+                @Override
+                public void run() {
+                    if(intent.getStringExtra("bingOne")!=null){
+                        addnextName.setText(intent.getStringExtra("bingOne"));
+                    }else {
+                        addnextLocation.setText(intent.getStringExtra("bingTwo"));
+                    }
+                }
+            });
+        }
+    };
+    Handler hands = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case 666:
+                    ThreadUtils.runOnMain(new Runnable() {
+                        @Override
+                        public void run() {
+                            dialog.dismiss();
+                            Toast.makeText(App.activity, "上传成功", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                    break;
+            }
+        }
+    };
 
     @Override
     public void initView(View view) {
@@ -55,6 +93,9 @@ public class FragmentAddNext extends BaseFragment {
 
     @Override
     public void initData() {
+        IntentFilter filter = new IntentFilter();
+        filter.addAction("jibing");
+        App.activity.registerReceiver(broads, filter);
 
     }
 
@@ -92,20 +133,30 @@ public class FragmentAddNext extends BaseFragment {
                 onBack();
                 break;
             case R.id.add_commit:
+                if(addnextName.getText().length()>1 && addnextLocation.getText().length()>1){
                     dialog = new ProgressDialog(App.activity);
                     dialog.setMessage("loading");
-                    ThreadUtils.runOnSubThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            dialog.show();
-                            SystemClock.sleep(1000);
-                        }
-                    });
-                    Toast.makeText(App.activity, "上传成功", Toast.LENGTH_SHORT).show();
+                    dialog.show();
+                    hands.sendEmptyMessageDelayed(666,2000);
+                }else {
+                    Toast.makeText(App.activity, "请填写完整信息", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.addnext_name:
+                Bundle bund = new Bundle();
+                bund.putBoolean("minebing",true);
+                bund.putString("yao","药不能停");
+                bund.putString("chi","吃了吐");
+                bund.putString("know","不造");
+                FragmentBuilder.getInstance().start(R.id.activity_home,FragmentBing.class).isBacked(true).setParams(bund);
                 break;
             case R.id.addnext_location:
+                Bundle bund2 = new Bundle();
+                bund2.putBoolean("minebing",false);
+                bund2.putString("yao","劳资不吃药");
+                bund2.putString("chi","不想吃饭");
+                bund2.putString("know","母鸡啊");
+                FragmentBuilder.getInstance().start(R.id.activity_home,FragmentBing.class).isBacked(true).setParams(bund2);
                 break;
             case R.id.addnext_person:
                 break;
@@ -119,5 +170,11 @@ public class FragmentAddNext extends BaseFragment {
         String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount() - 1).getName();
         BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
         FragmentBuilder.getInstance().setLastFragment(fragment);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        App.activity.unregisterReceiver(broads);
     }
 }

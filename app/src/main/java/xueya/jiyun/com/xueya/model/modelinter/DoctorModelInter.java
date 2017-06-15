@@ -13,10 +13,10 @@ import xueya.jiyun.com.xueya.model.urls.Urls;
  */
 
 public class DoctorModelInter implements BaseModelInter{
-    public void getData(int pageNum,NewUrlCallback callback) {  //砖家列表，
+    public void getData(String province,int pageNum,NewUrlCallback callback) {  //砖家列表，
         HashMap<String , String> params = new HashMap<String ,String>();
 
-        HttpFactroy.getUrlType(2).doGet(Urls.ZhuanJiaList(pageNum),params,callback);
+        HttpFactroy.getUrlType(2).doGet(Urls.ZhuanJiaList(province,pageNum),params,callback);
     }
 
     public void getReMengDatas(int pageNum,NewUrlCallback callback) {  //热门砖家，

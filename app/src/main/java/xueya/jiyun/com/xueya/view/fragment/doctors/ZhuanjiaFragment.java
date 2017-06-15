@@ -48,6 +48,8 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
     ZhuanJiaPresenter persenter;
     ZhuanJiaAdapter adapter;
     ProgressDialog dialog;
+    Bundle bun;
+    String province;
     int num = 1;
 
     @Override
@@ -62,17 +64,17 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
 
     @Override
     public void initData() {
-
     }
 
     @Override
     public void loadData() {
+        bun = getParams();
+        province = bun.getString("proname");
         dialog = new ProgressDialog(App.activity);
         dialog.setMessage("loading");
         dialog.show();
-        zhuanjiaTitlle.setText("全部14624位专家");
         persenter = new ZhuanJiaPresenter(this);
-        persenter.getZhuanJiaData(num);
+        persenter.getZhuanJiaData(province,num);
     }
 
     @Override
@@ -91,7 +93,7 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
                     @Override
                     public void run() {
                         num++;
-                        persenter.getZhuanJiaData(num);
+                        persenter.getZhuanJiaData(province,num);
                         ThreadUtils.runOnMain(new Runnable() {
                             @Override
                             public void run() {
@@ -104,7 +106,7 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
             }
             @Override
             public void onRefreshBegin(PtrFrameLayout frame) {
-                persenter.getZhuanJiaData(1);
+                persenter.getZhuanJiaData(province,1);
                 ThreadUtils.runOnMain(new Runnable() {
                     @Override
                     public void run() {
@@ -127,8 +129,9 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
     }
 
     @Override
-    public void loadList(final List<ZhuanJiaBean.DataBean> list) {
+    public void loadList(String docnum,final List<ZhuanJiaBean.DataBean> list) {
         dialog.dismiss();
+        zhuanjiaTitlle.setText(docnum);
         adapter = new ZhuanJiaAdapter(list);
         zhuanjiaListview.setAdapter(adapter);
 

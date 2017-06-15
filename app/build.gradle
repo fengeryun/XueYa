@@ -18,6 +18,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets{
+        main{
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 
 dependencies {
@@ -37,4 +42,5 @@ dependencies {
     compile 'in.srain.cube:ptr-load-more:1.0.6'
     compile 'com.android.support:design:25.0.1'
     compile files('libs/okhttp-3.4.1.jar')
+    compile files('libs/BaiduLBS_Android.jar')
 }

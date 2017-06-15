@@ -26,14 +26,14 @@ public class ZhuanJiaPresenter {
     }
 
 
-    public void getZhuanJiaData(int num){
-        model.getData(num,new NewUrlCallback() {
+    public void getZhuanJiaData(String province,int num){
+        model.getData(province,num,new NewUrlCallback() {
             @Override
             public void success(String eryun) {
                 Gson gson = new Gson();
                 ZhuanJiaBean bean = gson.fromJson(eryun,ZhuanJiaBean.class);
                     if(bean.getData().size()>0){
-                        zhuanjia.loadList(bean.getData());
+                        zhuanjia.loadList("全部"+bean.getTotal()+"个砖家",bean.getData());
                     }
             }
 
