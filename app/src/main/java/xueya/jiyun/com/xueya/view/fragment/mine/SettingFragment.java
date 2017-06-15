@@ -46,13 +46,13 @@ public class SettingFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.set_acc:
-                FragmentBuilder.getInstance().start(R.id.activity_home,AccountFragment.class);
+                FragmentBuilder.getInstance().start(R.id.activity_home,AccountFragment.class).isBacked(true);
                 break;
             case R.id.clean_rll:
-                FragmentBuilder.getInstance().start(R.id.activity_home,CleanCacheFragment.class);
+                FragmentBuilder.getInstance().start(R.id.activity_home,CleanCacheFragment.class).isBacked(true);
                 break;
             case R.id.set_about:
-                FragmentBuilder.getInstance().start(R.id.activity_home,AboutFragment.class);
+                FragmentBuilder.getInstance().start(R.id.activity_home,AboutFragment.class).isBacked(true);
                 break;
         }
     }

@@ -8,8 +8,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 
+import org.greenrobot.eventbus.EventBus;
+
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
+import xueya.jiyun.com.xueya.model.bean.Event;
 import xueya.jiyun.com.xueya.model.sp.SpUtils;
 import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
@@ -66,7 +69,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                                 it.setAction("login");
                                 it.putExtra("shuaxin","shuaxin");
                                 App.activity.sendBroadcast(it);
-                                FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true);
+                                FragmentBuilder.getInstance().start(R.id.viewpage, DoctorFragment.class).isBacked(true).isBacked(true);
                             }
                         })
                         .setNegativeButton("取消",null)
@@ -74,9 +77,11 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                 dialog.show();
                 break;
             case R.id.zhanghu_rl1:
-            FragmentBuilder.getInstance().start(R.id.activity_home,PhoneFragment.class);
+            FragmentBuilder.getInstance().start(R.id.activity_home,PhoneFragment.class).isBacked(true);
                  break;
             case R.id.zhanghu_psw:
+                EventBus.getDefault().postSticky(new Event("AAA"));
+                FragmentBuilder.getInstance().start(R.id.activity_home,ChangePswFragment.class).isBacked(true);
                 break;
         }
     }

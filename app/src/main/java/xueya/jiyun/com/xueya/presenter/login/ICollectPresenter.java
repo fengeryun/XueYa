@@ -9,5 +9,5 @@ import xueya.jiyun.com.xueya.model.bean.CollectBean;
  */
 
 public interface ICollectPresenter {
-    List<CollectBean> GetBean();
+    void GetBean(String uid);
 }

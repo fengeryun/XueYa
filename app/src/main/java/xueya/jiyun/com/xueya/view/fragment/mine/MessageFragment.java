@@ -48,7 +48,7 @@ public class MessageFragment extends BaseFragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.msg_quiz:
-                FragmentBuilder.getInstance().start(R.id.activity_home,FreeFragment.class);
+                FragmentBuilder.getInstance().start(R.id.activity_home,FreeFragment.class).isBacked(true);
                 break;
             case R.id.activity_message:
 

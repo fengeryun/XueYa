@@ -14,21 +14,44 @@ import xueya.jiyun.com.xueya.view.viewinter.blooder.EaasyView;
  * Created by Asus on 2017/6/12.
  */
 
-public class EaasyPresenter{
+public class EaasyPresenter  {
 
     private String type,id;
     private EaasyView eaasyView;
     private Eaasys nous;
     public EaasyPresenter(EaasyView eaasyView,String type,String id) {
-        Log.e("AAA",type+"");
         this.eaasyView=eaasyView;
         this.type=type;
         this.id=id;
     }
 
     public void click() {
+shuju();
+    }
+
+    public void shuju(){
         EaasyModelInter eaasyModelInterr = new EaasyModelInter();
         eaasyModelInterr.goLogin(id,type,new NewUrlCallback() {
+            @Override
+            public void success(String eryun) {
+                Gson gson = new Gson();
+                nous = gson.fromJson(eryun, Eaasys.class);
+                if(nous!=null){
+                    eaasyView.EaasyData(nous);
+                    Dialogs.disDialog();
+                }
+            }
+
+            @Override
+            public void error(int code, String erge) {
+
+            }
+        });
+    }
+
+    public void shuju2(){
+        EaasyModelInter eaasyModelInter = new EaasyModelInter();
+        eaasyModelInter.goLogin(id, "zhuanti_nk", new NewUrlCallback() {
             @Override
             public void success(String eryun) {
                 Gson gson = new Gson();

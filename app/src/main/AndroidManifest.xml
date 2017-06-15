@@ -19,9 +19,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".view.activity.HomeActivity" />
-        <activity android:name=".view.fragment.mine.ForgetActivity" />
-        <activity android:name=".view.fragment.mine.OpinionActivity"></activity>
+        <activity android:name=".view.activity.HomeActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            />
+        <activity android:name=".view.fragment.mine.ForgetActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            />
+
+        <activity android:name=".view.fragment.mine.OpinionActivity"
+            android:configChanges="keyboardHidden|screenSize|orientation"
+            ></activity>
     </application>
 
 </manifest>

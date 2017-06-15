@@ -110,6 +110,6 @@ public class VerifyFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void GoFragment() {
         EventBus.getDefault().postSticky(new Event(trim));
-        FragmentBuilder.getInstance().start(R.id.activity_home,VerificationFragment.class);
+        FragmentBuilder.getInstance().start(R.id.activity_home,VerificationFragment.class).isBacked(true);
     }
 }

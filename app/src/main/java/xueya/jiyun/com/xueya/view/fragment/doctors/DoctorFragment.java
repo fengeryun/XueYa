@@ -235,7 +235,7 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
 
     @Override
     public void loadGrid(final List<ZhuanJiaBean.DataBean> list) {
-        gridadapter = new GridAdapter(list);
+       /* gridadapter = new GridAdapter(list);
         doctorGrid.setAdapter(gridadapter);
 
         doctorGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -245,7 +245,7 @@ public class DoctorFragment extends BaseFragment implements ReMengDoctor {
                 bun.putParcelable("databean",list.get(position));
                 FragmentBuilder.getInstance().start(R.id.activity_home,ZhuanJiaData.class).isBacked(true).setParams(bun);
             }
-        });
+        });*/
     }
 
 }

@@ -4,6 +4,7 @@
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:screenOrientation="portrait"
     tools:context="xueya.jiyun.com.xueya.view.activity.HomeActivity">
 
 

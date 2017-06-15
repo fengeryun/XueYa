@@ -41,6 +41,7 @@ import xueya.jiyun.com.xueya.view.base.BaseFragment;
 public class PersonalFragment extends BaseFragment implements View.OnClickListener {
     RelativeLayout personal_name,rl;
     TextView persona_name,personal_sex,personal_height,personal_weight,personal_birthday;
+    LinearLayout ll;
     private View view;
     private NumberPicker numberPicker;
     private Button popu_bt;
@@ -63,7 +64,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
         personal_height= (TextView) view.findViewById(R.id.personal_height);
         personal_weight= (TextView) view.findViewById(R.id.personal_weight);
         personal_birthday= (TextView) view.findViewById(R.id.personal_birthday);
-
+        ll= (LinearLayout) view.findViewById(R.id.ll);
 
     }
 
@@ -111,6 +112,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
         personal_height.setOnClickListener(this);
         personal_weight.setOnClickListener(this);
         personal_birthday.setOnClickListener(this);
+        ll.setOnClickListener(this);
     }
 
     @Override
@@ -141,7 +143,6 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
                     .create();
             popu_title.setText("选择男女");
             d.show();
-
             numberPicker.setDisplayedValues(city);
             numberPicker.setMinValue(0);
             numberPicker.setMaxValue(city.length - 1);

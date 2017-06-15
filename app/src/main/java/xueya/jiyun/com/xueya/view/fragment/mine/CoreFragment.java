@@ -36,9 +36,9 @@ import xueya.jiyun.com.xueya.view.viewinter.mine.MineView;
  * Created by Asus on 2017/6/9.
  */
 
-public class CoreFragment extends BaseFragment implements View.OnClickListener,MineView {
+public class CoreFragment extends BaseFragment implements View.OnClickListener, MineView {
     //          顶层LinearLayout  登录   加号        收藏        资料     消息  设置
-    LinearLayout login_lin,mine_nologin,mine_sign,mine_collect,mine_data,mine_msg,mine_set,mine_oklogin;
+    LinearLayout login_lin, mine_nologin, mine_sign, mine_collect, mine_data, mine_msg, mine_set, mine_oklogin;
     Button loginbut;
     IMainPresenter iMainPresenter;
     boolean IsOk;
@@ -47,7 +47,7 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     BroadcastReceiver broad = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, final Intent intent) {
-            if(intent.getStringExtra("shuaxin")!=null){
+            if (intent.getStringExtra("shuaxin") != null) {
                 initData();
             }
 
@@ -59,23 +59,23 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
 
     @Override
     public void initView(View view) {
-        login_lin= (LinearLayout) view.findViewById(R.id.login_lin);
-        mine_nologin= (LinearLayout) view.findViewById(R.id.mine_nologin);
-        mine_sign= (LinearLayout) view.findViewById(R.id.mine_sign);
-        mine_collect= (LinearLayout) view.findViewById(R.id.mine_collect);
-        mine_data= (LinearLayout) view.findViewById(R.id.mine_data);
-        mine_msg= (LinearLayout) view.findViewById(R.id.mine_msg);
-        mine_set= (LinearLayout) view.findViewById(R.id.mine_set);
+        login_lin = (LinearLayout) view.findViewById(R.id.login_lin);
+        mine_nologin = (LinearLayout) view.findViewById(R.id.mine_nologin);
+        mine_sign = (LinearLayout) view.findViewById(R.id.mine_sign);
+        mine_collect = (LinearLayout) view.findViewById(R.id.mine_collect);
+        mine_data = (LinearLayout) view.findViewById(R.id.mine_data);
+        mine_msg = (LinearLayout) view.findViewById(R.id.mine_msg);
+        mine_set = (LinearLayout) view.findViewById(R.id.mine_set);
         loginbut = (Button) view.findViewById(R.id.loginbut);
-        mine_oklogin= (LinearLayout) view.findViewById(R.id.mine_oklogin);
-        iMainPresenter=new IMainPresenter(this);
-        mine_okname= (TextView) view.findViewById(R.id.mine_okname);
-        core_img= (ImageView) view.findViewById(R.id.core_img);
+        mine_oklogin = (LinearLayout) view.findViewById(R.id.mine_oklogin);
+        iMainPresenter = new IMainPresenter(this);
+        mine_okname = (TextView) view.findViewById(R.id.mine_okname);
+        core_img = (ImageView) view.findViewById(R.id.core_img);
 
         //注册广播
         IntentFilter filter = new IntentFilter();
         filter.addAction("login");
-        App.activity.registerReceiver(broad,filter);
+        App.activity.registerReceiver(broad, filter);
     }
 
     @Override
@@ -85,13 +85,15 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
 
     @Override
     public void initData() {
-        IsOk=iMainPresenter.login();
+        IsOk = iMainPresenter.login();
         iMainPresenter.getName();
         Glide.with(App.activity).load(R.mipmap.head).transform(new GlideCircleTransform(App.activity)).into(core_img);
     }
+
     @Override
     public void loadData() {
     }
+
     @Override
     public void initListener() {
         core_img.setOnClickListener(this);
@@ -104,51 +106,53 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
         mine_collect.setOnClickListener(this);
         mine_sign.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View v) {
-        /*if (IsOk){
-            FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
-        }else{*/
-            switch (v.getId()){
+        if (IsOk) {
+            FragmentBuilder.getInstance().start(R.id.activity_home, LogInFragment.class).isBacked(true);
+        } else {
+            switch (v.getId()) {
                 case R.id.loginbut:
-                    FragmentBuilder.getInstance().start(R.id.activity_home,LogInFragment.class).isBacked(true);
+                    FragmentBuilder.getInstance().start(R.id.activity_home, LogInFragment.class).isBacked(true);
                     break;
                 case R.id.mine_msg:
-                    FragmentBuilder.getInstance().start(R.id.activity_home,MessageFragment.class).isBacked(true);
+                    FragmentBuilder.getInstance().start(R.id.activity_home, MessageFragment.class).isBacked(true);
                     break;
                 case R.id.mine_set:
-                    FragmentBuilder.getInstance().start(R.id.activity_home,SettingFragment.class).isBacked(true);
+                    FragmentBuilder.getInstance().start(R.id.activity_home, SettingFragment.class).isBacked(true);
                     break;
                 case R.id.mine_data:
-                    FragmentBuilder.getInstance().start(R.id.activity_home,PersonalFragment.class).isBacked(true);
+                    FragmentBuilder.getInstance().start(R.id.activity_home, PersonalFragment.class).isBacked(true);
                     break;
                 case R.id.mine_collect:
-                    Bundle bundle=new Bundle();
-                    bundle.putString("type","1");
-                    FragmentBuilder.getInstance().start(R.id.activity_home,NousFragment.class).isBacked(true).setParams(bundle);
+                    FragmentBuilder.getInstance().start(R.id.activity_home,CollectFragment.class).isBacked(true);
+                   /* Bundle bundle = new Bundle();
+                    bundle.putString("type", "1");
+                    FragmentBuilder.getInstance().start(R.id.activity_home, NousFragment.class).isBacked(true).setParams(bundle);*/
                     break;
                 case R.id.mine_sign:
-                    FragmentBuilder.getInstance().start(R.id.activity_home,SignFragment.class).isBacked(true);
+                    FragmentBuilder.getInstance().start(R.id.activity_home, SignFragment.class).isBacked(true);
                     break;
                 case R.id.core_img:
-                    View view = LayoutInflater.from(App.activity).inflate(R.layout.coreitem,null);
+                    View view = LayoutInflater.from(App.activity).inflate(R.layout.coreitem, null);
                     item_photo = (TextView) view.findViewById(R.id.item_photo);
                     item_camare = (TextView) view.findViewById(R.id.item_camare);
                     dialog = new AlertDialog.Builder(App.activity)
                             .setView(view)
-                            .setNegativeButton("取消",null)
+                            .setNegativeButton("取消", null)
                             .create();
                     dialog.show();
                     WindowManager.LayoutParams params =
                             dialog.getWindow().getAttributes();
                     params.width = 300;
-                    params.height = 400 ;
+                    params.height = 400;
                     dialog.getWindow().setAttributes(params);
                     item_photo.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                                    Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-                                    startActivityForResult(cameraIntent,2);
+                            Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                            startActivityForResult(cameraIntent, 2);
 
                         }
                     });
@@ -161,8 +165,9 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
                     break;
             }
 
-        //}
+        }
     }
+
     //判断登录状态来控制头像的隐藏显示
     @Override
     public void showToux() {
@@ -173,6 +178,7 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     public void hideToux() {
         mine_oklogin.setVisibility(View.GONE);
     }
+
     //判断登录状态来控制登录按钮的隐藏显示
     @Override
     public void showBt() {
@@ -188,24 +194,29 @@ public class CoreFragment extends BaseFragment implements View.OnClickListener,M
     public void setName(String name) {
         mine_okname.setText(name);
     }
+
     protected void getImageFromAlbum() {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType("image/*");//相片类型
-        startActivityForResult(intent,1);
+        startActivityForResult(intent, 1);
     }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1) {
-            Uri uri = data.getData();
-            core_img.setVisibility(View.VISIBLE);
-            Glide.with(App.activity).load(uri).transform(new GlideCircleTransform(App.activity)).into(core_img);
+        if (data != null ) {
+            if (requestCode == 1) {
+                    Uri uri = data.getData();
+                    core_img.setVisibility(View.VISIBLE);
+                    Glide.with(App.activity).load(uri).transform(new GlideCircleTransform(App.activity)).into(core_img);
+                    dialog.dismiss();
+            } else if (requestCode == 2) {
+                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    core_img.setImageBitmap(photo);
+                    dialog.dismiss();
+            }
+        }else {
             dialog.dismiss();
-        } else if (requestCode == 2 ) {
-            Bitmap photo = (Bitmap) data.getExtras().get("data");
-            core_img.setImageBitmap(photo);
-            dialog.dismiss();
-
-
-        } }
+        }
+    }
 
 }

@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:background="#F9F9F9"
+    android:id="@+id/ll"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!--个人资料详情页-->
@@ -43,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/xiaoyu"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
@@ -51,6 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/persona_name"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu"
@@ -72,10 +75,11 @@
             android:layout_margin="10dp"
             android:textSize="20dp"
             android:layout_gravity="center"
-            android:text="@string/sex"
+            android:text="性别"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/xiaoyu1"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
@@ -84,6 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/personal_sex"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu1"
@@ -105,10 +110,11 @@
             android:layout_margin="10dp"
             android:textSize="20dp"
             android:layout_gravity="center"
-            android:text="@string/height"
+            android:text="身高"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/xiaoyu2"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
@@ -117,6 +123,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/personal_height"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu2"
@@ -138,10 +145,11 @@
             android:layout_margin="10dp"
             android:textSize="20dp"
             android:layout_gravity="center"
-            android:text="@string/weight"
+            android:text="体重"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/xiaoyu3"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
@@ -150,6 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/personal_weight"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu3"
@@ -171,10 +180,11 @@
             android:layout_margin="10dp"
             android:textSize="20dp"
             android:layout_gravity="center"
-            android:text="@string/birthday"
+            android:text="生日"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/xiaoyu4"
             android:layout_alignParentRight="true"
             android:textSize="20dp"
@@ -183,6 +193,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
+            android:layout_marginRight="5dp"
             android:id="@+id/personal_birthday"
             android:layout_marginTop="13dp"
             android:layout_toLeftOf="@id/xiaoyu4"

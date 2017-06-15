@@ -42,6 +42,9 @@ public class MineModelInter implements BaseModelInter{
         String str="&state=0&pagesize=10&PageNum=1";
         HttpFactroy.getUrlType(2).doPost(Urls.GETSIGN+uid+str,new HashMap<String, String>(),callback);
     }
+    public void SHOUCANG(HashMap map, NewUrlCallback callback) {  //获取加号，
+        HttpFactroy.getUrlType(2).doPost(Urls.SHOUCANGG,map,callback);
+    }
 
 
 }

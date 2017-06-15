@@ -26,10 +26,10 @@
     <string name="forget_psw">忘记密码？</string>
     <string name="login">登录</string>
     <string name="mine_name">名字</string>
-    <string name="sex">性别</string>
-    <string name="height">身高</string>
-    <string name="weight">体重</string>
-    <string name="birthday">生日</string>
+    <string name="sex">男</string>
+    <string name="height">172</string>
+    <string name="weight">55</string>
+    <string name="birthday">1994-8-5</string>
     <string name="xiaoyu">＜</string>
     <string name="dayu">></string>
     <!-- 血压管理-->

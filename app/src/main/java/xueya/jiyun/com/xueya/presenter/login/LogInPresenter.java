@@ -26,7 +26,7 @@ public class LogInPresenter implements ILogInPresenter {
     }
 
     @Override
-    public void login(String username, String psw) {
+    public void login(String username, final String psw) {
         if (TextUtils.isEmpty(username)) {
             logInView.shouMessage("用户名不能为空");
             return;
@@ -54,6 +54,7 @@ public class LogInPresenter implements ILogInPresenter {
                     editor.putString("sex", logInOk.getSex());
                     editor.putString("birthday", logInOk.getBirthday());
                     editor.putString("isregister", logInOk.getIsregister()+"");
+                    editor.putString("psw", psw);
                     editor.commit();
                     Dialogs.disDialog();
                     logInView.shouMessage("登陆成功");

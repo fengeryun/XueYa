@@ -47,6 +47,6 @@ public class PhoneFragment extends BaseFragment implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-        FragmentBuilder.getInstance().start(R.id.activity_home,VerifyFragment.class);
+        FragmentBuilder.getInstance().start(R.id.activity_home,VerifyFragment.class).isBacked(true);
     }
 }

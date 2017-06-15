@@ -64,7 +64,7 @@ public class SignFragment extends BaseFragment implements SignView {
                 bundle.putString("expert",dataBean.getExpert());
                 bundle.putString("todate",dataBean.getTodate());
                 bundle.putString("hopital",dataBean.getHopital());
-                FragmentBuilder.getInstance().start(R.id.activity_home,DetailsFragment.class).setParams(bundle);
+                FragmentBuilder.getInstance().start(R.id.activity_home,DetailsFragment.class).isBacked(true).setParams(bundle);
             }
         });
     }
