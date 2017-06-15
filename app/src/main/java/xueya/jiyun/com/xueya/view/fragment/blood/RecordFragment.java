@@ -106,7 +106,8 @@ public class RecordFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void initData() {
         rp = new RecordPresenter(this);
-
+        showDate.setText(fmtDate.format(dateAndTime.getTime()));
+        record_time.setText(fmtTime.format(dateAndTime.getTime()));
     }
 
     @Override

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -29,10 +30,11 @@ import xueya.jiyun.com.xueya.view.viewinter.blooder.RemindView;
  */
 
 public class RemindFragment extends BaseFragment implements View.OnClickListener,RemindView {
-    private ImageView remind_jia;
+    private ImageView remind_jia,remind_back;
     private RemindPresenter remindPresenter;
     private ListView listView;
     private RemindAdapter adapter;
+
     BroadcastReceiver broad = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, final Intent intent) {
@@ -55,6 +57,7 @@ public class RemindFragment extends BaseFragment implements View.OnClickListener
         IntentFilter filter = new IntentFilter();
         filter.addAction("xushaojie");
         App.activity.registerReceiver(broad,filter);
+        remind_back = (ImageView) view.findViewById(R.id.remind_back);
     }
 
     @Override
@@ -75,6 +78,7 @@ public class RemindFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void initListener() {
         remind_jia.setOnClickListener(this);
+        remind_back.setOnClickListener(this);
     }
 
     @Override
@@ -82,6 +86,13 @@ public class RemindFragment extends BaseFragment implements View.OnClickListener
         switch (v.getId()){
             case R.id.remind_jia:
                 FragmentBuilder.getInstance().start(R.id.activity_home,AddRemindFragment.class).isBacked(true);
+                break;
+            case R.id.remind_back:
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
                 break;
         }
     }
