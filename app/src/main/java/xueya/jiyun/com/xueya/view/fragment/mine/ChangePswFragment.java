@@ -127,7 +127,7 @@ public class ChangePswFragment extends BaseFragment implements View.OnClickListe
     @Subscribe(threadMode = ThreadMode.POSTING,sticky = true)
     public void ononMoonStickyEvent(Event messageEvent){
        if(messageEvent.getMsg()!=null){
-           dialog.show();
+          initData();
        }
     }
 }
