@@ -26,6 +26,7 @@ public class NousFragment extends BaseFragment implements NousView{
     private ListView listVieww;
     private String type;
     private NousAdapter adapter;
+    private String typeid;
 
     @Override
     public void initView(View view) {
@@ -40,12 +41,12 @@ public class NousFragment extends BaseFragment implements NousView{
 
     @Override
     public void initData() {
-        nousPresenter = new NousPresenter(type,this);
+        nousPresenter = new NousPresenter(type,this,typeid);
     }
 
     @Override
     public void loadData() {
-        nousPresenter.click(type);
+        nousPresenter.click(typeid);
     }
 
     @Override
@@ -56,7 +57,8 @@ public class NousFragment extends BaseFragment implements NousView{
     public void setParams(Bundle bundle) {
         super.setParams(bundle);
         type = bundle.getString("type");
-        Log.e("AAA",type+"");
+        typeid = bundle.getString("typeid");
+        Log.e("AAA","---"+typeid);
 
     }
 
@@ -72,6 +74,7 @@ public class NousFragment extends BaseFragment implements NousView{
                 Bundle bundle = new Bundle();
                 bundle.putString("type",type);
                 bundle.putString("id",listdata.get(position).getId());
+                bundle.putString("typeid",typeid);
                 FragmentBuilder.getInstance().start(R.id.activity_home, EaasyFragment.class).isBacked(true).setParams(bundle);
             }
         });

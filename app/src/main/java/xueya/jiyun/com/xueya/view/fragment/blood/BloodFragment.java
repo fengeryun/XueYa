@@ -184,7 +184,7 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
     @Subscribe(threadMode = ThreadMode.POSTING,sticky = true)
     public void Woca(Ha hei){
         if (hei!=null){
-
+            Toast.makeText(App.activity, "5555", Toast.LENGTH_SHORT).show();
             bloodPersenter.getText();
         }
     }

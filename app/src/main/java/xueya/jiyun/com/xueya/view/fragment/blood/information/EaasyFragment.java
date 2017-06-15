@@ -8,28 +8,34 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.model.bean.Eaasys;
 import xueya.jiyun.com.xueya.presenter.bloods.EaasyPresenter;
+import xueya.jiyun.com.xueya.presenter.bloods.EssayPersenter;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
 import xueya.jiyun.com.xueya.view.viewinter.blooder.EaasyView;
+import xueya.jiyun.com.xueya.view.viewinter.blooder.EssayView;
 
 /**
  * Created by Asus on 2017/6/12.
  */
 
-public class EaasyFragment extends BaseFragment implements EaasyView, View.OnClickListener {
+public class EaasyFragment extends BaseFragment implements EaasyView,EssayView, View.OnClickListener {
     private TextView eaasy_title,eaasy_pubdate,eaasy_body;
     EaasyPresenter eaasyPresenter;
     private LinearLayout eass_linear;
     private String id;
     private String type;
     private CheckBox essay_check;
+    private EssayPersenter essayPersenter;
+    private String typeid;
 
     @Override
     public void initView(View view) {
@@ -46,7 +52,8 @@ public class EaasyFragment extends BaseFragment implements EaasyView, View.OnCli
     }
     @Override
     public void initData() {
-        eaasyPresenter = new EaasyPresenter(this,type,id);
+        eaasyPresenter = new EaasyPresenter(this,type,id,this);
+        essayPersenter = new EssayPersenter(this);
     }
     @Override
     public void loadData() {
@@ -54,25 +61,7 @@ public class EaasyFragment extends BaseFragment implements EaasyView, View.OnCli
     }
     @Override
     public void initListener() {
-        essay_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked==false){
-                  /*  EssayModelInter modelInter = new EssayModelInter();
-                    modelInter.goLogin("116924084", new NewUrlCallback() {
-                        @Override
-                        public void success(String eryun) {
-                            Log.e("AAA",eryun.toString());
-                        }
 
-                        @Override
-                        public void error(int code, String erge) {
-
-                        }
-                    });*/
-                }
-            }
-        });
         eass_linear.setOnClickListener(this);
     }
 
@@ -81,7 +70,7 @@ public class EaasyFragment extends BaseFragment implements EaasyView, View.OnCli
         super.setParams(bundle);
         id = bundle.getString("id");
         type = bundle.getString("type");
-        Log.e("AAAAA",type+"");
+        typeid = bundle.getString("typeid");
 
     }
 
@@ -94,10 +83,29 @@ public class EaasyFragment extends BaseFragment implements EaasyView, View.OnCli
         eaasy_pubdate.setText(fa);
         //转换为文本模式
         eaasy_body.setText(Html.fromHtml(eaasys.getData().getBody()));
+
+
+
+
     }
 
     @Override
     public void onClick(View v) {
 
+    }
+
+    @Override
+    public void getStatus(final Eaasys eaasys) {
+        final String meta=type+","+typeid;
+        Log.e("AAA","===="+meta);
+        essay_check.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked==false){
+                    Toast.makeText(App.activity, "66666", Toast.LENGTH_SHORT).show();
+                    essayPersenter.getAsk(eaasys.getData().getTitle(),eaasys.getData().getId(),meta);
+                }
+            }
+        });
     }
 }

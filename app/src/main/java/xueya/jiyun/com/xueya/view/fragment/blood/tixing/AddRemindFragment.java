@@ -58,6 +58,7 @@ public class AddRemindFragment extends BaseFragment implements AddView, View.OnC
         houre = c.get(Calendar.HOUR_OF_DAY);
         // 获取当前的分钟数
         minute = c.get(Calendar.MINUTE);
+        showtime.setText(houre+":"+minute);
 
     }
 

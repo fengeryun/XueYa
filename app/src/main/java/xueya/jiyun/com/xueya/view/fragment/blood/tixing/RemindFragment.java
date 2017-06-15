@@ -12,6 +12,7 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+import java.util.Calendar;
 import java.util.List;
 
 import xueya.jiyun.com.xueya.App;
@@ -43,6 +44,7 @@ public class RemindFragment extends BaseFragment implements View.OnClickListener
 
         }
     };
+    private Calendar mCalendar;
 
 
     @Override
@@ -119,10 +121,4 @@ public class RemindFragment extends BaseFragment implements View.OnClickListener
         adapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        remindPresenter.getShow();
-        adapter.notifyDataSetChanged();
-    }
 }
