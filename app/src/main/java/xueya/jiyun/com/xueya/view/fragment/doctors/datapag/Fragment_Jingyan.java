@@ -93,8 +93,12 @@ public class Fragment_Jingyan extends BaseFragment implements JingYanView{
         for(int i=0; i<list.size(); i++){
             jingyanlist.add(list.get(i).getTitle());
         }
-        adapter = new ProvinceAdapter(jingyanlist);
-        hiufuListview.setAdapter(adapter);
+        if(jingyanlist.size()>=1){
+            adapter = new ProvinceAdapter(jingyanlist);
+            hiufuListview.setAdapter(adapter);
+        }else {
+            Toast.makeText(App.activity, "网速太慢，差点崩了", Toast.LENGTH_SHORT).show();
+        }
 
         hiufuListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -102,7 +106,7 @@ public class Fragment_Jingyan extends BaseFragment implements JingYanView{
                 Bundle bun = new Bundle();
                 bun.putString("title","文章详情");
                 bun.putString("id",list.get(position).getId());
-                bun.putString("cateid",list.get(position).getId());
+                bun.putString("cateid",list.get(position).getCategoryid());
                 FragmentBuilder.getInstance().start(R.id.activity_home,Fragment_Web.class).isBacked(true).setParams(bun);
             }
         });

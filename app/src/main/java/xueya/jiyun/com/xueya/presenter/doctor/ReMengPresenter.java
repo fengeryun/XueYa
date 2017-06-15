@@ -1,10 +1,7 @@
 package xueya.jiyun.com.xueya.presenter.doctor;
 
-import android.util.Log;
-
 import com.google.gson.Gson;
 
-import xueya.jiyun.com.xueya.model.bean.ReMengBean;
 import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
 import xueya.jiyun.com.xueya.model.modelinter.DoctorModelInter;

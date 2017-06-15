@@ -1,5 +1,6 @@
 package xueya.jiyun.com.xueya.view.fragment.doctors;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
@@ -46,6 +47,7 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
     PtrFrameLayout zhuanjiaPtr;
     ZhuanJiaPresenter persenter;
     ZhuanJiaAdapter adapter;
+    ProgressDialog dialog;
     int num = 1;
 
     @Override
@@ -65,7 +67,9 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
 
     @Override
     public void loadData() {
-        Dialogs.ShowDialog();
+        dialog = new ProgressDialog(App.activity);
+        dialog.setMessage("loading");
+        dialog.show();
         zhuanjiaTitlle.setText("全部14624位专家");
         persenter = new ZhuanJiaPresenter(this);
         persenter.getZhuanJiaData(num);
@@ -124,7 +128,7 @@ public class ZhuanjiaFragment extends BaseFragment implements ZhuanJiaView {
 
     @Override
     public void loadList(final List<ZhuanJiaBean.DataBean> list) {
-        Dialogs.disDialog();
+        dialog.dismiss();
         adapter = new ZhuanJiaAdapter(list);
         zhuanjiaListview.setAdapter(adapter);
 

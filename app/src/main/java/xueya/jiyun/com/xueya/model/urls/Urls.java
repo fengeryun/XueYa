@@ -1,5 +1,7 @@
 package xueya.jiyun.com.xueya.model.urls;
 
+import android.util.Log;
+
 /**
  * Created by 123 on 2017/6/10.
  */
@@ -20,15 +22,25 @@ public class Urls {
     }  //热门砖家
 
     public static String HuiFuList(int number){
-        String remengurl = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=DoctorRely&expertid=19069&pageNum="+number+"&pageCount=20";
-        return remengurl;
+        String remengurlr = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=DoctorRely&expertid=19069&pageNum="+number+"&pageCount=20";
+        return remengurlr;
     }//砖家回复
 
     public static String JingYanList(int numbers){
-        String remengurl = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=Article&source=cdsb&id=10636&page="+numbers+"&size=20 ";
-        return remengurl;
+        String remengurls = BaseUrl+"index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=Article&source=cdsb&id=10636&page="+numbers+"&size=20 ";
+        return remengurls;
     }
 
+    public static String getWebUrl(String id,String cateid){
+        String weburl = "http://api.wws.xywy.com/index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=ArticleDetails&id="+id+"&cateid="+cateid+"&source=cdsb";
+        return weburl;
+    }//
+
+    public static String getTimeData(String id,String expertid){
+        String weburl = "http://api.wws.xywy.com/index.php?&tag=BloodAndroid&sign=2c19b2821ebc5306c3ac37bac5b4288b&act=zhuanjia&fun=DoctorDetail&pagesize=10&pagenum=1&expertid="+expertid+"&id="+id;
+        Log.e("TAG",weburl);
+        return weburl;
+    }
 
     public static String NOUSURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeList&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae&typeid=18031&dir=zhuanti_nk";
     public static String COOKBOOKURL = BaseUrl+"index.php?act=zixun&fun=getHealthPlazeList&version=version2&tag=zj&sign=2e0d0887581be1c35794ee4c13b00cae&typeid=7938&dir=zhuzhan_ys";

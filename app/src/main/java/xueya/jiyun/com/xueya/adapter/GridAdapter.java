@@ -13,7 +13,6 @@ import java.util.List;
 
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
-import xueya.jiyun.com.xueya.model.bean.ReMengBean;
 import xueya.jiyun.com.xueya.model.bean.ZhuanJiaBean;
 
 /**

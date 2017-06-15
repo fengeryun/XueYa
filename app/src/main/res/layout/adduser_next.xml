@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/whitesmoke"
+    android:id="@+id/addNextLayout"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp"
+        android:background="@color/colorPrimary"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/addnext_backs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            android:src="@mipmap/ic_brows_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="所患疾病"
+            android:textColor="#fff"
+            android:textSize="20dp" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="病情资料"
+        android:textSize="16dp"
+        android:padding="12dp"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="1dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="所患疾病"
+            android:padding="12dp"
+            android:textSize="18dp"
+            />
+        <TextView
+            android:id="@+id/addnext_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textSize="17dp"
+            android:hint="请填写  "
+            android:drawableRight="@mipmap/ic_arrow_right"
+            android:padding="13dp"
+            android:gravity="right"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="1dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="症状表现"
+            android:padding="12dp"
+            android:textSize="18dp"
+            />
+
+        <TextView
+            android:id="@+id/addnext_location"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:hint="请填写  "
+            android:drawableRight="@mipmap/ic_arrow_right"
+            android:padding="13dp"
+            android:textSize="17dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="1dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="就诊目的"
+            android:padding="12dp"
+            android:textSize="18dp"
+            />
+        <TextView
+            android:id="@+id/addnext_person"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="right"
+            android:inputType="number"
+            android:hint="诊断  "
+            android:drawableRight="@mipmap/ic_arrow_right"
+            android:padding="13dp"
+            android:textSize="17dp"
+            />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/up_next"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上一步"
+        android:layout_margin="15dp"
+        android:background="@drawable/querybut"
+        />
+
+    <Button
+        android:id="@+id/add_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="提交"
+        android:layout_margin="15dp"
+        android:background="@drawable/querybut"
+        />
+
+</LinearLayout>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -20,6 +21,7 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.HuiFuAdapter;
 import xueya.jiyun.com.xueya.model.bean.HuiFuBean;
 import xueya.jiyun.com.xueya.presenter.doctor.HuiFuPresenter;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.tools.ThreadUtils;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.viewinter.Dialogs;
@@ -132,9 +134,26 @@ public class Fragment_huifu extends BaseFragment implements HuiFuView{
     }
 
     @Override
-    public void loadList(List<HuiFuBean.DataBean> lists) {
+    public void loadList(final List<HuiFuBean.DataBean> lists) {
         Dialogs.disDialog();
         adapters = new HuiFuAdapter(lists);
         hiufuListview.setAdapter(adapters);
+
+        hiufuListview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Bundle bun = new Bundle();
+                bun.putString("title","问题详情");
+                bun.putString("id",lists.get(position).getClub_id());
+                bun.putString("cateid","1");
+                FragmentBuilder.getInstance().start(R.id.activity_home,Fragment_Web.class).isBacked(true).setParams(bun);
+                ThreadUtils.runOnMain(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(App.activity, "问题id不能为空", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
     }
 }
