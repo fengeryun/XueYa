@@ -4,8 +4,10 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import org.greenrobot.eventbus.EventBus;
@@ -24,12 +26,14 @@ import xueya.jiyun.com.xueya.view.fragment.doctors.DoctorFragment;
 
 public class AccountFragment extends BaseFragment implements View.OnClickListener {
     Button exit_bt;
+    ImageView zhanghu_back;
     RelativeLayout zhanghu_rl1,zhanghu_psw;
     @Override
     public void initView(View view) {
         exit_bt= (Button) view.findViewById(R.id.exit_bt);
         zhanghu_rl1= (RelativeLayout) view.findViewById(R.id.zhanghu_rl1);
         zhanghu_psw= (RelativeLayout) view.findViewById(R.id.zhanghu_psw);
+        zhanghu_back= (ImageView) view.findViewById(R.id.zhanghu_back);
     }
 
     @Override
@@ -52,6 +56,7 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
         zhanghu_rl1.setOnClickListener(this);
         zhanghu_psw.setOnClickListener(this);
         exit_bt.setOnClickListener(this);
+        zhanghu_back.setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +86,13 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
                  break;
             case R.id.zhanghu_psw:
                 FragmentBuilder.getInstance().start(R.id.activity_home,ChangePswFragment.class);
+                break;
+            case R.id.zhanghu_back:
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
                 break;
         }
     }

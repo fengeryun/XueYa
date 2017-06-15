@@ -1,10 +1,12 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +32,7 @@ public class VerifyFragment extends BaseFragment implements View.OnClickListener
     Button verify_no_bt,verify_ok_bt;
     VerifyPresenter verifyPresenter;
     private String trim;
-
+    ImageView change_back;
     @Override
     public void initView(View view) {
         verify_ok_bt= (Button) view.findViewById(R.id.verify_ok_bt);
@@ -38,6 +40,7 @@ public class VerifyFragment extends BaseFragment implements View.OnClickListener
         change_tv= (TextView) view.findViewById(R.id.change_tv);
         change_et= (EditText) view.findViewById(R.id.change_et);
         verifyPresenter=new VerifyPresenter(this);
+        change_back= (ImageView) view.findViewById(R.id.change_back);
     }
 
     @Override
@@ -75,6 +78,16 @@ public class VerifyFragment extends BaseFragment implements View.OnClickListener
     @Override
     public void initListener() {
         verify_ok_bt.setOnClickListener(this);
+        change_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
+            }
+        });
     }
 
     @Override

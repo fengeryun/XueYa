@@ -1,14 +1,17 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.List;
 
+import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.adapter.CollectAdapter;
 import xueya.jiyun.com.xueya.model.bean.SignBean;
@@ -29,11 +32,13 @@ public class SignFragment extends BaseFragment implements SignView {
     private String s;
     CollectAdapter adapter;
     SignBean signBean;
+    ImageView mine_back;
     @Override
     public void initView(View view) {
         sign_list= (ListView) view.findViewById(R.id.sign_list);
         sign_tishi= (TextView) view.findViewById(R.id.sign_tishi);
         signPresenter=new SignPresenter(this);
+        mine_back= (ImageView) view.findViewById(R.id.mine_back);
     }
 
     @Override
@@ -55,6 +60,16 @@ public class SignFragment extends BaseFragment implements SignView {
 
     @Override
     public void initListener() {
+        mine_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
+            }
+        });
         sign_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

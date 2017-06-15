@@ -1,11 +1,13 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +23,7 @@ import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.model.bean.Event;
 import xueya.jiyun.com.xueya.presenter.login.VerificationPresenter;
 import xueya.jiyun.com.xueya.presenter.login.VerifyPresenter;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.tools.ThreadUtils;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.viewinter.mine.VerifyView;
@@ -39,7 +42,7 @@ public class VerificationFragment extends BaseFragment implements View.OnClickLi
     String str="我们已经下发验证码到这个手机号:";
     VerificationPresenter ver;
     private String trim;
-
+    ImageView send_back;
     @Override
     public void initView(View view) {
         affirm_dao= (TextView) view.findViewById(R.id.affirm_dao);
@@ -48,6 +51,7 @@ public class VerificationFragment extends BaseFragment implements View.OnClickLi
         affirm_no_bt= (Button) view.findViewById(R.id.affirm_no_bt);
         affirm_ok_bt= (Button) view.findViewById(R.id.affirm_ok_bt);
         ver=new VerificationPresenter(this);
+        send_back= (ImageView) view.findViewById(R.id.send_back);
     }
 
     @Override
@@ -68,6 +72,16 @@ public class VerificationFragment extends BaseFragment implements View.OnClickLi
 
     @Override
     public void initListener() {
+        send_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
+            }
+        });
         affirm_ok_bt.setOnClickListener(this);
         affirm_edit.addTextChangedListener(new TextWatcher() {
             @Override

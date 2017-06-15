@@ -2,6 +2,7 @@ package xueya.jiyun.com.xueya.view.fragment.mine;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -19,6 +20,7 @@ import com.bumptech.glide.Glide;
 import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.presenter.login.FreePresenter;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.viewinter.mine.FreeView;
 
@@ -29,7 +31,7 @@ import xueya.jiyun.com.xueya.view.viewinter.mine.FreeView;
 public class FreeFragment extends BaseFragment implements View.OnClickListener,FreeView {
     LinearLayout free_lin;
     EditText free_dc_shuru,free_dc_et;
-    ImageView free_dc_im,free_dc_imt;
+    ImageView free_dc_im,free_dc_imt,free_back;
     TextView free_dc_tv;
     Button free_dc_bt;
     RadioButton free_dc_nan,free_dc_nv;
@@ -49,6 +51,7 @@ public class FreeFragment extends BaseFragment implements View.OnClickListener,F
         free_dc_nv= (RadioButton) view.findViewById(R.id.free_dc_nv);
         freePresenter=new FreePresenter(this);
         free_dc_imt= (ImageView) view.findViewById(R.id.free_dc_imt);
+        free_back= (ImageView) view.findViewById(R.id.free_back);
     }
 
     @Override
@@ -68,6 +71,16 @@ public class FreeFragment extends BaseFragment implements View.OnClickListener,F
 
     @Override
     public void initListener() {
+        free_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
+            }
+        });
         sex=free_dc_nan.getText().toString().trim();
         free_lin.setOnClickListener(this);
         free_dc_bt.setOnClickListener(this);

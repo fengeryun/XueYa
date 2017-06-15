@@ -3,11 +3,13 @@ package xueya.jiyun.com.xueya.view.fragment.mine;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import org.greenrobot.eventbus.EventBus;
@@ -36,6 +38,7 @@ public class ChangePswFragment extends BaseFragment implements View.OnClickListe
     private String s;
     ChangePswPresenter changeNamePresenter;
     private String trim;
+    ImageView changepsw_back;
     @Override
     public void initView(View view) {
         cgpsw_bt= (Button) view.findViewById(R.id.cgpsw_bt);
@@ -43,6 +46,7 @@ public class ChangePswFragment extends BaseFragment implements View.OnClickListe
         cg_tpsw= (EditText) view.findViewById(R.id.cg_tpsw);
         changeNamePresenter=new ChangePswPresenter(this);
         EventBus.getDefault().register(ChangePswFragment.this);
+        changepsw_back= (ImageView) view.findViewById(R.id.changepsw_back);
     }
 
     @Override
@@ -93,6 +97,17 @@ public class ChangePswFragment extends BaseFragment implements View.OnClickListe
     @Override
     public void initListener() {
         cgpsw_bt.setOnClickListener(this);
+        changepsw_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
+            }
+        });
     }
 
     @Override

@@ -1,9 +1,11 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import xueya.jiyun.com.xueya.App;
@@ -24,18 +26,20 @@ import xueya.jiyun.com.xueya.view.viewinter.mine.CollectView;
  * Created by 123 on 2017/6/12.
  */
 
-public class CollectFragment extends BaseFragment implements CollectView{
+public class CollectFragment extends BaseFragment implements CollectView, View.OnClickListener {
     ListView collect_list;
     CollectPresenter collectPresenter;
     CollAdapter adapter;
     Collect coll;
     private String s;
     private Bundle b;
+    ImageView mine_back;
 
     @Override
     public void initView(View view) {
         collect_list= (ListView) view.findViewById(R.id.collect_list);
         collectPresenter=new CollectPresenter(this);
+        mine_back= (ImageView) view.findViewById(R.id.mine_back);
         Dialogs.Show2Dialog();
     }
 
@@ -55,6 +59,7 @@ public class CollectFragment extends BaseFragment implements CollectView{
     }
     @Override
     public void initListener() {
+        mine_back.setOnClickListener(this);
         collect_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -81,4 +86,12 @@ public class CollectFragment extends BaseFragment implements CollectView{
         adapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onClick(View v) {
+        FragmentManager message = App.activity.getSupportFragmentManager();
+        message.popBackStackImmediate();
+        String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+        BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+        FragmentBuilder.getInstance().setLastFragment(fragment);
+    }
 }

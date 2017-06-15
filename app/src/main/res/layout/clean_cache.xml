@@ -13,7 +13,7 @@
         android:paddingLeft="10dp">
 
         <ImageView
-            android:id="@+id/zhanghu_back"
+            android:id="@+id/clean_back"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:src="@mipmap/ic_brows_back"/>

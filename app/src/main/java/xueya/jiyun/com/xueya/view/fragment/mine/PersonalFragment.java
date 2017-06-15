@@ -6,11 +6,13 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.PopupWindow;
@@ -54,7 +56,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
     private String str;
     private String s1;
     private String ss;
-
+    ImageView per_back;
     @Override
     public void initView(View view) {
         personal_name= (RelativeLayout) view.findViewById(R.id.personal_name);
@@ -65,6 +67,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
         personal_weight= (TextView) view.findViewById(R.id.personal_weight);
         personal_birthday= (TextView) view.findViewById(R.id.personal_birthday);
         ll= (LinearLayout) view.findViewById(R.id.ll);
+        per_back= (ImageView) view.findViewById(R.id.per_back);
 
     }
 
@@ -107,6 +110,16 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     public void initListener() {
+        per_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
+            }
+        });
         personal_name.setOnClickListener(this);
         personal_sex.setOnClickListener(this);
         personal_height.setOnClickListener(this);

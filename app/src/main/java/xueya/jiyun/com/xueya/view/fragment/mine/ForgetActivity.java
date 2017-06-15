@@ -1,5 +1,6 @@
 package xueya.jiyun.com.xueya.view.fragment.mine;
 
+import android.support.v4.app.FragmentManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -9,15 +10,18 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import xueya.jiyun.com.xueya.App;
 import xueya.jiyun.com.xueya.R;
 import xueya.jiyun.com.xueya.presenter.login.ForgetPresenter;
+import xueya.jiyun.com.xueya.tools.FragmentBuilder;
 import xueya.jiyun.com.xueya.view.base.BaseActivity;
+import xueya.jiyun.com.xueya.view.base.BaseFragment;
 import xueya.jiyun.com.xueya.view.viewinter.mine.ForgetView;
 
 public class ForgetActivity extends BaseActivity implements ForgetView, View.OnClickListener {
     EditText forget_phone;
     TextView forget_user_introduce;
-    ImageView forget_ok;
+    ImageView forget_ok,forget_back;
     Button forget_no,forget_send_bt;
     LinearLayout forget_ll;
     ForgetPresenter forgetPresenter;
@@ -34,6 +38,7 @@ public class ForgetActivity extends BaseActivity implements ForgetView, View.OnC
         forget_send_bt= (Button) this.findViewById(R.id.forget_send_bt);
         forgetPresenter=new ForgetPresenter(this);
         forget_ll= (LinearLayout) this.findViewById(R.id.forget_ll);
+        forget_back= (ImageView) this.findViewById(R.id.forget_back);
     }
     @Override
     public void initData() {
@@ -47,6 +52,16 @@ public class ForgetActivity extends BaseActivity implements ForgetView, View.OnC
 
     @Override
     public void initListener() {
+        forget_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager message = App.activity.getSupportFragmentManager();
+                message.popBackStackImmediate();
+                String lastname = message.getBackStackEntryAt(message.getBackStackEntryCount()-1).getName();
+                BaseFragment fragment = (BaseFragment) message.findFragmentByTag(lastname);
+                FragmentBuilder.getInstance().setLastFragment(fragment);
+            }
+        });
         forget_ll.setOnClickListener(this);
         forget_send_bt.setOnClickListener(this);
         forget_phone.addTextChangedListener(new TextWatcher() {

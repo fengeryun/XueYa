@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="60dp">
         <ImageView
+            android:id="@+id/free_back"
             android:layout_gravity="center"
             android:layout_marginLeft="15dp"
             android:layout_centerVertical="true"
