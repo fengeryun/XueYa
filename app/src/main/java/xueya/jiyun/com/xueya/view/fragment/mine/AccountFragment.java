@@ -80,7 +80,6 @@ public class AccountFragment extends BaseFragment implements View.OnClickListene
             FragmentBuilder.getInstance().start(R.id.activity_home,PhoneFragment.class);
                  break;
             case R.id.zhanghu_psw:
-                EventBus.getDefault().postSticky(new Event("AAA"));
                 FragmentBuilder.getInstance().start(R.id.activity_home,ChangePswFragment.class);
                 break;
         }
