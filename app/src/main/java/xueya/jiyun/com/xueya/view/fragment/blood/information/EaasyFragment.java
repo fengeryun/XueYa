@@ -102,8 +102,10 @@ public class EaasyFragment extends BaseFragment implements EaasyView,EssayView, 
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked==false){
-                    Toast.makeText(App.activity, "66666", Toast.LENGTH_SHORT).show();
                     essayPersenter.getAsk(eaasys.getData().getTitle(),eaasys.getData().getId(),meta);
+                    Toast.makeText(App.activity, "收藏成功", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(App.activity, "取消收藏", Toast.LENGTH_SHORT).show();
                 }
             }
         });

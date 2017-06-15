@@ -1,7 +1,5 @@
 package xueya.jiyun.com.xueya.model.modelinter.zixun;
 
-import android.util.Log;
-
 import java.util.HashMap;
 
 import xueya.jiyun.com.xueya.model.callback.NewUrlCallback;
@@ -19,13 +17,12 @@ public class EssayModelInter implements BaseModelInter{
         HashMap<String , String> params = new HashMap<String ,String>();
         params.put("sign","2e0d0887581be1c35794ee4c13b00cae");
         params.put("category","1");
-        params.put("title",title);
         params.put("categoryid",categoryid);
         params.put("xywy_userid",xywy_userid);
         params.put("tag","zj");
         params.put("app_id","2");
+        params.put("title",title);
         params.put("meta",meta);
-        HttpFactroy.getUrlType(2).doPost(Urls.SHOUCANG,params,callback);
-        Log.e("AAA","-=-=="+Urls.SHOUCANG+params);
+        HttpFactroy.getUrlType(2).doGet(Urls.SHOUCANG,params,callback);
     }
 }

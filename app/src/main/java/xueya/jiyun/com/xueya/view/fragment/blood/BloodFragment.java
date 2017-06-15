@@ -77,6 +77,7 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         radioButton_wenyisheng = (RadioButton) view.findViewById(R.id.radioButton_wenyisheng);
         radioButton_tixing = (RadioButton) view.findViewById(R.id.radioButton_tixing);
         xueya_time = (TextView) view.findViewById(R.id.xueya_time);
+
     }
 
     @Override
@@ -104,6 +105,35 @@ public class BloodFragment extends BaseFragment implements View.OnClickListener,
         radioButton_zixun.setOnClickListener(this);
         radioButton_wenyisheng.setOnClickListener(this);
         radioButton_tixing.setOnClickListener(this);
+        xueyaFra.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position){
+                    case 0:
+                        radioButton2.setChecked(true);
+                        break;
+                    case 1:
+                        radioButton.setChecked(true);
+                        break;
+                    case 2:
+                        radioButton4.setChecked(true);
+                        break;
+                    case 3:
+                        radioButton3.setChecked(true);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
     }
 
     @Override
